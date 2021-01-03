@@ -22,13 +22,17 @@ jobs:
       - name: Build
         run: hugo --minify
 
-      - name: add nojekyll
+      - name: Nojekyll
         run: touch ./public/.nojekyll
 
       - name: Deploy
-        uses: manyuanrong/setup-ossutil@v1.0
+        uses: saltbo/uptoc@master
         with:
-          endpoint: ${{ secrets.ENDPOINT }}
-          # 使用我们之前配置在secrets里面的accesskeys来配置ossutil
-          access-key-id: ${{ secrets.ACCESS_KEY_ID }}
-          access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
+          driver: oss
+          region: ${{ secrets.REGION }}
+          bucket: ${{ secrets.BUCKET }}
+          exclude: .cache,test
+          dist: public
+        env:
+          UPTOC_UPLOADER_AK: ${{ secrets.KEYID }}
+          UPTOC_UPLOADER_SK: ${{ secrets.KEYSECRET }}
