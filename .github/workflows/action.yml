@@ -26,13 +26,9 @@ jobs:
         run: touch ./public/.nojekyll
 
       - name: Deploy
-        uses: saltbo/uptoc@master
+        uses: manyuanrong/setup-ossutil@v1.0
         with:
-          driver: oss
-          region: ${{ secrets.REGION }}
-          bucket: ${{ secrets.BUCKET }}
-          exclude: .cache,test
-          dist: public
-        env:
-          UPTOC_UPLOADER_AK: ${{ secrets.KEYID }}
-          UPTOC_UPLOADER_SK: ${{ secrets.KEYSECRET }}
+          endpoint: ${{ secrets.ENDPOINT }}
+          access-key-id: ${{ secrets.KEYID }}
+          access-key-secret: ${{ secrets.KEYSECRET }}
+        run: ossutil cp -rf public oss://${{ secrets.BUCKET }}/
