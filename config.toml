@@ -11,7 +11,7 @@ theme = "LoveIt"
 # 网站标题
 title = "BBing"
 
-# uglyURLs = true
+uglyURLs = true
 
 # whether to use robots.txt
 # 是否使用 robots.txt
