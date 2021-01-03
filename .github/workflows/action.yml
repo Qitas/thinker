@@ -31,4 +31,4 @@ jobs:
           endpoint: ${{ secrets.ENDPOINT }}
           access-key-id: ${{ secrets.KEYID }}
           access-key-secret: ${{ secrets.KEYSECRET }}
-        run: ossutil cp -rf public oss://${{ secrets.BUCKET }}/
+      - run: ossutil cp -rf public oss://${{ secrets.BUCKET }}/
