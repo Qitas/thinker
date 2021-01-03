@@ -16,7 +16,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.80.0'
+          hugo-version: 'latest'
           # extended: true
 
       - name: Build
@@ -26,13 +26,9 @@ jobs:
         run: touch ./public/.nojekyll
 
       - name: Deploy
-        uses: saltbo/uptoc@master
+        uses: manyuanrong/setup-ossutil@v1.0
         with:
-          driver: oss
-          region: ${{ secrets.REGION }}
-          bucket: ${{ secrets.BUCKET }}
-          exclude: .cache,test
-          dist: public
-        env:
-          UPTOC_UPLOADER_AK: ${{ secrets.KEYID }}
-          UPTOC_UPLOADER_SK: ${{ secrets.KEYSECRET }}
+          endpoint: ${{ secrets.ENDPOINT }}
+          # 使用我们之前配置在secrets里面的accesskeys来配置ossutil
+          access-key-id: ${{ secrets.ACCESS_KEY_ID }}
+          access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
