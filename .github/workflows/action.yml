@@ -26,9 +26,11 @@ jobs:
         run: touch ./public/.nojekyll
 
       - name: Deploy
-        uses: manyuanrong/setup-ossutil@v1.0
+        uses: fangbinwei/aliyun-oss-website-action@v1
         with:
-          endpoint: ${{ secrets.ENDPOINT }}
-          access-key-id: ${{ secrets.KEYID }}
-          access-key-secret: ${{ secrets.KEYSECRET }}
-      - run: ossutil cp -rf public oss://${{ secrets.BUCKET }}/
+            accessKeyId: ${{ secrets.KEYID }}
+            accessKeySecret: ${{ secrets.KEYSECRET }}
+            bucket: ${{ secrets.BUCKET }}
+            # e.g. "oss-cn-shanghai.aliyuncs.com"
+            endpoint: ${{ secrets.ENDPOINT }}
+            folder: public
