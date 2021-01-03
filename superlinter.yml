@@ -1,0 +1,12 @@
+steps:
+  - name: Deploy
+    uses: saltbo/uptoc@master
+    with:
+      driver: oss
+      region: ${{ secrets.REGION }}
+      bucket: ${{ secrets.BUCKET }}
+      exclude: .cache,test
+      dist: public
+    env:
+      UPTOC_UPLOADER_AK: ${{ secrets.KEYID }}
+      UPTOC_UPLOADER_SK: ${{ secrets.KEYSECRET }}
