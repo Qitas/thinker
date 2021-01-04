@@ -3,4 +3,5 @@
 	url = https://github.com/dillonzq/LoveIt.git
 [submodule "content"]
 	path = content
-	url = https://github.com/caibingcheng/blog-mds.git
+	url = https://github.com/caibingcheng/blog.git
+	branch = content
