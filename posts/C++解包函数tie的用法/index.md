@@ -1,5 +1,5 @@
 ---
-title: "C++tie的用法"
+title: "C++解包函数tie的用法"
 date: 2021-01-05T14:03:48+08:00
 lastmod:  2021-01-05T14:03:48+08:00
 author: bbing
@@ -8,7 +8,7 @@ tags: ["Cpp"]
 categories: ["代码"]
 ---
 
-# C++ tie
+## tie
 
 std::tie会把变量打包成一个tuple(pair)，实现变量赋值；这个行为叫做**解包**
 
