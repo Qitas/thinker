@@ -10,10 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get content
-        uses: caibingcheng/blog
+        uses: caibingcheng/blog@content
         with:
           fetch-depth: 0
-          branch: content
 
       - uses: actions/checkout@v2
         with:
