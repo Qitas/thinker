@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
       - name: Update Content
-        run: cd ./content && git pull
+        run: cd ./content && git pull origin content
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
