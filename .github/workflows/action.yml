@@ -3,11 +3,18 @@ on:
   push:
     branches:
       - master
+      - content
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Get content
+        uses: caibingcheng/blog
+        with:
+          fetch-depth: 0
+          branch: content
+
       - uses: actions/checkout@v2
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
