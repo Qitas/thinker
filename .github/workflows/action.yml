@@ -13,6 +13,8 @@ jobs:
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Update Content
         run: cd ./content && git pull
 
       - name: Setup Hugo
