@@ -4,7 +4,7 @@ date: 2021-01-11T10:43:56+08:00
 lastmod:  2021-01-11T10:43:56+08:00
 author: bbing
 draft: false
-tags: ["Docker", "工具"]
+tags: ["Docker"]
 categories: ["工具"]
 ---
 
