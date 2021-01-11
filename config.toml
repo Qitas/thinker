@@ -533,7 +533,7 @@ ignoreErrors = ["error-remote-getjson"]
       # Publisher info
       # 出版者信息
       [params.page.seo.publisher]
-        name = "xxxx"
+        name = "bbing"
         logoUrl = "/images/logo.png"
 
   # TypeIt config
@@ -559,7 +559,7 @@ ignoreErrors = ["error-remote-getjson"]
     bing = ""
     yandex = ""
     pinterest = ""
-    baidu = ""
+    baidu = "code-WcyzWjgFYo"
 
   # Site SEO config
   # 网站 SEO 配置
@@ -574,7 +574,7 @@ ignoreErrors = ["error-remote-getjson"]
   # Analytics config
   # 网站分析配置
   [params.analytics]
-    enable = false
+    enable = true
     # Google Analytics
     [params.analytics.google]
       id = ""
