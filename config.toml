@@ -1,4 +1,4 @@
-baseURL = "https://example.com"
+baseURL = "http://bbing.com.cn/"
 # [en, zh-cn, fr, pl, ...] determines default content language
 # [en, zh-cn, fr, pl, ...] 设置默认的语言
 defaultContentLanguage = "zh-cn"
@@ -555,7 +555,7 @@ ignoreErrors = ["error-remote-getjson"]
   # Site verification code for Google/Bing/Yandex/Pinterest/Baidu
   # 网站验证代码，用于 Google/Bing/Yandex/Pinterest/Baidu
   [params.verification]
-    google = ""
+    google = "xy1bCgQPV_H3_o2XD34o2mIByQxmzkV3GPOfhXg_mTM"
     bing = ""
     yandex = ""
     pinterest = ""
