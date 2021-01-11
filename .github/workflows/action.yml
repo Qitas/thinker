@@ -1,0 +1,40 @@
+name: aliyun sso
+on:
+  push:
+    branches:
+      - master
+      - content
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Update Content
+        run: cd ./content && git pull origin content
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          # extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Nojekyll
+        run: touch ./public/.nojekyll
+
+      - name: Deploy
+        uses: fangbinwei/aliyun-oss-website-action@v1
+        with:
+            accessKeyId: ${{ secrets.KEYID }}
+            accessKeySecret: ${{ secrets.KEYSECRET }}
+            bucket: ${{ secrets.BUCKET }}
+            # e.g. "oss-cn-shanghai.aliyuncs.com"
+            endpoint: ${{ secrets.ENDPOINT }}
+            folder: public
