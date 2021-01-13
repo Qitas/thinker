@@ -262,7 +262,7 @@ ignoreErrors = ["error-remote-getjson"]
     enable = true
     # Custom content (HTML format is supported)
     # 自定义内容 (支持 HTML 格式)
-    # custom = '自由 分享 合作'
+    custom = '<script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?19d1992f36a0a1272d7bf51277fb4fb0";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script>'
     # whether to show Hugo and theme info
     # 是否显示 Hugo 和主题信息
     hugo = true
