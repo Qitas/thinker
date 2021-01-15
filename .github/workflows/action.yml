@@ -39,3 +39,6 @@ jobs:
             # e.g. "oss-cn-shanghai.aliyuncs.com"
             endpoint: ${{ secrets.ENDPOINT }}
             folder: public
+
+      - name: Post Urls
+        run: . urls.sh
