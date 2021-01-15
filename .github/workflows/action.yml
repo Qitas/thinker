@@ -11,6 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          ref: master
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
@@ -38,3 +39,6 @@ jobs:
             # e.g. "oss-cn-shanghai.aliyuncs.com"
             endpoint: ${{ secrets.ENDPOINT }}
             folder: public
+
+      - name: Post Urls
+        run: . urls.sh
