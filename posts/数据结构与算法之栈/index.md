@@ -3,7 +3,7 @@ title: "数据结构与算法之栈"
 date: 2021-01-15T11:09:30+08:00
 lastmod:  2021-01-15T11:09:30+08:00
 author: bbing
-draft: true
+draft: false
 tags: ["Cpp", "栈"]
 categories: ["代码", "数据结构与算法"]
 ---
@@ -73,3 +73,98 @@ int main()
 
 ## 括号匹配问题
 
+括号匹配问题一般描述是:
+
+> 给定一个字符串S, 其中包含'{}'/'[]'/'()'三种括号对, 例如S1 = "[]{}({})", S2 = "[{(}])", 其中S1是合法的, S2是不合法的. 设计一个函数, 判断输入的仅包含括号字符的字符串是否合法.
+
+```C++
+bool isBracketOk(const string &s)
+{
+    const static char brackets_table[][2] = {
+        {'(', ')'},
+        {'[', ']'},
+        {'{', '}'}
+    };
+    auto is_match = [=] (const char &a, const char &b) -> bool {
+        bool match = false;
+        for (int i = 0; i < 3; i++)
+        {
+            match = ((a == brackets_table[i][0]) && (b == brackets_table[i][1]));
+            if (match)
+            {
+                return match;
+            }
+        }
+        return match;
+    };
+    auto is_left = [=] (const char &a) -> bool {
+        for (int i = 0; i < 3; i++)
+        {
+            if (a == brackets_table[i][0])
+            {
+                return true;
+            }
+        }
+        return false;
+    };
+    auto is_right = [=] (const char &a) -> bool {
+        for (int i = 0; i < 3; i++)
+        {
+            if (a == brackets_table[i][1])
+            {
+                return true;
+            }
+        }
+        return false;
+    };
+
+    stack<char> ss;
+    for (const char &c : s){
+        if (ss.empty())
+        {
+            if (is_left(c))
+            {
+                ss.push(c);
+                continue;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            if (is_left(c))
+            {
+                ss.push(c);
+                continue;
+            }
+            if (is_right(c))
+            {
+                if (is_match(ss.top(), c))
+                {
+                    ss.pop();
+                    continue;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+    }
+    return ss.empty();
+}
+```
+
+我们先定义一些函数, 用于判断给定字符是不是括号, 是左括号还是右括号, 判断给定字符对是不是匹配的括号.
+
+对待判断的字符串, 如果是左括号则入栈, 如果是右括号, 则从判度栈顶字符和当前字符是不是匹配的括号对, 并弹出;
+
+### 一个思考
+
+曾经有一段时间, 我坚信一个函数应该且必须只有一个return.
+
+但是渐渐也发现这样做的弊端, 代码会需要重构, 可能会有很多的临时变量, 也可能会有很深的嵌套逻辑, 而且多个return的可读性也不差.
+
+所以, 一个函数该不该有多个return呢? 还有待更多的经验积累, 不能听风就是雨.
