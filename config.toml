@@ -117,7 +117,7 @@ ignoreErrors = ["error-remote-getjson"]
           # Gravatar 邮箱，用于优先在主页显示的头像
           gravatarEmail = ""
           # 主页显示头像的 URL
-          avatarURL = "android-chrome-192x192.png"
+          avatarURL = "/images/header.png"
           # 主页显示的网站标题 (支持 HTML 格式)
           title = "BBing"
           # 主页显示的网站副标题
@@ -225,7 +225,7 @@ ignoreErrors = ["error-remote-getjson"]
   [params.header]
     # desktop header mode ("fixed", "normal", "auto")
     # 桌面端导航栏模式 ("fixed", "normal", "auto")
-    desktopMode = "fixed"
+    desktopMode = "auto"
     # mobile header mode ("fixed", "normal", "auto")
     # 移动端导航栏模式 ("fixed", "normal", "auto")
     mobileMode = "auto"
@@ -234,7 +234,7 @@ ignoreErrors = ["error-remote-getjson"]
     [params.header.title]
       # URL of the LOGO
       # LOGO 的 URL
-      logo = ""
+      # logo = "/images/header.png"
       # title name
       # 标题名称
       name = "BBing's Blog"
@@ -254,10 +254,10 @@ ignoreErrors = ["error-remote-getjson"]
     enable = true
     # Custom content (HTML format is supported)
     # 自定义内容 (支持 HTML 格式)
-    custom = '<script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?19d1992f36a0a1272d7bf51277fb4fb0";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script>'
+    custom = '<span id="run-time"></span>'
     # whether to show Hugo and theme info
     # 是否显示 Hugo 和主题信息
-    hugo = true
+    hugo = false
     # whether to show copyright info
     # 是否显示版权信息
     copyright = true
@@ -341,7 +341,7 @@ ignoreErrors = ["error-remote-getjson"]
       keepStatic = false
       # whether to make the table of the contents in the sidebar automatically collapsed
       # 是否使侧边目录自动折叠展开
-      auto = true
+      auto = false
     # Code config
     # 代码配置
     [params.page.code]
@@ -350,7 +350,7 @@ ignoreErrors = ["error-remote-getjson"]
       copy = true
       # the maximum number of lines of displayed code by default
       # 默认展开显示的代码行数
-      maxShownLines = 32
+      maxShownLines = 40
     # KaTeX mathematical formulas config (KaTeX https://katex.org/)
     # KaTeX 数学公式配置 (KaTeX https://katex.org/)
     [params.page.math]
@@ -513,6 +513,7 @@ ignoreErrors = ["error-remote-getjson"]
         # someCSS = "https://cdn.example.com/some.css"
       [params.page.library.js]
         # someJavascript = "some.js"
+        someJavascript = "js/personal.js"
         # located in "assets/" 位于 "assets/"
         # Or 或者
         # someJavascript = "https://cdn.example.com/some.js"
@@ -655,7 +656,7 @@ ignoreErrors = ["error-remote-getjson"]
 [author]
   name = "bbing"
   email = "jack_cbc@163.com"
-  link = ""
+  link = "http://bbing.com.cn/"
 
 # Sitemap config
 # 网站地图配置
