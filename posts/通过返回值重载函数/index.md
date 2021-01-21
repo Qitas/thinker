@@ -1,5 +1,6 @@
 ---
 title: "通过返回值'重载'函数"
+slug: "cpp-temp-meta"
 date: 2021-01-14T16:46:35+08:00
 lastmod:  2021-01-14T16:46:35+08:00
 author: bbing

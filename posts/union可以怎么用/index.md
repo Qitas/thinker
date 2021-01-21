@@ -1,5 +1,6 @@
 ---
 title: "Union可以怎么用"
+slug: "cpp-how-union"
 date: 2021-01-07T14:52:07+08:00
 lastmod:  2021-01-07T14:52:07+08:00
 author: bbing

@@ -1,5 +1,6 @@
 ---
 title: "对C++bind的理解"
+slug: "cpp-func-bind"
 date: 2021-01-04T19:53:56+08:00
 lastmod:  2021-01-04T19:53:56+08:00
 author: bbing

@@ -1,5 +1,6 @@
 ---
 title: "数据结构与算法之栈"
+slug: "salgo-stack"
 date: 2021-01-15T11:09:30+08:00
 lastmod:  2021-01-15T11:09:30+08:00
 author: bbing

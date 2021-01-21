@@ -1,5 +1,6 @@
 ---
 title: "使用Docker构建不同平台编译环境"
+slug: "docker-build"
 date: 2021-01-11T13:24:54+08:00
 lastmod:  2021-01-11T13:24:54+08:00
 author: bbing

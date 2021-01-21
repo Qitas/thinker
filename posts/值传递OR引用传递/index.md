@@ -1,5 +1,6 @@
 ---
 title: "值传递OR引用传递"
+slug: "cpp-cp-ref"
 date: 2021-01-10T12:05:07+08:00
 lastmod:  2021-01-10T12:05:07+08:00
 author: bbing

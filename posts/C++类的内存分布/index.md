@@ -1,5 +1,6 @@
 ---
 title: "C++类的内存分布"
+slug: "cpp-class-mem"
 date: 2021-01-04T11:26:45+08:00
 lastmod:  2021-01-04T11:26:45+08:00
 author: bbing
@@ -166,4 +167,4 @@ vtable for 'B' @ 0x555555754d68 (subobject @ 0x555555767eb0):
 ## 图例
 不同的方块表示不同的内存块
 
-![结构图](./结构图.png "结构图")
+![结构图](https://s3.ax1x.com/2021/01/21/s4gR0g.png "结构图")

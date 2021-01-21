@@ -1,5 +1,6 @@
 ---
 title: "C++解包函数tie的用法"
+slug: "cpp-func-tie"
 date: 2021-01-05T14:03:48+08:00
 lastmod:  2021-01-05T14:03:48+08:00
 author: bbing

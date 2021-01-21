@@ -1,5 +1,6 @@
 ---
 title: "C++模板问题之多出的static"
+slug: "cpp-more-static"
 date: 2021-01-13T10:59:11+08:00
 lastmod:  2021-01-13T10:59:11+08:00
 author: bbing

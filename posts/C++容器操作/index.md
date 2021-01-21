@@ -1,5 +1,6 @@
 ---
 title: "C++容器操作"
+slug: "cpp-erase-clear"
 date: 2021-01-08T10:14:08+08:00
 lastmod:  2021-01-08T10:14:08+08:00
 author: bbing
