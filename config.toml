@@ -68,6 +68,22 @@ ignoreErrors = ["error-remote-getjson"]
         url = "/categories/"
         title = ""
         weight = 3
+      [[languages.zh-cn.menu.main]]
+        identifier = "friends"
+        pre = "<i class='fas fa-fw fa-users'></i>"
+        post = ""
+        name = "友链"
+        url = "/friends/"
+        title = ""
+        weight = 4
+      [[languages.zh-cn.menu.main]]
+        identifier = "messages"
+        pre = "<i class='fas fa-fw fa-comment'></i>"
+        post = ""
+        name = "留言"
+        url = "/messages/"
+        title = ""
+        weight = 5
     [languages.zh-cn.params]
       # 网站描述
       description = "个人生活和技术博客"
@@ -258,7 +274,7 @@ ignoreErrors = ["error-remote-getjson"]
     custom = '<span id="run-time"></span>'
     # whether to show Hugo and theme info
     # 是否显示 Hugo 和主题信息
-    hugo = false
+    hugo = true
     # whether to show copyright info
     # 是否显示版权信息
     copyright = true
@@ -563,7 +579,7 @@ ignoreErrors = ["error-remote-getjson"]
     image = "/images/Apple-Devices-Preview.png"
     # thumbnail URL
     # 缩略图 URL
-    thumbnailUrl = "/images/screenshot.png"
+    thumbnailUrl = "https://s3.ax1x.com/2021/01/26/sjSTqe.png"
 
   # Analytics config
   # 网站分析配置
