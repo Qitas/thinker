@@ -1,0 +1,10 @@
+img[data-sizes="auto"] {
+    display: block;
+    width: 90%;
+}
+
+sup[class="pages-sup"] {
+    font-weight: lighter;
+    color: #a9a9b3;
+    font-size: 75%;
+}

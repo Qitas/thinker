@@ -13,6 +13,7 @@ title = "BBing"
 
 #uglyURLs = true
 
+minify = true
 # whether to use robots.txt
 # 是否使用 robots.txt
 enableRobotsTXT = true
@@ -44,16 +45,16 @@ ignoreErrors = ["error-remote-getjson"]
       [[languages.zh-cn.menu.main]]
         identifier = "posts"
         # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-        pre = ""
+        pre = "<i class='fas fa-fw fa-archive'></i>"
         # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
         post = ""
-        name = "文章"
+        name = "归档"
         url = "/posts/"
         title = ""
         weight = 1
       [[languages.zh-cn.menu.main]]
         identifier = "tags"
-        pre = ""
+        pre = "<i class='fas fa-fw fa-tag'></i>"
         post = ""
         name = "标签"
         url = "/tags/"
@@ -61,7 +62,7 @@ ignoreErrors = ["error-remote-getjson"]
         weight = 2
       [[languages.zh-cn.menu.main]]
         identifier = "categories"
-        pre = ""
+        pre = "<i class='fas fa-fw fa-th'></i>"
         post = ""
         name = "分类"
         url = "/categories/"
@@ -71,7 +72,7 @@ ignoreErrors = ["error-remote-getjson"]
       # 网站描述
       description = "个人生活和技术博客"
       # 网站关键词
-      keywords = ["Life", "Blog", "Tec"]
+      keywords = ["Life", "Blog", "Tec", "bbing", "hugo", "博客"]
       # 应用图标配置
       [languages.zh-cn.params.app]
         # 当添加到 iOS 主屏幕或者 Android 启动器时的标题, 覆盖默认标题
@@ -507,7 +508,7 @@ ignoreErrors = ["error-remote-getjson"]
     # 第三方库配置
     [params.page.library]
       [params.page.library.css]
-        # someCSS = "css/_custom.css"
+        someCSS = "css/personal.css"
         # located in "assets/" 位于 "assets/"
         # Or 或者
         # someCSS = "https://cdn.example.com/some.css"
