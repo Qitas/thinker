@@ -72,12 +72,15 @@ sup[class="pages-sup"] {
     white-space: nowrap;
 }
 @media screen and (max-width: 600px) {
-    .friend.info {
+    .friend.info, .friend.block.left img {
         display: none;
     }
     .friend.block.left {
         width: 84px;
         margin: auto;
+    }
+    .friend.block.whole {
+        width: 45%;
     }
     .friend.block.right {
         height: 100%;
