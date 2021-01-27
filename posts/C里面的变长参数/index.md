@@ -1,6 +1,6 @@
 ---
 title: "C里面的变长参数"
-slug: ""
+slug: "purec-stdarg"
 date: 2021-01-27T17:26:46+08:00
 lastmod:  2021-01-27T17:26:46+08:00
 author: bbing
