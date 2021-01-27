@@ -2,7 +2,7 @@
 title: "C++模板问题之多出的static"
 slug: "cpp-more-static"
 date: 2021-01-13T10:59:11+08:00
-lastmod:  2021-01-13T10:59:11+08:00
+lastmod:  2021-01-27T17:17:28+08:00
 author: bbing
 draft: false
 tags: ["Cpp", "模板"]
@@ -44,6 +44,8 @@ int main()
     cout << b << endl;
 }
 ```
+
+> 期望是根据```ISIN```生成不同的语句, 但是实际上是生成了不同函数.
 
 updateVal函数期望实现的功能是, 当模板值为true的时候, 表示向sval存入变量val的值; 当模板值为false时, 表示将sval的值存入到val中.
 
@@ -114,3 +116,4 @@ static void updateVal(uint32 &val)
 ## 结论
 - 模板变量会在编译期确定;
 - 使用了"任意"模板的函数可能在编译期生成多份;
+- 看起来是对"语句"模板, 实际上模板是对函数作用的;
