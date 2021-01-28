@@ -56,4 +56,4 @@ function loadExternalResource(url, type) {
   });
 }
 
-loadExternalResource("/live2d/autoload.js", "js");
+// loadExternalResource("/live2d/autoload.js", "js");
