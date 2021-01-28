@@ -18,6 +18,9 @@ jobs:
       - name: Update Content
         run: cd ./content && git pull origin content
 
+      - name: Update Live2d
+        run: cd ./static/live2d && git pull origin live2d
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:

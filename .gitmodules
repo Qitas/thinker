@@ -5,3 +5,7 @@
 	path = content
 	url = https://github.com/caibingcheng/blog.git
 	branch = content
+[submodule "live2d"]
+	path = static/live2d
+	url = https://github.com/caibingcheng/blog.git
+	branch = live2d

@@ -1,40 +1,41 @@
 img[data-sizes="auto"] {
-    display: block;
-    width: 90%;
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 sup[class="pages-sup"] {
-    font-weight: lighter;
-    color: #a9a9b3;
-    font-size: 75%;
+  font-weight: lighter;
+  color: #a9a9b3;
+  font-size: 75%;
 }
 
 .friend.url {
-    text-decoration: none !important;
-    color: black;
+  text-decoration: none !important;
+  color: black;
 }
 .friend.logo {
-    width: 56px !important;
-    height: 56px !important;
-    border-radius: 50%;
-    border: 1px solid #ddd;
-    padding: 2px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-    margin-top: 14px !important;
-    margin-left: 14px !important;
-    background-color: #fff;
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  padding: 2px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  margin-top: 14px !important;
+  margin-left: 14px !important;
+  background-color: #fff;
 }
 .friend.block.whole {
-    height: 92px;
-    margin: 5px;
-    width: 31%;
-    display: inline-block !important;
-    border-radius: 5px;
-    background: rgba(212, 235, 235, 0.5);
-    /* box-shadow: 4px 4px 2px 1px rgba(0, 0, 255, 0.2); */
+  height: 92px;
+  margin: 5px;
+  width: 31%;
+  display: inline-block !important;
+  border-radius: 5px;
+  background: rgba(212, 235, 235, 0.5);
+  /* box-shadow: 4px 4px 2px 1px rgba(0, 0, 255, 0.2); */
 }
 .friend.block.whole:hover {
-    background: rgba(87, 142, 224, 0.15);
+  background: rgba(87, 142, 224, 0.15);
 }
 /* .friend.block.whole:hover .friend.block.left img {
     transition: 0.9s !important;
@@ -49,47 +50,48 @@ sup[class="pages-sup"] {
     -ms-transform: rotate(360deg) !important;
 } */
 .friend.block.left {
-    width: 92px;
-    float: left;
+  width: 92px;
+  float: left;
 }
 .friend.block.left {
-    margin-right: 2px;
+  margin-right: 2px;
 }
 .friend.block.right {
-    margin-top: 18px;
-    margin-right: 18px;
+  margin-top: 18px;
+  margin-right: 18px;
 }
 .friend.name {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .friend.info {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    font-size: 0.8em;
-    color: #7a7a7a;
-    white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 0.8em;
+  color: #7a7a7a;
+  white-space: nowrap;
 }
 @media screen and (max-width: 600px) {
-    .friend.info, .friend.block.left img {
-        display: none;
-    }
-    .friend.block.left {
-        width: 84px;
-        margin: auto;
-    }
-    .friend.block.whole {
-        width: 45%;
-    }
-    .friend.block.right {
-        height: 100%;
-        margin: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .friend.name {
-        font-size: 14px;
-    }
+  .friend.info,
+  .friend.block.left img {
+    display: none;
+  }
+  .friend.block.left {
+    width: 84px;
+    margin: auto;
+  }
+  .friend.block.whole {
+    width: 45%;
+  }
+  .friend.block.right {
+    height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .friend.name {
+    font-size: 14px;
+  }
 }
