@@ -1,6 +1,6 @@
 ---
 title: "数据结构与算法之堆"
-slug: ""
+slug: "salgo-heap"
 date: 2021-01-25T11:19:01+08:00
 lastmod:  2021-01-25T11:19:01+08:00
 author: bbing
