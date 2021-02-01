@@ -1,8 +1,8 @@
 ---
 title: "数据结构与算法之二叉树的遍历"
 slug: "salgo-bintree-list"
-date: 2021-01-29T10:03:01+08:00
-lastmod:  2021-01-29T10:03:01+08:00
+date: 2021-02-01T11:21:01+08:00
+lastmod:  2021-02-01T11:21:01+08:00
 author: bbing
 draft: false
 tags: ["Cpp", "二叉树"]
