@@ -56,4 +56,5 @@ function loadExternalResource(url, type) {
   });
 }
 
-loadExternalResource("/live2d/autoload.js", "js");
+// 看板娘
+// loadExternalResource("/live2d/autoload.js", "js");
