@@ -23,17 +23,17 @@ function runtime() {
 runtime();
 setInterval(runtime, 1000);
 
-document.addEventListener('visibilitychange', function () {
-  if (document.visibilityState == 'hidden') {
-    normal_title = document.title;
-    document.title = 'w(ﾟДﾟ)w崩溃啦！';
-  } else {
-    document.title = '(ε￣ *)骗你哒！';
-    setTimeout(function () {
-      document.title = normal_title;
-    }, 1000)
-  }
-});
+// document.addEventListener('visibilitychange', function () {
+//   if (document.visibilityState == 'hidden') {
+//     normal_title = document.title;
+//     document.title = 'w(ﾟДﾟ)w崩溃啦！';
+//   } else {
+//     document.title = '(ε￣ *)骗你哒！';
+//     setTimeout(function () {
+//       document.title = normal_title;
+//     }, 1000)
+//   }
+// });
 
 function loadExternalResource(url, type) {
   return new Promise((resolve, reject) => {
