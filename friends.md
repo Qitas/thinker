@@ -51,13 +51,6 @@ word="不想当写手的码农不是好咸鱼_(xз」∠)_"
 >}}
 
 {{< friends
-name="北落师门"
-url="https://www.fm-cslab.com"
-logo="https://knight-blog.oss-cn-hangzhou.aliyuncs.com/friendUrl/avatar.png"
-word="会者定离，一期一祈"
->}}
-
-{{< friends
 name="勤奋的思远"
 url="http://lsybk.xyz"
 logo="http://lsybk.xyz/zb_users/upload/2020/12/202012171608220655581876.png"
@@ -79,10 +72,10 @@ word="聪明的妖怪已经录下了唐僧的紧箍咒"
 >}}
 
 {{< friends
-name="赵俊的博客"
-url="http://www.zhaojun.im/"
-logo="http://www.zhaojun.im/images/avatar.gif"
-word="在记录中成长"
+name="W4J1e's blog"
+url="https://www.hin.cool/"
+logo="https://gitee.com/W4j1e/pic/raw/master/img/dl2.png"
+word="总是偏爱不务正业"
 >}}
 
 </div>
