@@ -1,11 +1,11 @@
 ---
 title: "数据结构与算法之二叉查找树"
 slug: "salgo-binschtree"
-date: 2021-01-29T15:15:52+08:00
-lastmod: 2021-01-29T15:15:52+08:00
+date: 2021-02-08T10:46:53+08:00
+lastmod: 2021-02-08T14:46:53+08:00
 author: bbing
-draft: true
-tags: ["Cpp", "二叉树"]
+draft: false
+tags: ["Cpp", "二叉树", "二叉查找树", "二叉排序树"]
 categories: ["数据结构与算法"]
 ---
 
@@ -91,7 +91,7 @@ NodeTree *bsearch(NodeTree *root, const int &val)
 
 伪代码如下:
 ```C++
-node->parent->left = nullptr;
+node->parent->left == node ? (node->parent->left = nullptr) : (node->parent->right = nullptr);
 delete node;
 ```
 
@@ -101,13 +101,13 @@ delete node;
 
 伪代码如下:
 ```C++
-node->parent->right = node->right;
+node->parent->left == node ? (node->parent->left = node->left) : (node->parent->right = node->right);
 delete node;
 ```
 
 ### 删除的结点有两个子结点
 
-如果被删除的结点有两个子结点, 则情况稍微复杂一点, 我们可以看一个特例, 被删除的结点是根结点.
+如果被删除的结点有两个子结点, 则情况稍微复杂一点, 我们可以看一个特例, 被删除的结点是根结点. (不是根结点也是子树的根结点)
 
 ![二叉查找树-删除-两个子结点](https://s3.ax1x.com/2021/01/29/yi2GvQ.png "二叉查找树-删除-两个子结点")
 
@@ -130,3 +130,21 @@ delete node;
 
 ![二叉查找树-删除-左子树最右](https://s3.ax1x.com/2021/01/29/yi238S.png "二叉查找树-删除-左子树最右")
 ![二叉查找树-删除-右子树最左](https://s3.ax1x.com/2021/01/29/yi28gg.png "二叉查找树-删除-右子树最左")
+
+所以伪代码可以是:
+```C++
+bool is_rl = false;              //判断是否是左子树根结点
+Nodetree *rl_node = node->right; //右子树
+while (rl_node->left)            //右子树最左边
+{
+    is_rl = true;
+    rl_node = rl_node->left;
+}
+rl_node->left = node->left;
+if (is_rl)
+{
+    rl_node->right = node->right;
+    rl_node->parent->left = nullptr;
+}
+delete node;
+```
