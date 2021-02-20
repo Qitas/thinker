@@ -6,7 +6,7 @@ lastmod: 2021-02-20T10:37:39+08:00
 author: bbing
 draft: false
 math: true
-tags: ["Cpp", "二叉树", "2-3-4树", "平衡树"]
+tags: ["二叉树", "2-3-4树", "平衡树"]
 categories: ["数据结构与算法"]
 ---
 
