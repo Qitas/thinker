@@ -6,7 +6,7 @@ lastmod:  2021-01-05T14:03:48+08:00
 author: bbing
 draft: false
 tags: ["Cpp"]
-categories: ["代码"]
+categories: ["代码", "C++"]
 ---
 
 ## tie

@@ -6,7 +6,7 @@ lastmod:  2021-01-08T10:14:08+08:00
 author: bbing
 draft: false
 tags: ["Cpp", "STL"]
-categories: ["代码"]
+categories: ["代码", "C++"]
 ---
 
 ## 问题

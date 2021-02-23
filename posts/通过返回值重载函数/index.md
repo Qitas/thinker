@@ -6,7 +6,7 @@ lastmod:  2021-01-14T16:46:35+08:00
 author: bbing
 draft: false
 tags: ["Cpp", "模板元编程", "模板"]
-categories: ["代码"]
+categories: ["代码", "C++"]
 ---
 
 以下的代码片段涉及到了不少的模板函数, 可以自行去官网查询.
