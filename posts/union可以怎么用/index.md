@@ -6,7 +6,7 @@ lastmod:  2021-01-07T14:52:07+08:00
 author: bbing
 draft: false
 tags: ["Cpp"]
-categories: ["代码", "C++"]
+categories: ["代码", "Cpp"]
 ---
 
 ## union 改名操作

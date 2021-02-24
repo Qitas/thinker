@@ -5,8 +5,8 @@ date: 2021-02-23T10:00:57+08:00
 lastmod: 2021-02-23T16:10:18+08:00
 author: bbing
 draft: false
-tags: ["Cpp", "C++11"]
-categories: ["代码", "C++"]
+tags: ["Cpp"]
+categories: ["代码", "Cpp"]
 ---
 
 ## C++闭包

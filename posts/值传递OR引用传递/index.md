@@ -6,7 +6,7 @@ lastmod:  2021-01-10T12:05:07+08:00
 author: bbing
 draft: false
 tags: ["Cpp"]
-categories: ["代码", "C++"]
+categories: ["代码", "Cpp"]
 ---
 
 ## 目的

@@ -6,7 +6,7 @@ lastmod:  2021-01-27T20:02:55+08:00
 author: bbing
 draft: false
 tags: ["Cpp", "模板"]
-categories: ["代码", "C++"]
+categories: ["代码", "Cpp"]
 ---
 
 ## stdarg.h
