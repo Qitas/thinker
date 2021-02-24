@@ -8,9 +8,16 @@ title: "友链墙"
 <div class="friend-list-div" >
 
 {{< friends
+name="cppreference"
+url="https://en.cppreference.com/w/"
+logo="https://en.cppreference.com/favicon.ico"
+word="C++参考文档"
+>}}
+
+{{< friends
 name="Compiler Explorer"
 url="https://gcc.godbolt.org/"
-logo="https://github.com/compiler-explorer/infra/blob/master/logo/favicon.png?raw=true"
+logo="https://gcc.godbolt.org/favicon.ico"
 word="方便验证小demo"
 >}}
 
@@ -24,14 +31,14 @@ word="免费图床"
 {{< friends
 name="diagrams"
 url="https://app.diagrams.net/"
-logo="."
+logo="https://app.diagrams.net/images/favicon-32x32.png"
 word="Security-first diagramming for teams."
 >}}
 
 {{< friends
 name="LeanCloud"
 url="https://leancloud.cn/dashboard/applist.html#/apps"
-logo="https://leancloud.cn/dashboard/images/static/logo.png"
+logo="https://console-static.lncld.net/favicon.ico"
 word="Valine评论系统"
 >}}
 

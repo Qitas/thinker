@@ -1,8 +1,8 @@
 ---
 title: "数据结构与算法之跳表"
-slug: "salgo-heap"
-date: 2021-02-21T14:09:53+08:00
-lastmod:  2021-02-21T14:09:53+08:00
+slug: "salgo-gaplink"
+date: 2021-02-24T19:23:17+08:00
+lastmod: 2021-02-24T19:23:22+08:00
 author: bbing
 draft: true
 tags: ["链表", "跳表"]
