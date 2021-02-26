@@ -2,7 +2,7 @@
 title: "C++闭包"
 slug: "cpp-closure"
 date: 2021-02-23T10:00:57+08:00
-lastmod: 2021-02-23T16:10:18+08:00
+lastmod: 2021-02-26T11:04:40+08:00
 author: bbing
 draft: false
 tags: ["Cpp"]
@@ -228,3 +228,118 @@ unordered_map<char, function<int(const int&, const int&)>> cal{
 };
 cout << cal['+'](1, 2) << endl;
 ```
+
+### lambda展开
+
+lambda表达式的功能很强大, 是怎么做到的呢?
+
+来看一个简单的例子:
+```C++
+#include <algorithm>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    auto lmd_func = [] (const int& a) {
+        int b = a * a;
+        return b;
+    };
+
+    auto lmd_ret = lmd_func(2);
+    cout << lmd_ret << endl;
+
+    return 1;
+}
+```
+编译过程中, 会将lambda展开, 实际上是一个类, 重载```()```运算符.
+```C++
+int main()
+{
+    class __lambda_8_21
+    {
+        public:
+        inline int operator()(const int & a) const
+        {
+        int b = a * a;
+        return b;
+        }
+
+        using retType_8_21 = int (*)(const int &);
+        inline operator retType_8_21 () const noexcept
+        {
+        return __invoke;
+        };
+
+        private:
+        static inline int __invoke(const int & a)
+        {
+        int b = a * a;
+        return b;
+        }
+
+        public:
+        // inline /*constexpr */ __lambda_8_21(__lambda_8_21 &&) noexcept = default;
+
+    };
+
+    __lambda_8_21 lmd_func = __lambda_8_21(__lambda_8_21{});
+    int lmd_ret = lmd_func.operator()(2);
+    std::cout.operator<<(lmd_ret).operator<<(std::endl);
+    return 1;
+}
+```
+上面的```lmd_func```被展开成了类```__lambda_8_21```. 关注这条语句:
+```C++
+__lambda_8_21 lmd_func = __lambda_8_21(__lambda_8_21{});
+```
+使用了默认构造函数, 为什么要多此一举呢? 在这里直接使用:
+```C++
+__lambda_8_21 lmd_func = __lambda_8_21();
+```
+也是可以的. 但是, 如果情况稍微复杂一点, 就不能满足了. 比如我们使用捕获:
+```
+int main()
+{
+    auto init = 3;
+
+    auto lmd_func = [init] (const int& a) {
+        int b = a * a + init;
+        return b;
+    };
+
+    auto lmd_ret = lmd_func(2);
+    cout << lmd_ret << endl;
+
+    return 1;
+}
+```
+经过展开后, lambda表达式展开为:
+```C++
+class __lambda_10_21
+{
+public:
+inline int operator()(const int & a) const
+{
+    int b = (a * a) + init;
+    return b;
+}
+
+private:
+int init;
+public:
+// inline /*constexpr */ __lambda_10_21(__lambda_10_21 &&) noexcept = default;
+__lambda_10_21(int & _init)
+: init{_init}
+{}
+
+};
+```
+捕获变量被构造成了展开类的成员变量, 并且实现了类的带参构造函数, lambda的调用语句被展开成了:
+```
+__lambda_10_21 lmd_func = __lambda_10_21(__lambda_10_21{init});
+```
+所以, 上述的值捕获, 在这里是通过构造函数传递给lambda表达式的.
+
+> 以上展开式使用工具[cppinsights](https://cppinsights.io/)

@@ -22,6 +22,13 @@ word="方便验证小demo"
 >}}
 
 {{< friends
+name="C++ Insights"
+url="https://cppinsights.io/"
+logo="https://cppinsights.io/32.png"
+word="方便阅读C++展开式"
+>}}
+
+{{< friends
 name="路过图床"
 url="https://imgchr.com/"
 logo="https://imgchr.com/content/images/system/favicon_1587118523486_91617a.png"
