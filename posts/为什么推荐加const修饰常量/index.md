@@ -6,7 +6,7 @@ lastmod: 2021-03-02T15:00:17+08:00
 author: bbing
 draft: false
 tags: ["Cpp", "const"]
-categories: ["Cpp"]
+categories: ["代码", "Cpp"]
 ---
 
 > 用```const```修饰常量可以减少内存占用和拷贝操作.

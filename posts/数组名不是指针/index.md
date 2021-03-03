@@ -6,7 +6,7 @@ lastmod: 2021-03-03T11:35:39+08:00
 author: bbing
 draft: false
 tags: ["Cpp", "数组", "指针"]
-categories: ["Cpp"]
+categories: ["Cpp", "代码"]
 ---
 
 ## 问题

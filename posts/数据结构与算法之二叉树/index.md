@@ -6,7 +6,7 @@ lastmod:  2021-01-25T19:22:20+08:00
 author: bbing
 draft: false
 tags: ["Cpp", "二叉树"]
-categories: ["数据结构与算法"]
+categories: ["数据结构与算法", "代码"]
 ---
 
 ## 什么是二叉树

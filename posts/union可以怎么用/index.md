@@ -5,7 +5,7 @@ date: 2021-01-07T14:52:07+08:00
 lastmod:  2021-01-07T14:52:07+08:00
 author: bbing
 draft: false
-tags: ["Cpp"]
+tags: ["Cpp", "union"]
 categories: ["代码", "Cpp"]
 ---
 

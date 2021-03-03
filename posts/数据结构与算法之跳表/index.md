@@ -5,7 +5,7 @@ date: 2021-03-01T09:54:57+08:00
 lastmod: 2021-03-01T09:54:57+08:00
 author: bbing
 draft: false
-tags: ["链表", "跳表"]
+tags: ["链表", "跳表", "查找", "搜索"]
 categories: ["数据结构与算法"]
 ---
 
