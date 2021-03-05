@@ -5,7 +5,7 @@ date: 2021-01-14T16:46:35+08:00
 lastmod:  2021-01-14T16:46:35+08:00
 author: bbing
 draft: false
-tags: ["Cpp", "模板"]
+tags: ["Cpp", "模板", "traits"]
 categories: ["代码", "Cpp"]
 ---
 
