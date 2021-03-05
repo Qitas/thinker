@@ -43,6 +43,16 @@ ignoreErrors = ["error-remote-getjson"]
     # 菜单配置
     [languages.zh-cn.menu]
       [[languages.zh-cn.menu.main]]
+        identifier = "home"
+        # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
+        pre = "<i class='fas fa-fw fa-home'></i>"
+        # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
+        post = ""
+        name = "主页"
+        url = "/"
+        title = ""
+        weight = 1
+      [[languages.zh-cn.menu.main]]
         identifier = "posts"
         # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
         pre = "<i class='fas fa-fw fa-archive'></i>"
@@ -51,7 +61,7 @@ ignoreErrors = ["error-remote-getjson"]
         name = "归档"
         url = "/posts/"
         title = ""
-        weight = 1
+        weight = 2
       [[languages.zh-cn.menu.main]]
         identifier = "tags"
         pre = "<i class='fas fa-fw fa-tag'></i>"
@@ -59,7 +69,7 @@ ignoreErrors = ["error-remote-getjson"]
         name = "标签"
         url = "/tags/"
         title = ""
-        weight = 2
+        weight = 3
       [[languages.zh-cn.menu.main]]
         identifier = "categories"
         pre = "<i class='fas fa-fw fa-th'></i>"
@@ -67,7 +77,7 @@ ignoreErrors = ["error-remote-getjson"]
         name = "分类"
         url = "/categories/"
         title = ""
-        weight = 3
+        weight = 4
       [[languages.zh-cn.menu.main]]
         identifier = "friends"
         pre = "<i class='fas fa-fw fa-users'></i>"
@@ -75,7 +85,7 @@ ignoreErrors = ["error-remote-getjson"]
         name = "友链"
         url = "/friends/"
         title = ""
-        weight = 4
+        weight = 5
       [[languages.zh-cn.menu.main]]
         identifier = "messages"
         pre = "<i class='fas fa-fw fa-comment'></i>"
@@ -83,10 +93,10 @@ ignoreErrors = ["error-remote-getjson"]
         name = "留言"
         url = "/messages/"
         title = ""
-        weight = 5
+        weight = 6
     [languages.zh-cn.params]
       # 网站描述
-      description = "个人生活和技术博客"
+      description = "个人技术博客"
       # 网站关键词
       keywords = ["Life", "bbing", "hugo", "博客", "C++"]
       # 应用图标配置
@@ -127,7 +137,7 @@ ignoreErrors = ["error-remote-getjson"]
       # 主页信息设置
       [languages.zh-cn.params.home]
         # RSS 文章数目
-        rss = 10
+        rss = 20
         # 主页个人信息
         [languages.zh-cn.params.home.profile]
           enable = true
@@ -524,16 +534,10 @@ ignoreErrors = ["error-remote-getjson"]
     # 第三方库配置
     [params.page.library]
       [params.page.library.css]
-        someCSS = "css/personal.css"
-        # located in "assets/" 位于 "assets/"
-        # Or 或者
-        # someCSS = "https://cdn.example.com/some.css"
+        i1customcss = "css/custom.css"
       [params.page.library.js]
-        # someJavascript = "some.js"
-        someJavascript = "js/personal.js"
-        # located in "assets/" 位于 "assets/"
-        # Or 或者
-        # someJavascript = "https://cdn.example.com/some.js"
+        i1jqueryjs = "https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"
+        i2customjs = "js/custom.js"
     # Page SEO config
     # 页面 SEO 配置
     [params.page.seo]
