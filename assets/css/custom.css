@@ -104,3 +104,56 @@ sup[class="pages-sup"] {
     font-size: 14px;
   }
 }
+
+/* 打赏 */
+article .post-reward {
+  margin-top: 20px;
+  padding-top: 40px;
+  text-align: center;
+  color: #acacac;
+  border-top: 1px dashed #e6e6e6;
+}
+
+article .post-reward .reward-button {
+  padding: 3px 7px;
+  display: inline-block;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+article .post-reward .reward-button:hover {
+  color: #fefefe;
+  background-color: #dedede;
+  transition: 0.5s;
+}
+
+article .post-reward #reward:checked ~ .qr-code {
+  display: block;
+}
+
+article .post-reward #reward:checked ~ .reward-button {
+  display: none;
+}
+
+article .post-reward .qr-code {
+  display: none;
+}
+
+article .post-reward .qr-code .qr-code-image {
+  display: inline-block;
+  min-width: 200px;
+  width: 40%;
+  margin-top: 15px;
+}
+
+article .post-reward .qr-code .qr-code-image span {
+  display: inline-block;
+  width: 100%;
+  margin: 8px 0;
+}
+
+article .post-reward .qr-code .image {
+  width: 200px;
+  height: 200px;
+}

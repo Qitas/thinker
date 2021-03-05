@@ -25,6 +25,11 @@ enableGitInfo = false
 enableEmoji = true
 ignoreErrors = ["error-remote-getjson"]
 
+[params.reward]
+  enable = true
+  wechat = "wchatreward.jpeg"
+  alipay = "zfbreward.jpeg"
+
 [languages]
   [languages.zh-cn]
     weight = 1
