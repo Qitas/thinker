@@ -16,6 +16,8 @@ categories: ["代码", "Cpp"]
 
 几个函数va_list、va_start、va_arg、va_end，定义在stdarg.h
 
+<!--more-->
+
 ## 内存结构
 先需要理解C/C++函数入参的顺序.
 

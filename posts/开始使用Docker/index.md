@@ -25,6 +25,8 @@ $ su root #切换到root用户，或注销再登录当前用户
 $ su ${USER} #再切换到原来的应用用户以上配置才生效
 ```
 
+<!--more-->
+
 ## 下载镜像和运行、删除
 ```shell
 docker search xxx //从docker hub查询xxx镜像

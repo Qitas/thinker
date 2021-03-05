@@ -7,6 +7,7 @@ author: bbing
 draft: false
 tags: ["Cpp", "迭代器", "STL", "traits"]
 categories: ["代码", "Cpp"]
+featuredImagePreview: "https://s3.ax1x.com/2021/03/05/6e96jU.png"
 ---
 
 ## 问题
@@ -38,6 +39,8 @@ int main()
     for_each(nums, nums + ARRAY_SIZE(nums), print_nums);
 }
 ```
+
+<!--more-->
 
 我们有一个数组, 对其进行了某种操作```process_nums```之后, 打印```print_nums```出数组的值;
 

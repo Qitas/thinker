@@ -30,6 +30,8 @@ int main()
 }
 ```
 
+<!--more-->
+
 我们可以得到汇编代码:
 ```ASM
 mov    eax,DWORD PTR [rip+0x2f1c]        # 404028 <num>

@@ -41,6 +41,8 @@ categories: ["工具"]
 9 directories, 15 files
 ```
 
+<!--more-->
+
 ## objects
 我的理解是，项目中你看到的每个东西都是一个object，实际上object有：commit、tree、blob、tag（加tag的时候才会有）
 

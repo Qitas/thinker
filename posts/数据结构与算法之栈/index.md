@@ -23,6 +23,8 @@ a.size();   //获取栈中元素数量
 a.empty();  //是否是空栈
 ```
 
+<!--more-->
+
 ## C++中的stack容器
 
 [官方文档](https://en.cppreference.com/w/cpp/container/stack)中, 定义如下

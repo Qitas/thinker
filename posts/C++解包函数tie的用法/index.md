@@ -19,6 +19,8 @@ int i; double d; string s;
 tie(i, d, s) = t3;
 ```
 
+<!--more-->
+
 以上，i, d, s就可以被赋值为与tuple对应元素的值，在应用中，这在处理函数多返回值的时候比较有用。
 
 同时，也提供了占位符，std::ignore来忽略某些值。

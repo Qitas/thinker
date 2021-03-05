@@ -12,6 +12,8 @@ categories: ["工具"]
 ## 问题
 需要构建不同平台的bin，但是本地电脑是ubuntu18的系统，怎么构建ubuntu16可用的bin呢？
 
+<!--more-->
+
 ## 方案
 使用docker, 是下是qt项目举例
 

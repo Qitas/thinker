@@ -42,13 +42,6 @@ logo="https://app.diagrams.net/images/favicon-32x32.png"
 word="Security-first diagramming for teams."
 >}}
 
-{{< friends
-name="LeanCloud"
-url="https://leancloud.cn/dashboard/applist.html#/apps"
-logo="https://console-static.lncld.net/favicon.ico"
-word="Valine评论系统"
->}}
-
 </div>
 </div>
 
