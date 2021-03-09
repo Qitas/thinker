@@ -5,8 +5,8 @@ date: 2021-01-20T10:41:01+08:00
 lastmod: 2021-03-08T10:55:26+08:00
 author: bbing
 draft: false
-tags: ["Cpp", "栈", "排序"]
-categories: ["代码", "数据结构与算法", "状态机"]
+tags: ["Cpp", "栈", "排序", "状态机"]
+categories: ["代码", "数据结构与算法"]
 ---
 
 ## 单调栈
