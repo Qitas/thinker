@@ -2,16 +2,16 @@
 title: "const和constexpr"
 slug: "cpp-const-adconsexpr"
 date: 2021-03-11T17:06:07+08:00
-lastmod: 2021-03-12T10:36:21+08:00
+lastmod: 2021-03-15T11:42:21+08:00
 author: bbing
 draft: false
-tags: ["Cpp", "const", "constexpr"]
+tags: ["Cpp", "const", "constexpr", "编译时"]
 categories: ["代码", "Cpp"]
 ---
 
-> ```const```用来修饰只读
-
-> ```constexpr```用来修饰编译期可以确定的值
+> ```const```用来修饰只读.
+>
+> ```constexpr```用来修饰编译期可以确定的值.
 
 <!--more-->
 

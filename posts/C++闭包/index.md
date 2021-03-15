@@ -2,10 +2,10 @@
 title: "C++闭包"
 slug: "cpp-closure"
 date: 2021-02-23T10:00:57+08:00
-lastmod: 2021-02-26T11:04:40+08:00
+lastmod: 2021-03-15T11:29:23+08:00
 author: bbing
 draft: false
-tags: ["Cpp", "lambda"]
+tags: ["Cpp", "lambda", "constexpr", "编译时"]
 categories: ["代码", "Cpp"]
 ---
 
@@ -345,3 +345,56 @@ __lambda_10_21 lmd_func = __lambda_10_21(__lambda_10_21{init});
 所以, 上述的值捕获, 在这里是通过构造函数传递给lambda表达式的.
 
 > 以上展开式使用工具[cppinsights](https://cppinsights.io/)
+
+### lambda编译期运算
+
+> lambda表达式结果可以在编译期计算
+
+lambda表达式是可以在编译期就计算出结果的.
+```C++
+auto lmd_func = [] (const int& a) {
+    int b = a * a;
+    return b;
+};
+```
+上式展开得到以下的类, 我们看到了[constexpr](/202103/cpp-const-adconsexpr/)关键词, 这似乎意味lambda可以作为[constexpr](/202103/cpp-const-adconsexpr/)函数.
+```C++
+class __lambda_7_21
+{
+public:
+    inline /*constexpr */ int operator()(const int & a) const
+    {
+        int b = a * a;
+        return b;
+    }
+
+    using retType_7_21 = int (*)(const int &);
+    inline /*constexpr */ operator retType_7_21 () const noexcept
+    {
+        return __invoke;
+    };
+
+    private:
+    static inline int __invoke(const int & a)
+    {
+        int b = a * a;
+        return b;
+    }
+
+
+    public:
+    // /*constexpr */ __lambda_7_21() = default;
+};
+```
+目前看来, C++11标准的编译器一般不会默认给lambda表达式添加上[constexpr](/202103/cpp-const-adconsexpr/)关键词.
+
+但是C++17标准后, 给lambda表达式添加上了[constexpr](/202103/cpp-const-adconsexpr/)关键词.
+
+在C++11标准为了启动优化, 我们需要加上```-O2```参数(gcc编译器). 调用接口:
+```C++
+int dbl1 = lmd_func(3);
+```
+在汇编时编译器已经计算出结果, 并赋值给寄存器了(启动编译器优化后, 直接赋值给寄存器, 而不是内存).
+```ASM
+mov     esi, 9
+```
