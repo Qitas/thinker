@@ -85,6 +85,13 @@ logo="https://gitee.com/W4j1e/pic/raw/master/img/dl2.png"
 word="总是偏爱不务正业"
 >}}
 
+{{< friends
+name="猫猫的小窝"
+url="https://maogeblog.top"
+logo="https://cdn.jsdelivr.net/gh/HUC-GMM/maogeblog/ico.png"
+word="万丈高楼平地起，辉煌只能靠自己"
+>}}
+
 </div>
 </div>
 
