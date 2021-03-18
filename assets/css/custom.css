@@ -1,10 +1,7 @@
 .home[posts] .summary {
-  border-bottom: 2px dashed #dedede;
-}
-
-.active {
-  font-weight: 900;
-  color: #7a7a7a;
+  border-bottom: 2px dashed #7a7a7a;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
 }
 
 img[data-sizes="auto"] {
@@ -157,3 +154,24 @@ article .post-reward .qr-code .image {
   width: 200px;
   height: 200px;
 }
+
+.summary .post-meta {
+  margin-top: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.summary .content{
+  margin: 1rem auto;
+}
+
+.summary .single-title a{
+  color: #555;
+  font-weight: bold;
+}
+.summary .single-title a:hover{
+  border-bottom: solid 2px #999;
+  opacity: 0.8;
+}
+/* .summary .post-footer .readmore{
+  border-bottom: solid 1px #777;
+} */

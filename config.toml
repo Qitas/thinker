@@ -269,7 +269,7 @@ ignoreErrors = ["error-remote-getjson"]
       # logo = "https://s3.ax1x.com/2021/01/21/s4crsU.png"
       # title name
       # 标题名称
-      name = "BBing's Blog"
+      name = "BBing"
       # you can add extra information before the name (HTML format is supported), such as icons
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
       pre = ""
@@ -289,13 +289,13 @@ ignoreErrors = ["error-remote-getjson"]
     custom = '<span id="run-time"></span>'
     # whether to show Hugo and theme info
     # 是否显示 Hugo 和主题信息
-    hugo = true
+    hugo = false
     # whether to show copyright info
     # 是否显示版权信息
     copyright = true
     # whether to show the author
     # 是否显示作者
-    author = true
+    author = false
     # site creation time
     # 网站创立年份
     since = 2020
