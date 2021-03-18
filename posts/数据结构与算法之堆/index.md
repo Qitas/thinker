@@ -6,7 +6,7 @@ lastmod: 2021-02-24T19:20:51+08:00
 author: bbing
 draft: false
 tags: ["Cpp", "二叉树", "堆", "查找", "搜索", "排序"]
-categories: ["数据结构与算法", "代码"]
+categories: ["数据结构与算法", "代码", "Cpp"]
 ---
 
 ## 堆的结构
