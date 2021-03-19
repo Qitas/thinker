@@ -65,10 +65,10 @@ word="一个网络安全爱好者的博客"
 >}}
 
 {{< friends
-name="木子の博客"
+name="北辰の小栈"
 url="https://www.mz-zone.cn"
 logo="https://7.dusays.com/2020/10/16/fc206f8b7e485.png"
-word="积水成河，积土成山！"
+word="你必须不停地奔跑，才能留在原地！"
 >}}
 
 {{< friends
