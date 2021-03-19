@@ -9,7 +9,7 @@ theme = "LoveIt"
 
 # website title
 # 网站标题
-title = "BBing"
+title = "BBing's Blog"
 
 #uglyURLs = true
 
@@ -142,7 +142,7 @@ ignoreErrors = ["error-remote-getjson"]
       # 主页信息设置
       [languages.zh-cn.params.home]
         # RSS 文章数目
-        rss = 20
+        rss = 100
         # 主页个人信息
         [languages.zh-cn.params.home.profile]
           enable = true
@@ -151,11 +151,11 @@ ignoreErrors = ["error-remote-getjson"]
           # 主页显示头像的 URL
           avatarURL = "https://s3.ax1x.com/2021/01/21/s4crsU.png"
           # 主页显示的网站标题 (支持 HTML 格式)
-          title = "BBing"
+          title = "BBing's Blog"
           # 主页显示的网站副标题
           subtitle = "自由  分享  合作"
           # 是否为副标题显示打字机动画
-          typeit = false
+          typeit = true
           # 是否显示社交账号
           social = true
           # 免责声明 (支持 HTML 格式)
@@ -257,7 +257,7 @@ ignoreErrors = ["error-remote-getjson"]
   [params.header]
     # desktop header mode ("fixed", "normal", "auto")
     # 桌面端导航栏模式 ("fixed", "normal", "auto")
-    desktopMode = "auto"
+    desktopMode = "fixed"
     # mobile header mode ("fixed", "normal", "auto")
     # 移动端导航栏模式 ("fixed", "normal", "auto")
     mobileMode = "auto"
@@ -272,7 +272,7 @@ ignoreErrors = ["error-remote-getjson"]
       name = "BBing"
       # you can add extra information before the name (HTML format is supported), such as icons
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-      pre = ""
+      pre = "<i class='fa fa-cog fa-spin'></i>"
       # you can add extra information after the name (HTML format is supported), such as icons
       # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
       post = ""
@@ -311,26 +311,26 @@ ignoreErrors = ["error-remote-getjson"]
   [params.section]
     # special amount of posts in each section page
     # section 页面每页显示文章数量
-    paginate = 20
+    paginate = 100
     # date format (month and day)
     # 日期格式 (月和日)
     dateFormat = "01-02"
     # amount of RSS pages
     # RSS 文章数目
-    rss = 10
+    rss = 100
 
   # List (category or tag) page config
   # List (目录或标签) 页面配置
   [params.list]
     # special amount of posts in each list page
     # list 页面每页显示文章数量
-    paginate = 20
+    paginate = 100
     # date format (month and day)
     # 日期格式 (月和日)
     dateFormat = "01-02"
     # amount of RSS pages
     # RSS 文章数目
-    rss = 10
+    rss = 100
 
   # Page config
   # 文章页面配置
@@ -569,7 +569,7 @@ ignoreErrors = ["error-remote-getjson"]
     cursorChar = "|"
     # cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
     # 打字结束之后光标的持续时间 (单位是毫秒, "-1" 代表无限大)
-    duration = -1
+    duration = 100
 
   # Site verification code for Google/Bing/Yandex/Pinterest/Baidu
   # 网站验证代码，用于 Google/Bing/Yandex/Pinterest/Baidu
