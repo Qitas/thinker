@@ -92,6 +92,13 @@ logo="https://cdn.jsdelivr.net/gh/HUC-GMM/maogeblog/ico.png"
 word="万丈高楼平地起，辉煌只能靠自己"
 >}}
 
+{{< friends
+name="黑石博客"
+url="https://www.heson10.com"
+logo="https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/avatar03.png"
+word="人生在勤，不索何获"
+>}}
+
 </div>
 </div>
 
