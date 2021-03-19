@@ -2,10 +2,10 @@
 title: "struct位域"
 slug: "c-strcut-bits"
 date: 2021-03-18T14:09:59+08:00
-lastmod: 2021-03-18T20:11:54+08:00
+lastmod: 2021-03-19T09:55:31+08:00
 author: bbing
 draft: false
-tags: ["Cpp", "sturct", "bit", "bit-field", "union", "小大端"]
+tags: ["Cpp", "sturct", "bit", "bit-field", "union"]
 categories: ["代码", "Cpp", "底层"]
 ---
 
@@ -207,8 +207,75 @@ struct {
 ```
 符合预期```d1-d3```正好占8bit, 所以不会有补齐对齐操作.
 
+## 位域如何实现的
+通过编译器翻译后的汇编代码, 我们可以基本知道其原理:
+```C++
+union BITS{
+    struct {
+        uint8_t d1 : 4;
+        uint8_t d2 : 2;
+        uint8_t d3 : 2;
+        uint8_t d4 : 4;
+    }u;
+    uint32_t data;
+};
+
+BITS bits;
+bits.data = 0x87654321;
+
+int d1 = bits.u.d1;
+int d2 = bits.u.d2;
+int d3 = bits.u.d3;
+int d4 = bits.u.d4;
+```
+
+汇编后:
+
+将值0x87654321赋值给```bits.data```, 这里比较好理解.
+```ASM
+mov     DWORD PTR [rbp-28], -2023406815
+```
+
+接下来时获取```d1```的值:
+```ASM
+movzx   eax, BYTE PTR [rbp-28]
+and     eax, 15
+movzx   eax, al
+mov     DWORD PTR [rbp-4], eax
+```
+从首地址拿数据, 然后与0xFF(15)按位与.
+
+再获取```d2```的数据:
+```ASM
+movzx   eax, BYTE PTR [rbp-28]
+shr     al, 4
+and     eax, 3
+movzx   eax, al
+mov     DWORD PTR [rbp-8], eax
+```
+与```d1```的区别在于, 右移4bit, 然后与0x3按位与, 这时是提取2bit.
+
+再获取```d3```:
+```ASM
+movzx   eax, BYTE PTR [rbp-28]
+shr     al, 6
+movzx   eax, al
+mov     DWORD PTR [rbp-12], eax
+```
+有点不同, 为什么没有按位与的操作了? 因为这里是取的BYTE, 右移6bit就可以得到高位的2bit了.
+
+```d4```则和```d1```类似, 只不过取值地址需要+1:
+```ASM
+movzx   eax, BYTE PTR [rbp-27]
+and     eax, 15
+movzx   eax, al
+mov     DWORD PTR [rbp-16], eax
+```
+所以, 位域操作在逻辑上和位操作是类似的, 也是通过移位和与或运算得到.
+
 ## 结论
 综上, 总结struct位域:
 - struct大小是最大标识符的整数倍
 - union赋值struct位域需要考虑小大端
 - 位域不能横跨两个标识符, 此时需要补齐对齐
+- 位域也是通过移位和与或运算得到
