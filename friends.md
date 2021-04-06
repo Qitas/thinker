@@ -98,6 +98,14 @@ url="https://www.heson10.com"
 logo="https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/avatar03.png"
 word="人生在勤，不索何获"
 >}}
+>
+
+{{< friends
+name="刘超智 | 博客"
+url="https://www.insidentally.com"
+logo="https://cdn.jsdelivr.net/gh/Chao-zhi/blog-images@master/avatar.jpg"
+word="学习、实践、分享"
+>}}
 
 </div>
 </div>
