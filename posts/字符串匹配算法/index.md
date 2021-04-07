@@ -5,7 +5,7 @@ date: 2021-04-06T10:58:59+08:00
 lastmod: 2021-04-07T19:54:29+08:00
 author: bbing
 draft: false
-tags: ["字符串", "BF", "BM"]
+tags: ["字符串", "BF", "BM", "Cpp"]
 categories: ["数据结构与算法", "Cpp"]
 ---
 
@@ -13,11 +13,11 @@ categories: ["数据结构与算法", "Cpp"]
 
 比如在```S```字符串中查找```s```字符串, 则```S```是主串, ```s```是模式串.
 
+<!--more-->
+
 如下, 在主串中搜索"cdf"模式串:
 
 !["主串和模式串"](https://z3.ax1x.com/2021/04/06/clqsMQ.png "主串和模式串")
-
-<!--more-->
 
 ## BF
 
