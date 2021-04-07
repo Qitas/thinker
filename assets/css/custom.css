@@ -190,3 +190,19 @@ article .post-reward .qr-code .image {
 /* .summary .post-footer .readmore{
   border-bottom: solid 1px #777;
 } */
+
+.content p{
+  line-height: 1.6rem;
+}
+
+.menu-more {
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.menu-more:hover {
+  cursor: pointer;
+}

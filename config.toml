@@ -83,22 +83,31 @@ ignoreErrors = ["error-remote-getjson"]
         url = "/categories/"
         title = ""
         weight = 4
-      [[languages.zh-cn.menu.main]]
-        identifier = "friends"
-        pre = "<i class='fas fa-fw fa-users'></i>"
-        post = ""
-        name = "友链"
-        url = "/friends/"
-        title = ""
-        weight = 5
-      [[languages.zh-cn.menu.main]]
-        identifier = "messages"
-        pre = "<i class='fas fa-fw fa-comment'></i>"
-        post = ""
-        name = "留言"
-        url = "/messages/"
-        title = ""
-        weight = 6
+      [[languages.zh-cn.menu.more]]
+        [[languages.zh-cn.menu.ops]]
+          identifier = "friends"
+          pre = "<i class='fas fa-fw fa-users'></i>"
+          post = ""
+          name = "友链"
+          url = "/friends/"
+          title = ""
+          weight = 5
+        [[languages.zh-cn.menu.ops]]
+          identifier = "messages"
+          pre = "<i class='fas fa-fw fa-comment'></i>"
+          post = ""
+          name = "留言"
+          url = "/messages/"
+          title = ""
+          weight = 6
+        [[languages.zh-cn.menu.ops]]
+          identifier = "notebook"
+          pre = "<i class='fas fa-fw fa-comment'></i>"
+          post = ""
+          name = "写一篇"
+          url = "https://github.com/caibingcheng/blog/new/content"
+          title = ""
+          weight = 7
     [languages.zh-cn.params]
       # 网站描述
       description = "个人技术博客"
