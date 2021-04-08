@@ -164,9 +164,6 @@
                     {{- .Pre | safeHTML }}{{ .Name }}{{ .Post | safeHTML -}}
                 </a>
             {{- end -}}
-            <a href="javascript:void(0);" class="menu-item theme-switch" title="{{ T "switchTheme" }}">
-                <i class="fas fa-adjust fa-fw"></i>
-            </a>
 
             {{- if .Site.Menus.more -}}
             <a href="javascript:void(0);" class="menu-item language" title="{{ T "more" }}">
@@ -184,6 +181,10 @@
                 </select>
             </a>
             {{- end -}}
+
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="{{ T "switchTheme" }}">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
 
             {{- if .Site.IsMultiLingual -}}
                 <a href="javascript:void(0);" class="menu-item" title="{{ T "selectLanguage" }}">
