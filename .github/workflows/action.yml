@@ -4,6 +4,7 @@ on:
     branches:
       - master
       - content
+      - ld
 
 jobs:
   build-and-deploy:
@@ -34,14 +35,22 @@ jobs:
         run: touch ./public/.nojekyll
 
       - name: Deploy
-        uses: fangbinwei/aliyun-oss-website-action@v1
+        # uses: fangbinwei/aliyun-oss-website-action@v1
+        # with:
+        #     accessKeyId: ${{ secrets.KEYID }}
+        #     accessKeySecret: ${{ secrets.KEYSECRET }}
+        #     bucket: ${{ secrets.BUCKET }}
+        #     # e.g. "oss-cn-shanghai.aliyuncs.com"
+        #     endpoint: ${{ secrets.ENDPOINT }}
+        #     folder: public
+
+        uses: sebastianpopp/ftp-action@releases/v2
         with:
-            accessKeyId: ${{ secrets.KEYID }}
-            accessKeySecret: ${{ secrets.KEYSECRET }}
-            bucket: ${{ secrets.BUCKET }}
-            # e.g. "oss-cn-shanghai.aliyuncs.com"
-            endpoint: ${{ secrets.ENDPOINT }}
-            folder: public
+          host: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          localDir: "public"
+          remoteDir: "www"
 
       - name: Post Urls
         run: . urls.sh
