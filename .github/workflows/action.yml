@@ -51,6 +51,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           localDir: "public"
           remoteDir: "/"
+          options: "--delete --asci"
 
       - name: Post Urls
         run: . urls.sh
