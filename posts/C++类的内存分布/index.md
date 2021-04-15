@@ -6,7 +6,7 @@ lastmod: 2021-04-15T11:15:01+08:00
 author: bbing
 draft: false
 tags: ["Cpp", "内存"]
-categories: ["代码", "Cpp", "底层"]
+categories: ["代码", "Cpp"]
 ---
 
 ## 问题

@@ -6,7 +6,7 @@ lastmod: 2021-03-19T09:55:31+08:00
 author: bbing
 draft: false
 tags: ["Cpp", "sturct", "bit", "bit-field", "union"]
-categories: ["代码", "Cpp", "底层"]
+categories: ["代码", "Cpp"]
 ---
 
 ## struct位域
