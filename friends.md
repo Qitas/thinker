@@ -42,6 +42,13 @@ logo="https://app.diagrams.net/images/favicon-32x32.png"
 word="Security-first diagramming for teams."
 >}}
 
+{{< friends
+name="woboq"
+url="https://code.woboq.org/"
+logo="https://woboq.com/woboq-icon-192x192.png"
+word="C/C++源码阅读, Linux源码"
+>}}
+
 </div>
 </div>
 
