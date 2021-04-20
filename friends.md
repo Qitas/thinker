@@ -106,6 +106,20 @@ logo="https://cdn.jsdelivr.net/gh/Chao-zhi/blog-images@master/avatar.jpg"
 word="学习、实践、分享"
 >}}
 
+{{< friends
+name="qinxs"
+url="https://7bxing.com"
+logo="https://cdn.jsdelivr.net/gh/qinxs/cdn-assets@master/img/avatar.png"
+word="技术总结, 各种折腾"
+>}}
+
+{{< friends
+name="Colsrch"
+url="https://colsrch.top"
+logo="https://cdn.jsdelivr.net/gh/Colsrch/images/Colsrch/avatar.jpg"
+word="愿多年以后，我可以酌一杯清酒，烂醉如泥，梦中回到我们的曾经"
+>}}
+
 </div>
 </div>
 
