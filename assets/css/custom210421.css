@@ -206,3 +206,37 @@ article .post-reward .qr-code .image {
 .menu-more:hover {
   cursor: pointer;
 }
+/* 文章元数据meta */
+.post-meta .post-meta-line:nth-child(2) i:nth-child(1) {
+  margin-left: 0;
+}
+.post-meta .post-meta-line:nth-child(2) i {
+  margin-left: 0.3rem;
+}
+.post-meta .post-meta-line:nth-child(2) span i {
+  margin-left: 0.3rem !important;
+}
+.post-meta a#post-meta-vcount {
+  color: #a9a9b3;
+}
+.post-meta a#post-meta-vcount:hover {
+  color: #2d96bd;
+}
+
+/* #waline-recent {
+  font-weight: bold;
+  text-transform: uppercase;
+  list-style: none;
+  position: fixed;
+  top: 10rem;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  line-height: 2em;
+  padding: 0 0.8rem;
+  margin: .8rem 0;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+  width: 20rem;
+  text-indent: -0.85rem;
+} */

@@ -116,6 +116,14 @@ ignoreErrors = ["error-remote-getjson"]
           url = "https://github.com/caibingcheng/blog/new/content"
           title = ""
           weight = 4
+        [[languages.zh-cn.menu.ops]]
+          identifier = "comment-manager"
+          pre = "<i class='fas fa-fw fa-comment'></i>"
+          post = ""
+          name = "评论管理"
+          url = "https://waline-vercel-phi.vercel.app/ui#"
+          title = ""
+          weight = 5
     [languages.zh-cn.params]
       # 网站描述
       description = "个人技术博客"
@@ -492,10 +500,27 @@ ignoreErrors = ["error-remote-getjson"]
         repo = ""
         clientId = ""
         clientSecret = ""
+      # Waline comment config (https://waline.js.org/)
+      # Waline 评论系统设置 (https://waline.js.org/)
+      [params.page.comment.waline]
+        enable = true
+        js = "https://cdn.jsdelivr.net/npm/@waline/client@latest"
+        #js = "https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js"
+        meta = ['nick','mail','link']                           # 评论者相关属性
+        requiredFields = ['nick', 'mail']                       # 设置必填项，默认匿名
+        placeholder = "添加您的邮箱就可以收到回复邮件啦(评论时间间隔1分钟)..."              # 评论框占位提示符
+        serverURL = "https://waline-vercel-phi.vercel.app/"     # Waline的服务端地址（必填）
+        #imageHosting =                                         # 图床api，如果允许评论框上传图片
+        avatar = "wavatar"                                      # Gravatar头像
+        avatarCDN = "https://sdn.geekzu.org/avatar/"            # Gravatar头像CDN地址，不建议使用loli源
+        pageSize = 10                                           # 评论列表分页，每页条数
+        lang = "zh-CN"                                          # 多语言支持
+        visitor = true                                          # 文章访问量统计
+        highlight = true                                        # 代码高亮
       # Valine comment config (https://github.com/xCss/Valine)
       # Valine 评论系统设置 (https://github.com/xCss/Valine)
       [params.page.comment.valine]
-        enable = true
+        enable = false
         appId = "rQyzKFXgMhQNfVwRKvtmJK5q-gzGzoHsz"
         appKey = "1rYEBgbAECcBDLg75kXr5zaz"
         placeholder = "添加您的邮箱就可以收到邮件啦..."
@@ -556,7 +581,7 @@ ignoreErrors = ["error-remote-getjson"]
     # 第三方库配置
     [params.page.library]
       [params.page.library.css]
-        i1customcss = "css/custom210408.css"
+        i1customcss = "css/custom210421.css"
       [params.page.library.js]
         i1jqueryjs = "https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"
         i2customjs = "js/custom.js"
