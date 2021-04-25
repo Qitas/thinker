@@ -2,9 +2,9 @@
 title: "进程控制和进程通信(二)"
 slug: "process-ctracon2"
 date: 2021-04-23T14:02:57+08:00
-lastmod: 2021-04-23T14:03:06+08:00
+lastmod: 2021-04-25T19:37:10+08:00
 author: bbing
-draft: true
+draft: false
 tags: ["进程", "进程通信", "虚拟内存"]
 categories: ["操作系统"]
 featuredImagePreview: "https://z3.ax1x.com/2021/04/23/cXVQnx.png"
@@ -36,7 +36,7 @@ featuredImagePreview: "https://z3.ax1x.com/2021/04/23/cXVQnx.png"
 
 ## 匿名管道
 
-C提供了pipe函数用于创建管道.
+C提供了pipe函数用于创建管道. pipe是内核在内核空间提供的一段缓存区.
 
 ### pipe
 ```C
@@ -267,8 +267,26 @@ parent complete
 ### pipe的容量和原子性
 上面的例子都没有填满pipe, 也都默认了pipe的读写都是原子的. 到这里又想到了两个问题:
 1. pipe什么时候写满?
-2. pipe读写怎么保证是原子操作?
+2. pipe读写怎么保证是原子操作(读写一致性)?
 
+使用man查看pipe的描述:
+```
+man 7 pipe
+```
+
+关于pipe容量的.
+> Pipe capacity
+>
+> In Linux versions before 2.6.11, the capacity of a pipe was the same as the system page size (e.g., 4096 bytes on i386).  Since Linux 2.6.11, the pipe capacity is 16 pages (i.e., 65,536 bytes in a system with a page size of 4096 bytes).  Since Linux 2.6.35, the default pipe capacity is 16 pages, but the capacity can be queried and set using the  fcntl(2)  F_GETPIPE_SZ  and  F_SETPIPE_SZ operations.  See fcntl(2) for more information.
+
+pipe容量在不同的linux版本中不同, 从Linux 2.6.11开始是```16Pages```, 所以是$4096 Bytes \times 16 Pages = 65535 Bytes$.
+
+关于pipe如何保证一致性的.
+> PIPE_BUF
+>
+> POSIX.1 says that write(2)s of less than PIPE_BUF bytes must be atomic: the output data is written to the pipe as a contiguous sequence.  Writes of more than PIPE_BUF bytes may be nonatomic: the kernel  may  interleave  the data with data written by other processes.  POSIX.1 requires PIPE_BUF to be at least 512 bytes.  (On Linux, PIPE_BUF is 4096 bytes.)
+
+当写入的字节流大小不大```PIPE_BUF```时, pipe可以保证写入的原子性(读写一致性), 如果写入字节流大于```PIPE_BUF```则无法保证写入的原子性. ```PIPE_BUF```至少时```512Bytes```, 在Linux上PIPE_BUF时$4096Bytes = 1Page$.
 
 ### pipe源码
 ```C
@@ -297,6 +315,9 @@ static int do_pipe2(int __user *fildes, int flags)
 	return error;
 }
 ```
+基本可以看出来pipe涉及到了文件操作```struct file *files[2];```, ```pipe```和```pipe2```函数是对```do_pipe2```的封装.
+
+> 匿名管道不属于任何文件系统，只存在于内存中，它是无名无形的，但是可以把它看作一种特殊的文件，通过使用普通文件的```read()```, ```write()```函数对管道进行操作.
 
 ```C
 static int __do_pipe_flags(int *fd, struct file **files, int flags)
@@ -328,23 +349,182 @@ static int __do_pipe_flags(int *fd, struct file **files, int flags)
 	return error;
 }
 ```
+创建pipe的时候会查找可用fd, 如果fd不够了, 则会创建pipe失败. 在日常开发中, fd如果没有正常释放, 则可能会导致fd不够.
 
 ### 小结
 
 综上所述:
 1. pipe是半双工;
 2. 两个pipe可以实现全双工;
-3. 读写端都存在时, pipe满则阻塞写端, pipe空则阻塞读端;
-4. 读端不存在, 则写时触发SIGPIPE信号, 写端不存在时, 读正常, 但是不阻塞;
+3. pipe只能在具有亲缘关系的进程间通信;
+4. 读写端都存在时, pipe满则阻塞写端, pipe空则阻塞读端;
+5. 读端不存在, 则写时触发```SIGPIPE```信号, 写端不存在时, 读正常, 但是不阻塞;
+6. pipe传输的是字节流;
+7. pipe的最大容量一般是```64Pages```, 写入小于```1Page```的字节流可以保证读写一致性;
+8. Linux系统中的命令, 如```ls | grep txt```中的```|```就是匿名管道, 实现两个进程中的通信.
 
 ## 具名管道
 
-## 消息队列
+上述讲了匿名管道, 没有一个标识符(名字)指向的管道, 所以一般只能用在亲缘进程中(创建时共享了内存). 试想, 如果给管道加上了名字, 是不是就可以在不同的进程间通信了呢? 这就是具名管道.
 
-## 信号
+具名管道可以认为是pipe加上了名字. Linux中将这种具名管道叫做fifo.
 
-## 信号量
+fifo和pipe类似, 但是可以在文件系统中找到fifo的管道文件, fifo文件是存在系统中的文件. 进程可以根据fifo的名字打开fifo, 并对其读写, 但是进程会将fifo的数据缓存在内核中(类比pipe), 并不会将数据写入文件, 所以在fifo文件中也无法找到对fifo写入的数据.
 
-## 共享内存
+我们可以使用```ls -lh```命令, 看到系统中的fifo文件, 如:
+```
+prwxrwxr-x 1 ** ** 0 4月  25 17:37 ./fifo_pipe
+```
+权限一栏的p就标识这是一个pipe(管道, 要和上述的pipe函数区分一下)文件.
+如果```ll```看的话, 会有类似以下输出:
+```
+prwxrwxr-x 1 ** **    0 4月  25 17:37 fifo_pipe|
+-rwxrwxr-x 1 ** ** 8616 4月  25 17:17 fifo_read*
+-rw-rw-r-- 1 ** **  704 4月  25 17:42 fifo_read.c
+-rwxrwxr-x 1 ** ** 8744 4月  25 17:18 fifo_write*
+-rw-rw-r-- 1 ** ** 1630 4月  25 17:35 fifo_write.c
+```
+```fifo_pipe```作为一个管道文件, 会有```p```字符标识, 文件名后也有```|```标识.
 
-## socket
+同pipe, fifo也可以使用```open```, ```write```等IO接口函数对其操作.
+
+人如其名, fifo的结构如下, 是内核中的一个先进先出的队列, 比如只能在尾部写入, 那么就只能在头部读出, 所以, 如果对应多个进程读写时, 就要约定写入的size和标识符规则.
+!["FIFO管道结构"](https://z3.ax1x.com/2021/04/25/czEzjJ.png "FIFO管道结构")
+
+关于fifo跟官方的内容可以:
+```
+man fifo
+```
+
+C提供了```mkfifo```函数用于创建fifo(创建, 不是打开).
+
+### mkfifo
+
+mkfifo需要传入fifo的路径和fifo打开模式.
+
+```C
+/* Create a new FIFO named PATH, with permission bits MODE.  */
+extern int mkfifo (const char *__path, __mode_t __mode)
+     __THROW __nonnull ((1));
+```
+
+如果fifo文件路径已经存在, 则mkfifo会报错, 如果fifo文件不存在, 则mkfifo会根据fifo路径创建fifo文件. 所以在调用mkfifo的时候, 需要判断fifo路径是否已经存在:
+```C
+if(access(fifo_name, F_OK) == -1)
+{
+    printf("[%d] make fifo...\n", getpid());
+    int stats = mkfifo(fifo_name, 0777);
+    if (stats != 0)
+    {
+        printf("[%d] make fifo error.\n", getpid());
+        return -1;
+    }
+}
+```
+
+### fifo读写
+
+如果fifo管道文件已经存在, 可以通过```open```打开, 通过```write```写入.
+```C
+//  fifo_write.c
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <limits.h>
+#include <string.h>
+
+static const char* fifo_name = "./fifo_pipe";
+
+int main()
+{
+    if(access(fifo_name, F_OK) == -1)
+    {
+        printf("[%d] make fifo...\n", getpid());
+        int stats = mkfifo(fifo_name, 0777);
+        if (stats != 0)
+        {
+            printf("[%d] make fifo error.\n", getpid());
+            return -1;
+        }
+    }
+
+    int fifo_fd = open(fifo_name, O_WRONLY);
+    printf("[%d] writer open fifo fd %d\n", getpid(), fifo_fd);
+
+    if (fifo_fd != -1)
+    {
+        char msg[128] = "fifo write.";
+        int write_stat = write(fifo_fd, msg, sizeof(msg));
+        printf("[%d] fifo write[%d]: '%s'\n", getpid(), write_stat, msg);
+    }
+    close(fifo_fd);
+
+    return 1;
+}
+```
+
+如果fifo管道文件已经存在, 可以通过```open```打开, 通过```read```读出.
+```C
+//  fifo_read.c
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <limits.h>
+#include <string.h>
+
+static const char* fifo_name = "./fifo_pipe";
+
+int main()
+{
+    if(access(fifo_name, F_OK) == -1)
+    {
+        printf("[%d] reader get fifo error.\n", getpid());
+        return -1;
+    }
+
+    printf("[%d] read prepare open fifo.\n", getpid());
+    int fifo_fd = open(fifo_name, O_RDONLY);
+    printf("[%d] open fifo fd %d\n", getpid(), fifo_fd);
+
+    if (fifo_fd != -1)
+    {
+        char msg[128];
+        int read_stat = read(fifo_fd, msg, sizeof(msg));
+        printf("[%d] fifo read[%d]: '%s'\n", getpid(), read_stat, msg);
+    }
+    close(fifo_fd);
+
+    return 1;
+}
+```
+编译两个文件:
+```Shell
+gcc -o fifo_read ./fifo_read.c
+gcc -o fifo_write ./fifo_write.c
+```
+如果我们先执行```fifo_write```再执行```fifo_read```, ```fifo_write```正常执行和退出, 但是```fifo_read```会阻塞不退出. 如果我们先执行```fifo_read```再执行```fifo_write```, 则```fifo_read```会先阻塞不退出, 待执行```fifo_write```并写入fifo后, ```fifo_read```从fifo读取成功, 并退出.
+
+关于fifo的```read```和```write```阻塞操作, 可以有以下结论:
+1. 以```O_RDONLY```读和```O_WRONLY```写时, 如果只有进程读, 没有进程写, 则读端会阻塞, 直到有进程写;
+2. 以```O_RDONLY```读和```O_WRONLY```写时, 如果只有进程写, 没有进程读, 写端不会阻塞(网上查了几份资料的结论时会阻塞, 但是实验代码是不会阻塞的(TODO:官方说法待查证));
+
+可以验证, 如果以```O_RDONLY|O_WRONLY```打开, 依然正常工作, 但是无法保证fifo的时序, 这时候A进程write的数据也可能从A进程read出来. 所以如果要fifo实现全双工, 比较简单的方式同pipe, 使用两个fifo实现.
+
+### 小结
+
+我们简单使用mkfifo创建了fifo文件, 并且使用```open```, ```read```, ```write```实现了对fifo的操作, 以上总结:
+1. fifo是一个真实存在的文件, 可以在文件系统中找到;
+2. fifo数据存储在内核内存的缓存区中, 不会写入到fifo文件;
+3. 以```O_RDONLY```读时, 如果没有写端写入数据, 则```open```会阻塞;
+4. fifo可以全双工, 但是可以使用两个fifo解决时序问题;
+5. 同pipe, fifo也依赖pipe capacity和PIPE_BUF决定缓存上限和保证原子性的最大Size;
+
+## TODO
+
+进程控制和进程间通信开了个头, 已经有些概念了, 后续还有**消息队列/信号/信号量/共享内存/socket**等通信方式, 这些再慢慢加吧, 最近还想搞点别的东西.
