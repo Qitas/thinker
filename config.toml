@@ -85,14 +85,6 @@ ignoreErrors = ["error-remote-getjson"]
         weight = 4
       [[languages.zh-cn.menu.more]]
         [[languages.zh-cn.menu.ops]]
-          identifier = "anywrite"
-          pre = "<i class='fas fa-fw fa-comment'></i>"
-          post = ""
-          name = "随笔"
-          url = "/anywrite/"
-          title = ""
-          weight = 1
-        [[languages.zh-cn.menu.ops]]
           identifier = "friends"
           pre = "<i class='fas fa-fw fa-users'></i>"
           post = ""
