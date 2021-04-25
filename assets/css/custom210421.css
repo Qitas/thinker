@@ -120,10 +120,13 @@ sup[class="pages-sup"] {
 /* 打赏 */
 article .post-reward {
   margin-top: 20px;
+  margin-bottom: 20px;
   padding-top: 40px;
+  padding-bottom: 40px;
   text-align: center;
   color: #acacac;
   border-top: 1px dashed #e6e6e6;
+  border-bottom: 1px dashed #e6e6e6;
 }
 
 article .post-reward .reward-button {
