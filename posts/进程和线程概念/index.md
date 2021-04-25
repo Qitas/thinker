@@ -5,7 +5,7 @@ date: 2021-04-15T14:01:44+08:00
 lastmod: 2021-04-19T20:53:02+08:00
 author: bbing
 draft: false
-tags: ["进程", "线程", "协程", "虚拟内存"]
+tags: ["进程", "线程", "协程", "虚拟内存", "Linux"]
 categories: ["操作系统"]
 ---
 

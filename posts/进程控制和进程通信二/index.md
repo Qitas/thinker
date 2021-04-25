@@ -5,7 +5,7 @@ date: 2021-04-23T14:02:57+08:00
 lastmod: 2021-04-25T19:37:10+08:00
 author: bbing
 draft: false
-tags: ["进程", "进程通信", "虚拟内存"]
+tags: ["进程", "进程通信", "虚拟内存", "Linux"]
 categories: ["操作系统"]
 featuredImagePreview: "https://z3.ax1x.com/2021/04/23/cXVQnx.png"
 ---
