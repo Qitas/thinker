@@ -56,6 +56,11 @@ pipe输入参数是包含两个pipe描述符的二元数组. pipe执行失败返
 
 下面的例子使用子进程写, 父进程读:
 ```C
+#include<stdio.h>
+#include<unistd.h>
+#include<stdlib.h>
+#include<string.h>
+
 int main()
 {
     int pipef[2] = {0, 0};
@@ -154,6 +159,11 @@ read complete
 
 使用两个pipe可以实现全双工通信.
 ```C
+#include<stdio.h>
+#include<unistd.h>
+#include<stdlib.h>
+#include<string.h>
+
 int main()
 {
     int pipef[2] = {0, 0};
