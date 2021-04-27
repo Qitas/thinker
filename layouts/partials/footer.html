@@ -43,10 +43,12 @@
             {{- /* Custom Content */ -}}
             {{- with .Site.Params.footer.custom -}}
                 <div class="footer-line">
-                    {{- safeHTML . -}}&nbsp;|&nbsp;
+                    {{- safeHTML . -}}
+                    <br/>
                     <a href="https://travellings.now.sh/" target="_blank" rel="noopener" title="开往-友链接力">
                         <i class='fas fa-fw fa-subway'></i>开往-友链接力
-                    </a>&nbsp;|&nbsp;
+                    </a>
+                    &nbsp;|&nbsp;
                     <a href="http://rssblog.vercel.app/" target="_blank" rel="noopener" title="RSSBlog">
                         <i class='fas fa-fw fa-inbox'></i>RSSBlog
                     </a>
