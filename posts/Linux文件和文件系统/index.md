@@ -4,7 +4,7 @@ slug: "linux-filesystem"
 date: 2021-04-25T20:03:40+08:00
 lastmod: 2021-04-25T20:03:40+08:00
 author: bbing
-draft: true
+draft: false
 tags: ["Linux", "文件系统"]
 categories: ["操作系统"]
 ---
