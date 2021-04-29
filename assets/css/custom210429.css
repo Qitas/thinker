@@ -3,7 +3,7 @@ body {
 }
 
 footer {
-  background-color: rgba(233,233,247,0.25);
+  background-color: rgba(233, 233, 247, 0.25);
   margin-top: 3rem;
 }
 
@@ -194,7 +194,7 @@ article .post-reward .qr-code .image {
   border-bottom: solid 1px #777;
 } */
 
-.content p{
+.content p {
   line-height: 1.6rem;
 }
 
@@ -246,4 +246,10 @@ article .post-reward .qr-code .image {
 
 .home-profile {
   background-image: url(https://z3.ax1x.com/2021/04/29/gFmy7T.png);
+}
+
+@media screen and (max-width: 1600px) {
+  .home-profile {
+    background-image: url();
+  }
 }
