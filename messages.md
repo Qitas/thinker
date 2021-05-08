@@ -12,7 +12,7 @@ new Artitalk({
     appKey: 'D8UyP3YFvYT2h2bfisLhmgSr', // Your LeanCloud appKey
     serverURL: 'https://yaoklqh6.lc-cn-n1-shared.com', // Your LeanCloud
     avatarPla: 'https://s3.ax1x.com/2021/01/21/s4crsU.png',
-    pageSize: 10,
+    pageSize: 5,
     color1: "#dedede",
     color3: "#777"
 })
