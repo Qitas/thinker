@@ -1,6 +1,6 @@
 {{ if .IsNamedParams }}
 {{ $defaultImg := "https://gravatar.loli.net/avatar/c02f8b813aa4b7f72e32de5a48dc17a7?d=retro&v=1.4.14" }}
-	<a target="_blank" href={{ .Get "url" }} title={{ .Get "name" }}--{{ .Get "word" }} class="friend url">
+	<a target="_blank" href={{ .Get "url" }} title={{ .Get "name" }}--{{ .Get "word" }} class="friend url frined-url">
 	  <div class="friend block whole">
 		<div class="friend block left">
 		  <img class="friend logo" src={{ .Get "logo" }} onerror="this.src='{{ $defaultImg }}'" />

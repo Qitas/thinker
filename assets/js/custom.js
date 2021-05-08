@@ -84,5 +84,85 @@ function loadExternalResource(url, type) {
     });
 }
 
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+function nextISU()
+{
+    var friend_btn = document.getElementsByClassName('friend-rand')[0];
+    const max_time = 3000; //ms
+    const max_loop = 2;
+    const time_time = 1.2;
+    let is_run = false;
+    let urls = document.getElementsByClassName("frind-real")[0].getElementsByClassName("frined-url");
+    let arr = [...new Array(urls.length).keys()]
+    let all_loop = arr.length * max_loop;
+    let each_p = new Array(all_loop);
+    each_p[0] = 1;
+    let each_sum = each_p[0];
+    for (let i = 1; i < all_loop; i++)
+    {
+        each_p[i] = each_p[i - 1] * time_time;
+        each_sum += each_p[i];
+    }
+    let sleep_time = max_time / each_sum;
+    let lucky_url = urls[0];
+
+    function chose(url)
+    {
+        url.style.opacity = 0.4;
+    }
+    function unchose(url)
+    {
+        url.style.opacity = 1;
+    }
+
+    friend_btn.addEventListener('click', async function() {
+        if (is_run)
+        {
+            return;
+        }
+        is_run = true;
+        for (let i = 0; i < urls.length; i++)
+        {
+            urls[i].style.opacity = 1;
+        }
+        // console.log(each_p)
+        let last_url = undefined;
+        for (let i = 0; i < max_loop; i++)
+        {
+            arr.sort(function() {
+                return (0.5-Math.random());
+            });
+            for (let j = 0; j < arr.length; j++)
+            {
+                if (last_url != undefined)
+                {
+                    unchose(last_url);
+                }
+                chose(urls[arr[j]]);
+                last_url = urls[arr[j]];
+                lucky_url = urls[arr[j]];
+                let st = sleep_time * each_p[i * arr.length + j];
+                // console.log(st)
+                await sleep(st);
+            }
+        }
+        for (let i = 0; i < 3; i++)
+        {
+            unchose(lucky_url);
+            await sleep(100);
+            chose(lucky_url);
+            await sleep(100);
+        }
+        lucky_url.click();
+        unchose(lucky_url);
+        is_run = false;
+    }, false);
+}
+nextISU();
+
 // 看板娘
 // loadExternalResource("/live2d/autoload.js", "js");
