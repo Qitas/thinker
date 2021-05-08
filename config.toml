@@ -576,7 +576,7 @@ ignoreErrors = ["error-remote-getjson"]
         i1customcss = "css/custom210508.css"
       [params.page.library.js]
         i1jqueryjs = "https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"
-        i2customjs = "js/custom.js"
+        i2customjs = "js/custom210508.js"
     # Page SEO config
     # 页面 SEO 配置
     [params.page.seo]
