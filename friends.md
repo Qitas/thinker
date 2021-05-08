@@ -52,10 +52,10 @@ word="C/C++源码阅读, Linux源码"
 </div>
 </div>
 
-### 大佬都在这啦
+### 大佬都在这啦 &nbsp;&nbsp; <a href="javascript:void(0);" class="friend-rand">挑一个, 吃掉!</a>
 
 <div class="flink" id="article-container">
-<div class="friend-list-div" >
+<div class="friend-list-div frind-real" >
 
 {{< friends
 name="雨临Lewis的博客"
