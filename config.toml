@@ -159,7 +159,7 @@ ignoreErrors = ["error-remote-getjson"]
       # 主页信息设置
       [languages.zh-cn.params.home]
         # RSS 文章数目
-        rss = 100
+        rss = 10
         # 主页个人信息
         [languages.zh-cn.params.home.profile]
           enable = true
@@ -334,7 +334,7 @@ ignoreErrors = ["error-remote-getjson"]
     dateFormat = "01-02"
     # amount of RSS pages
     # RSS 文章数目
-    rss = 100
+    rss = 10
 
   # List (category or tag) page config
   # List (目录或标签) 页面配置
@@ -347,7 +347,7 @@ ignoreErrors = ["error-remote-getjson"]
     dateFormat = "01-02"
     # amount of RSS pages
     # RSS 文章数目
-    rss = 100
+    rss = 10
 
   # Page config
   # 文章页面配置
