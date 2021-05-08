@@ -83,15 +83,15 @@ ignoreErrors = ["error-remote-getjson"]
         url = "/categories/"
         title = ""
         weight = 4
+      [[languages.zh-cn.menu.main]]
+        identifier = "friends"
+        pre = "<i class='fas fa-fw fa-users'></i>"
+        post = ""
+        name = "友链"
+        url = "/friends/"
+        title = ""
+        weight = 5
       [[languages.zh-cn.menu.more]]
-        [[languages.zh-cn.menu.ops]]
-          identifier = "friends"
-          pre = "<i class='fas fa-fw fa-users'></i>"
-          post = ""
-          name = "友链"
-          url = "/friends/"
-          title = ""
-          weight = 2
         [[languages.zh-cn.menu.ops]]
           identifier = "messages"
           pre = "<i class='fas fa-fw fa-comment'></i>"
@@ -102,7 +102,7 @@ ignoreErrors = ["error-remote-getjson"]
           weight = 3
         [[languages.zh-cn.menu.ops]]
           identifier = "notebook"
-          pre = "<i class='fas fa-fw fa-comment'></i>"
+          pre = "<i class='fas fa-fw fa-keyboard'></i>"
           post = ""
           name = "写博"
           url = "https://github.com/caibingcheng/blog/new/content"
@@ -110,7 +110,7 @@ ignoreErrors = ["error-remote-getjson"]
           weight = 4
         [[languages.zh-cn.menu.ops]]
           identifier = "comment-manager"
-          pre = "<i class='fas fa-fw fa-comment'></i>"
+          pre = "<i class='fas fa-fw fa-wrench'></i>"
           post = ""
           name = "评论管理"
           url = "https://waline-vercel-phi.vercel.app/ui#"
@@ -573,7 +573,7 @@ ignoreErrors = ["error-remote-getjson"]
     # 第三方库配置
     [params.page.library]
       [params.page.library.css]
-        i1customcss = "css/custom210429.css"
+        i1customcss = "css/custom210508.css"
       [params.page.library.js]
         i1jqueryjs = "https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"
         i2customjs = "js/custom.js"

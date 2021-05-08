@@ -38,20 +38,21 @@
                 {{- end -}}
 
                 {{- if .Site.Menus.more -}}
-                    <a href="javascript:void(0);" class="menu-item language" title="{{ T "more" }}">
-                        <i class="fa fa-angle-double-down"></i>
-                        {{ T "more" }}
-                        <select class="menu-more" id="language-select-desktop" onchange="location = this.value;">
-                            <option class="placeholder">------</option>
+                    <div class="dropdown">
+                        <a href="javascript:void(0);" class="menu-item menu-more dropbtn" title="{{ T "more" }}">
+                            <i class="fa fa-angle-double-down"></i>
+                            {{ T "more" }}
+                        </a>
+                        <div class="menu-more-content dropdown-content">
                             {{- range .Site.Menus.ops -}}
                                 {{- $url := .URL | relLangURL -}}
                                 {{- with .Page -}}
                                     {{- $url = .RelPermalink -}}
                                 {{- end -}}
-                                <option value="{{ $url }}">{{- .Pre }} {{ .Name }} {{ .Post -}}</option>
+                                    <a href="{{ $url }}">{{- .Pre }} {{ .Name }} {{ .Post -}}</a>
                             {{- end -}}
-                        </select>
-                    </a>
+                        </div>
+                    </div>
                 {{- end -}}
 
                 {{- if .Site.Menus.main -}}
@@ -96,6 +97,9 @@
                 {{- end -}}
                 <a href="https://travellings.now.sh/" target="_blank" class="menu-item" rel="noopener" title="开往-友链接力">
                     <i class='fas fa-fw fa-subway'></i>
+                </a>
+                <a href="http://rssblog.vercel.app/" class="menu-item" target="_blank" rel="noopener" title="RSSBlog">
+                    <i class='fas fa-fw fa-inbox'></i>
                 </a>
                 <a href="javascript:void(0);" class="menu-item theme-switch" title="{{ T "switchTheme" }}">
                     <i class="fas fa-adjust fa-fw"></i>
@@ -169,24 +173,28 @@
             {{- end -}}
 
             {{- if .Site.Menus.more -}}
-            <a href="javascript:void(0);" class="menu-item language" title="{{ T "more" }}">
-                <i class="fa fa-angle-double-down"></i>
-                {{ T "more" }}
-                <select class="menu-more" id="language-select-desktop" onchange="location = this.value;">
-                    <option class="placeholder">------</option>
-                    {{- range .Site.Menus.ops -}}
-                        {{- $url := .URL | relLangURL -}}
-                        {{- with .Page -}}
-                            {{- $url = .RelPermalink -}}
+                <div class="dropdown">
+                    <a href="javascript:void(0);" class="menu-item menu-more dropbtn" title="{{ T "more" }}">
+                        <i class="fa fa-angle-double-down"></i>
+                        {{ T "more" }}
+                    </a>
+                    <div class="menu-more-content dropdown-content">
+                        {{- range .Site.Menus.ops -}}
+                            {{- $url := .URL | relLangURL -}}
+                            {{- with .Page -}}
+                                {{- $url = .RelPermalink -}}
+                            {{- end -}}
+                                <a href="{{ $url }}">{{- .Pre }} {{ .Name }} {{ .Post -}}</a>
                         {{- end -}}
-                        <option value="{{ $url }}">{{- .Pre }} {{ .Name }} {{ .Post -}}</option>
-                    {{- end -}}
-                </select>
-            </a>
+                    </div>
+                </div>
             {{- end -}}
 
-            <a href="https://travellings.now.sh/" target="_blank" rel="noopener" title="开往-友链接力">
+            <a href="https://travellings.now.sh/" class="menu-item" target="_blank" rel="noopener" title="开往-友链接力">
                 <i class='fas fa-fw fa-subway'></i>
+            </a>
+            <a href="http://rssblog.vercel.app/" class="menu-item" target="_blank" rel="noopener" title="RSSBlog">
+                <i class='fas fa-fw fa-inbox'></i>
             </a>
             <a href="javascript:void(0);" class="menu-item theme-switch" title="{{ T "switchTheme" }}">
                 <i class="fas fa-adjust fa-fw"></i>

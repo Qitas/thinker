@@ -5,6 +5,8 @@ body {
 footer {
   background-color: rgba(233, 233, 247, 0.25);
   margin-top: 3rem;
+  line-height: 1.3rem;
+  height: 3.6rem;
 }
 
 .home[posts] .summary {
@@ -198,7 +200,7 @@ article .post-reward .qr-code .image {
   line-height: 1.6rem;
 }
 
-.menu-more {
+/* .menu-more {
   position: absolute;
   opacity: 0;
   left: 0;
@@ -208,7 +210,7 @@ article .post-reward .qr-code .image {
 }
 .menu-more:hover {
   cursor: pointer;
-}
+} */
 /* 文章元数据meta */
 .post-meta .post-meta-line:nth-child(2) i:nth-child(1) {
   margin-left: 0;
@@ -251,5 +253,46 @@ article .post-reward .qr-code .image {
 @media screen and (max-width: 1600px) {
   .home-profile {
     background-image: url();
+  }
+}
+
+/* 容器 <div> - 需要定位下拉内容 */
+.dropdown {
+  display: inline-block;
+}
+
+/* 下拉内容 (默认隐藏) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  line-height: 1.5rem;
+}
+
+/* 下拉菜单的链接 */
+.dropdown-content a {
+  padding: 10px 12px;
+  text-decoration: none;
+  display: block;
+}
+
+/* 鼠标移上去后修改下拉菜单链接颜色 */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* 在鼠标移上去后显示下拉菜单 */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media screen and (max-width: 680px) {
+  .dropdown:hover .dropdown-content {
+    display: inline;
+    position: relative;
+  }
+  .dropdown-content a:hover {
+    background-color: transparent;
   }
 }

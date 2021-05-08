@@ -1,5 +1,6 @@
 {{- if ne .Site.Params.footer.enable false -}}
     <footer class="footer">
+        <script async id="chevereto-pup-src" src="https://imgtu.com/sdk/pup.js" data-url="https://imgtu.com/upload" data-auto-insert="bbcode-embed-medium"></script>
         <div class="footer-container">
             {{- /* Hugo and LoveIt */ -}}
             {{- if ne .Site.Params.footer.hugo false -}}
@@ -43,8 +44,6 @@
             {{- /* Custom Content */ -}}
             {{- with .Site.Params.footer.custom -}}
                 <div class="footer-line">
-                    {{- safeHTML . -}}
-                    <br/>
                     <a href="https://travellings.now.sh/" target="_blank" rel="noopener" title="开往-友链接力">
                         <i class='fas fa-fw fa-subway'></i>开往-友链接力
                     </a>
@@ -52,6 +51,9 @@
                     <a href="http://rssblog.vercel.app/" target="_blank" rel="noopener" title="RSSBlog">
                         <i class='fas fa-fw fa-inbox'></i>RSSBlog
                     </a>
+                </div>
+                <div class="footer-line">
+                    {{- safeHTML . -}}
                 </div>
             {{- end -}}
         </div>
