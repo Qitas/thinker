@@ -6,7 +6,11 @@ body {
   background-color: #fefefe;
   padding: 2rem 2rem;
 }
-
+@media screen and (max-width: 800px) {
+  .page {
+    padding: 0 2rem;
+}
+}
 footer {
   background-color: #f8ebe6;
   margin-top: 3rem;
