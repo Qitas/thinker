@@ -1,0 +1,303 @@
+body {
+  background-color: #eef7f2;
+}
+
+.page {
+  background-color: #fefefe;
+  padding: 2rem 2rem;
+}
+
+footer {
+  background-color: #f8ebe6;
+  margin-top: 3rem;
+  line-height: 1.3rem;
+  height: 3.6rem;
+}
+
+.home[posts] .summary {
+  border-bottom: 2px dashed #7a7a7a;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+}
+
+.group-title {
+  padding-bottom: 0.5rem;
+  padding-top: 1rem;
+  border-bottom: 2px dashed #7a7a7a;
+}
+
+img[data-sizes="auto"] {
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+sup[class="pages-sup"] {
+  font-weight: lighter;
+  color: #a9a9b3;
+  font-size: 75%;
+}
+
+.friend.url {
+  text-decoration: none !important;
+  color: black;
+}
+.friend.logo {
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  padding: 2px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  margin-top: 14px !important;
+  margin-left: 14px !important;
+  background-color: #fff;
+}
+.friend.block.whole {
+  height: 92px;
+  margin: 5px;
+  width: 31%;
+  display: inline-block !important;
+  border-radius: 5px;
+  background: rgba(212, 235, 235, 0.5);
+  /* box-shadow: 4px 4px 2px 1px rgba(0, 0, 255, 0.2); */
+}
+.friend.block.whole:hover {
+  background: rgba(87, 142, 224, 0.15);
+}
+/* .friend.block.whole:hover .friend.block.left img {
+    transition: 0.9s !important;
+    -webkit-transition: 0.9s !important;
+    -moz-transition: 0.9s !important;
+    -o-transition: 0.9s !important;
+    -ms-transition: 0.9s !important;
+    transform: rotate(360deg) !important;
+    -webkit-transform: rotate(360deg) !important;
+    -moz-transform: rotate(360deg) !important;
+    -o-transform: rotate(360deg) !important;
+    -ms-transform: rotate(360deg) !important;
+} */
+.friend.block.left {
+  width: 92px;
+  float: left;
+}
+.friend.block.left {
+  margin-right: 2px;
+}
+.friend.block.right {
+  margin-top: 18px;
+  margin-right: 18px;
+}
+.friend.name {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.friend.info {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 0.8em;
+  color: #7a7a7a;
+  white-space: nowrap;
+}
+@media screen and (max-width: 600px) {
+  .friend.info,
+  .friend.block.left img {
+    display: none;
+  }
+  .friend.block.left {
+    width: 84px;
+    margin: auto;
+  }
+  .friend.block.whole {
+    width: 45%;
+  }
+  .friend.block.right {
+    height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .friend.name {
+    font-size: 14px;
+  }
+}
+
+/* 打赏 */
+article .post-reward {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+  color: #acacac;
+  border-top: 1px dashed #e6e6e6;
+  border-bottom: 1px dashed #e6e6e6;
+}
+
+article .post-reward .reward-button {
+  padding: 3px 7px;
+  display: inline-block;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+article .post-reward .reward-button:hover {
+  color: #fefefe;
+  background-color: #dedede;
+  transition: 0.5s;
+}
+
+article .post-reward #reward:checked ~ .qr-code {
+  display: block;
+}
+
+article .post-reward #reward:checked ~ .reward-button {
+  display: none;
+}
+
+article .post-reward .qr-code {
+  display: none;
+}
+
+article .post-reward .qr-code .qr-code-image {
+  display: inline-block;
+  min-width: 200px;
+  width: 40%;
+  margin-top: 15px;
+}
+
+article .post-reward .qr-code .qr-code-image span {
+  display: inline-block;
+  width: 100%;
+  margin: 8px 0;
+}
+
+article .post-reward .qr-code .image {
+  width: 200px;
+  height: 200px;
+}
+
+.summary .post-meta {
+  margin-top: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.summary .content {
+  margin: 1rem auto;
+}
+
+.summary .single-title a {
+  color: #555;
+  font-weight: bold;
+}
+.summary .single-title a:hover {
+  border-bottom: solid 2px #999;
+  opacity: 0.8;
+}
+/* .summary .post-footer .readmore{
+  border-bottom: solid 1px #777;
+} */
+
+.content p {
+  line-height: 1.6rem;
+}
+
+/* .menu-more {
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.menu-more:hover {
+  cursor: pointer;
+} */
+/* 文章元数据meta */
+.post-meta .post-meta-line:nth-child(2) i:nth-child(1) {
+  margin-left: 0;
+}
+.post-meta .post-meta-line:nth-child(2) i {
+  margin-left: 0.3rem;
+}
+.post-meta .post-meta-line:nth-child(2) span i {
+  margin-left: 0.3rem !important;
+}
+.post-meta a#post-meta-vcount {
+  color: #a9a9b3;
+}
+.post-meta a#post-meta-vcount:hover {
+  color: #2d96bd;
+}
+
+/* #waline-recent {
+  font-weight: bold;
+  text-transform: uppercase;
+  list-style: none;
+  position: fixed;
+  top: 10rem;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  line-height: 2em;
+  padding: 0 0.8rem;
+  margin: .8rem 0;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+  width: 20rem;
+  text-indent: -0.85rem;
+} */
+
+.home-profile {
+  background-image: url(https://z3.ax1x.com/2021/04/29/gFmy7T.png);
+}
+
+@media screen and (max-width: 1600px) {
+  .home-profile {
+    background-image: url();
+  }
+}
+
+/* 容器 <div> - 需要定位下拉内容 */
+.dropdown {
+  display: inline-block;
+}
+
+/* 下拉内容 (默认隐藏) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  line-height: 1.5rem;
+}
+
+/* 下拉菜单的链接 */
+.dropdown-content a {
+  padding: 10px 12px;
+  text-decoration: none;
+  display: block;
+}
+
+/* 鼠标移上去后修改下拉菜单链接颜色 */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* 在鼠标移上去后显示下拉菜单 */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media screen and (max-width: 680px) {
+  .dropdown:hover .dropdown-content {
+    display: inline;
+    position: relative;
+  }
+  .dropdown-content a:hover {
+    background-color: transparent;
+  }
+}
