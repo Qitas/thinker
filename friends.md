@@ -137,6 +137,28 @@ word="一个喜欢折腾的小姐姐"
 </div>
 </div>
 
+### 宝藏
+
+<div class="flink" id="article-container">
+<div class="friend-list-div" >
+
+{{< friends
+name="知妖"
+url="https://www.cbaigui.com/"
+logo="https://static.cbaigui.com/images/2020/10/cropped-logo.jpg"
+word="收集中国古今妖怪"
+>}}
+
+{{< friends
+name="中国色"
+url="http://zhongguose.com/"
+logo="http://zhongguose.com/img/favicon.ico"
+word="中国传统颜色"
+>}}
+
+</div>
+</div>
+
 ---
 
 ### 本站友链
