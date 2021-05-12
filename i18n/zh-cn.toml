@@ -18,6 +18,7 @@ other = "文章"
 # === Taxonomy ===
 [allSome]
 other = "所有{{ .Some }}"
+#other = "{{ .Some }}分类"
 
 [tag]
 other = "标签"

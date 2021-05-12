@@ -3,55 +3,65 @@
 {{- end -}}
 
 {{- define "content" -}}
-    {{- $taxonomies := .Data.Plural -}}
-    {{- $terms := .Data.Terms.ByCount -}}
-    {{- $type := .Type -}}
-
     <div class="page archive">
+        {{- $taxonomies := "tags" -}}
+        {{- $terms := $.Site.Taxonomies.tags.ByCount -}}
+        {{- $type := "tags" -}}
+        {{- /* Title */ -}}
+        <h2 class="single-title animated pulse faster">
+            {{- .Params.Title | default (T $taxonomies) | default $taxonomies | dict "Some" | T "allSome" -}}<sup class="pages-sup">{{ len $.Site.Taxonomies.tags.ByCount }}</sup>
+        </h2>
+
+        {{- /* Tag Cloud Page */ -}}
+        <div class="tag-cloud-tags">
+        <!-- <div class="categories-card tag-cloud-tags"> -->
+            {{- range $.Site.Taxonomies.tags.ByCount -}}
+                <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <sup>{{ .Count }}</sup></a>
+            {{- end -}}
+        </div>
+
+        <br />
+        <br />
+        <br />
+
+        {{- $taxonomies := "categories" -}}
+        {{- $terms := .Data.Terms.ByCount -}}
+        {{- $type := "categories" -}}
         {{- /* Title */ -}}
         <h2 class="single-title animated pulse faster">
             {{- .Params.Title | default (T $taxonomies) | default $taxonomies | dict "Some" | T "allSome" -}}<sup class="pages-sup">{{ len .Pages }}</sup>
         </h2>
 
         {{- /* Categories Page */ -}}
-        {{- if eq $taxonomies "categories" -}}
-            <div class="categories-card">
-                {{- range $terms -}}
-                    {{- $term := .Term -}}
-                    {{- $pages := .Pages -}}
-                    {{- with $.Site.GetPage "taxonomy" (printf "%v/%v" $type $term) -}}
-                    <div class="card-item">
-                        <div class="card-item-wrapper">
-                            <h3 class="card-item-title">
-                                <a href="{{ .RelPermalink }}">
-                                    <i class="far fa-folder fa-fw"></i>&nbsp;{{ .Page.Title }} <sup class="pages-sup">{{ len .Pages }}</sup>
+        <div class="categories-card">
+        <!-- <div class="categories-card tag-cloud-tags"> -->
+            {{- range $terms -}}
+                {{- $term := .Term -}}
+                {{- $pages := .Pages -}}
+                {{- with $.Site.GetPage "taxonomy" (printf "%v/%v" $type $term) -}}
+                <div class="card-item">
+                    <div class="card-item-wrapper">
+                        <h3 class="card-item-title">
+                            <a href="{{ .RelPermalink }}">
+                                <i class="far fa-folder fa-fw"></i>&nbsp;{{ .Page.Title }} <sup class="pages-sup">{{ len .Pages }}</sup>
+                            </a>
+                        </h3>
+                        {{- range first 5 $pages -}}
+                            <article class="archive-item">
+                                <a href="{{ .RelPermalink }}" class="archive-item-link">
+                                    {{- .Title -}}
                                 </a>
-                            </h3>
-                            {{- range first 5 $pages -}}
-                                <article class="archive-item">
-                                    <a href="{{ .RelPermalink }}" class="archive-item-link">
-                                        {{- .Title -}}
-                                    </a>
-                                </article>
-                            {{- end -}}
-                            {{- if gt (len $pages) 5 -}}
-                                <span class="more-post">
-                                    <a href="{{ .RelPermalink }}" class="more-single-link">{{ T "more" }} >></a>
-                                </span>
-                            {{- end -}}
-                        </div>
+                            </article>
+                        {{- end -}}
+                        {{- if gt (len $pages) 5 -}}
+                            <span class="more-post">
+                                <a href="{{ .RelPermalink }}" class="more-single-link">{{ T "more" }} >></a>
+                            </span>
+                        {{- end -}}
                     </div>
-                    {{- end -}}
+                </div>
                 {{- end -}}
-            </div>
-
-        {{- /* Tag Cloud Page */ -}}
-        {{- else if eq $taxonomies "tags" -}}
-            <div class="tag-cloud-tags">
-                {{- range $.Site.Taxonomies.tags.ByCount -}}
-                    <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <sup>{{ .Count }}</sup></a>
-                {{- end -}}
-            </div>
-        {{- end -}}
+            {{- end -}}
+        </div>
     </div>
 {{- end -}}

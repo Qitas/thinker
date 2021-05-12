@@ -5,10 +5,11 @@ body {
 .page {
   background-color: #fefefe;
   padding: 2rem 2rem;
+  border-radius: 5px;
 }
 @media screen and (max-width: 800px) {
   .page {
-    padding: 2rem 0;
+    padding: 2rem 0.1rem;
 }
 }
 footer {
@@ -40,6 +41,7 @@ sup[class="pages-sup"] {
   font-weight: lighter;
   color: #a9a9b3;
   font-size: 75%;
+  margin-left: 0.5rem;
 }
 
 .friend.url {
@@ -304,4 +306,7 @@ article .post-reward .qr-code .image {
   .dropdown-content a:hover {
     background-color: transparent;
   }
+}
+.archive .categories-card {
+  margin-top: -2rem;
 }

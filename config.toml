@@ -47,16 +47,16 @@ ignoreErrors = ["error-remote-getjson"]
     copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
     # 菜单配置
     [languages.zh-cn.menu]
-      [[languages.zh-cn.menu.main]]
-        identifier = "home"
-        # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-        pre = "<i class='fas fa-fw fa-home'></i>"
-        # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
-        post = ""
-        name = "主页"
-        url = "/"
-        title = ""
-        weight = 1
+#      [[languages.zh-cn.menu.main]]
+#        identifier = "home"
+#        # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
+#        pre = "<i class='fas fa-fw fa-home'></i>"
+#        # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
+#        post = ""
+#        name = "主页"
+#        url = "/"
+#        title = ""
+#        weight = 1
       [[languages.zh-cn.menu.main]]
         identifier = "posts"
         # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
@@ -67,14 +67,14 @@ ignoreErrors = ["error-remote-getjson"]
         url = "/posts/"
         title = ""
         weight = 2
-      [[languages.zh-cn.menu.main]]
-        identifier = "tags"
-        pre = "<i class='fas fa-fw fa-tag'></i>"
-        post = ""
-        name = "标签"
-        url = "/tags/"
-        title = ""
-        weight = 3
+#      [[languages.zh-cn.menu.main]]
+#        identifier = "tags"
+#        pre = "<i class='fas fa-fw fa-tag'></i>"
+#        post = ""
+#        name = "标签"
+#        url = "/tags/"
+#        title = ""
+#        weight = 3
       [[languages.zh-cn.menu.main]]
         identifier = "categories"
         pre = "<i class='fas fa-fw fa-th'></i>"
@@ -92,6 +92,14 @@ ignoreErrors = ["error-remote-getjson"]
         title = ""
         weight = 5
       [[languages.zh-cn.menu.more]]
+        [[languages.zh-cn.menu.ops]]
+          identifier = "about"
+          pre = "<i class='fas fa-fw fa-id-card'></i>"
+          post = ""
+          name = "关于"
+          url = "/about/"
+          title = ""
+          weight = 2
         [[languages.zh-cn.menu.ops]]
           identifier = "messages"
           pre = "<i class='fas fa-fw fa-comment'></i>"
@@ -112,7 +120,7 @@ ignoreErrors = ["error-remote-getjson"]
           identifier = "comment-manager"
           pre = "<i class='fas fa-fw fa-wrench'></i>"
           post = ""
-          name = "评论管理"
+          name = "管理"
           url = "https://waline-vercel-phi.vercel.app/ui#"
           title = ""
           weight = 5
@@ -573,7 +581,7 @@ ignoreErrors = ["error-remote-getjson"]
     # 第三方库配置
     [params.page.library]
       [params.page.library.css]
-        i1customcss = "css/custom210511.css"
+        i1customcss = "css/custom210512.css"
       [params.page.library.js]
         i1jqueryjs = "https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"
         i2customjs = "js/custom210508.js"
