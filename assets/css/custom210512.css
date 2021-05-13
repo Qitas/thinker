@@ -22,7 +22,7 @@ footer {
 .home[posts] .summary {
   border-bottom: 2px dashed #7a7a7a;
   margin-bottom: 3rem;
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
 }
 
 .group-title {
@@ -188,11 +188,11 @@ article .post-reward .qr-code .image {
 
 .summary .post-meta {
   margin-top: 0.4rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
 }
 
 .summary .content {
-  margin: 1rem auto;
+  margin: 0 auto;
 }
 
 .summary .single-title a {
