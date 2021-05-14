@@ -2,7 +2,7 @@
 title: "C++闭包"
 slug: "cpp-closure"
 date: 2021-02-23T10:00:57+08:00
-lastmod: 2021-03-15T11:29:23+08:00
+lastmod: 2021-05-14T20:55:56+08:00
 author: bbing
 draft: false
 tags: ["Cpp", "lambda", "constexpr", "编译时"]
@@ -388,7 +388,11 @@ public:
 ```
 目前看来, C++11标准的编译器一般不会默认给lambda表达式添加上[constexpr](/202103/cpp-const-adconsexpr/)关键词.
 
-但是C++17标准后, 给lambda表达式添加上了[constexpr](/202103/cpp-const-adconsexpr/)关键词.
+但是C++17标准后, 给lambda表达式添加上了[constexpr](/202103/cpp-const-adconsexpr/)关键词. 所以在C++17编译条件下, 可以这样使用:
+```C++
+constexpr int dbl1 = lmd_func(3);
+```
+这时候就已经是编译期计算, 并且将值赋值给内存.
 
 在C++11标准为了启动优化, 我们需要加上```-O2```参数(gcc编译器). 调用接口:
 ```C++

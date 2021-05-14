@@ -92,18 +92,11 @@ logo="https://gitee.com/W4j1e/pic/raw/master/img/dl2.png"
 word="总是偏爱不务正业"
 >}}
 
-{{< friends
+<!-- {{< friends
 name="猫猫的小窝"
 url="https://maogeblog.top"
 logo="https://cdn.jsdelivr.net/gh/HUC-GMM/maogeblog/ico.png"
 word="万丈高楼平地起，辉煌只能靠自己"
->}}
-
-<!-- {{< friends
-name="黑石博客"
-url="https://www.heson10.com"
-logo="https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/avatar03.png"
-word="人生在勤，不索何获"
 >}} -->
 
 {{< friends
@@ -137,7 +130,7 @@ word="一个喜欢折腾的小姐姐"
 </div>
 </div>
 
-### 宝藏
+<!-- ### 宝藏
 
 <div class="flink" id="article-container">
 <div class="friend-list-div" >
@@ -157,7 +150,7 @@ word="中国传统颜色"
 >}}
 
 </div>
-</div>
+</div> -->
 
 ---
 
