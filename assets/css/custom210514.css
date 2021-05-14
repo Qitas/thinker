@@ -310,3 +310,11 @@ article .post-reward .qr-code .image {
 .archive .categories-card {
   margin-top: -2rem;
 }
+#header-mobile .header-container .menu .menu-mobile {
+  display: inline-block;
+  margin: auto 1rem;
+  width: 3rem;
+}
+#header-mobile.open .menu .menu-mobile {
+  display: none;
+}

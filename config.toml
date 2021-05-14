@@ -91,6 +91,14 @@ ignoreErrors = ["error-remote-getjson"]
         url = "/friends/"
         title = ""
         weight = 5
+      [[languages.zh-cn.menu.main]]
+        identifier = "messages"
+        pre = "<i class='fas fa-fw fa-comment'></i>"
+        post = ""
+        name = "留言"
+        url = "/messages/"
+        title = ""
+        weight = 6
       [[languages.zh-cn.menu.more]]
         [[languages.zh-cn.menu.ops]]
           identifier = "about"
@@ -100,14 +108,6 @@ ignoreErrors = ["error-remote-getjson"]
           url = "/about/"
           title = ""
           weight = 2
-        [[languages.zh-cn.menu.ops]]
-          identifier = "messages"
-          pre = "<i class='fas fa-fw fa-comment'></i>"
-          post = ""
-          name = "留言"
-          url = "/messages/"
-          title = ""
-          weight = 3
         [[languages.zh-cn.menu.ops]]
           identifier = "notebook"
           pre = "<i class='fas fa-fw fa-keyboard'></i>"
@@ -581,7 +581,7 @@ ignoreErrors = ["error-remote-getjson"]
     # 第三方库配置
     [params.page.library]
       [params.page.library.css]
-        i1customcss = "css/custom210512.css"
+        i1customcss = "css/custom210514.css"
       [params.page.library.js]
         i1jqueryjs = "https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"
         i2customjs = "js/custom210508.js"
