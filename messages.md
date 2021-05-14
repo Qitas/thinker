@@ -3,7 +3,7 @@ title: "留言版"
 ---
 
 <!-- 引用 artitalk -->
-<script type="text/javascript" src="https://unpkg.com/artitalk"></script>
+<script type="text/javascript" src="https://unpkg.com/artitalk" async></script>
 <!-- 存放说说的容器 -->
 <div id="artitalk_main"></div>
 <script>
