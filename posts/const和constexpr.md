@@ -2,7 +2,7 @@
 title: "const和constexpr"
 slug: "cpp-const-adconsexpr"
 date: 2021-03-11T17:06:07+08:00
-lastmod: 2021-03-15T11:42:21+08:00
+lastmod: 2021-05-17T20:53:19+08:00
 author: bbing
 draft: false
 tags: ["Cpp", "const", "constexpr", "编译时"]
@@ -75,7 +75,15 @@ const int a = 1;
 const int &b = a;
 constexpr int c = b;
 ```
-编译器同样报错说```b```不是一个常量表达式. 我的理解是, 所有的值引用应该都不被当做常量(TODO|存疑).
+编译器同样报错说```b```不是一个常量表达式. 我的理解是, 所有的值引用应该都不被当做常量. 看下面一个例子:
+```C++
+// const int a = 1;
+int a = 1;
+const int &b = a;       // 1
+a = 2;
+cout << b << endl;      // 2
+```
+不用const修饰```a```, 但是用const修饰```b&```, 表示```b```只能作为```a```的引用, 这时候我们是可以修改变量```a```的值并且反映在引用```b```上的.
 
 ### 用```constexpr```做编译期函数
 

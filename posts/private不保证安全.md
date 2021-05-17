@@ -2,7 +2,7 @@
 title: "private不保证安全"
 slug: "priavte-bypointer"
 date: 2021-05-17T19:12:55+08:00
-lastmod: 2021-05-17T19:12:55+08:00
+lastmod: 2021-05-17T20:53:34+08:00
 author: bbing
 draft: false
 tags: ["短文", "Cpp", "reprinter_cast", "static_cast", "const_cast", "dynamic_cast"]
@@ -59,3 +59,10 @@ private m_val 3
 delete A
 ```
 成功窃取了private的成员内容.
+
+当然通过指针修改private内容也是可以的:
+```C++
+*reinterpret_cast<int *>(pb) = 10;
+cout << "private m_size " << *reinterpret_cast<int *>(pb) << endl;
+```
+现在输出就是10了.
