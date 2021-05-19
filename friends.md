@@ -121,8 +121,8 @@ word="愿多年以后，我可以酌一杯清酒，烂醉如泥，梦中回到�
 >}}
 
 {{< friends
-name="Xnote"
-url="https://note.xgamego.top"
+name="Lznote"
+url="https://lznote.com"
 logo="https://cdn.jsdelivr.net/gh/liaoblog/img@master/blogpage/noteimg.png"
 word="一个喜欢折腾的小姐姐"
 >}}
