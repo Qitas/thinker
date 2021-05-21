@@ -2,7 +2,7 @@
 title: "使用vercel和easycron实现自动部署"
 slug: "autodeploy-vercel-easycron"
 date: 2021-04-27T20:22:49+08:00
-lastmod: 2021-04-27T20:22:49+08:00
+lastmod: 2021-05-21T14:22:20+08:00
 author: bbing
 draft: false
 tags: ["vercel", "easycron"]
@@ -54,8 +54,14 @@ curl -X POST https://api.vercel.com/v1/integrations/deploy/QmcwKGEbAyFtfybXBxvuS
 
 在EasyCron页面点击Cron Job就可以方便的添加定时了.
 
+## github webhooks
+
+除了easycron的定时触发, 我们也可以使用github的webhooks实现事件触发.
+
+在github仓库settings->webhooks目录下, 可以给仓库添加webhooks, 可以实现在某些事件(比如push/star等)发生的情况下, 给某个url发送post请求. 这样我们就可以实现在blog内容更新的时候, 可以给vercel的waline项目的hook连接发送请求, 重新部署评论系统, 以达到更新评论系统的目的.
+
 ## 总结
 
 以上是简单记录, 开始刚接触vercel和easycron, 主要还是看看官网说明: [Deploy Hooks](https://vercel.com/docs/more/deploy-hooks). 如果接触过Linux上的cron则对easycron就很容易理解了.
 
-不过刚开始对Hook理解错了, 认为访问Hook链接之后vercel会更新一笔到github上, 实际上不是的, vercel只做重新部署, 可以理解为重新从github上拉取代码然后部署. github上也有Hook的概念, 这个还需要学习(TODO).
+不过刚开始对Hook理解错了, 认为访问Hook链接之后vercel会更新一笔到github上, 实际上不是的, vercel只做重新部署, 可以理解为重新从github上拉取代码然后部署.
