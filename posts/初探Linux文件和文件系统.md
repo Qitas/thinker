@@ -2,7 +2,7 @@
 title: "初探Linux文件和文件系统"
 slug: "linux-filesystem"
 date: 2021-05-14T09:31:15+08:00
-lastmod: 2021-05-14T09:31:15+08:00
+lastmod: 2021-05-21T19:24:18+08:00
 author: bbing
 draft: false
 tags: ["Linux", "文件系统"]
@@ -134,9 +134,9 @@ Inode项是inode的id, inode是实际存储文件信息和内容的结构体, �
 !["树状存储"](https://z3.ax1x.com/2021/05/13/gDNYid.png "树状存储")
 
 ### inode
-inode可以认为是操作系统眼中的文件, 磁盘或者内存上都会有inode, 这里是内存上的inode, 是一个结构体.
+inode可以认为是操作系统眼中的文件, 磁盘或者内存上都会有inode, 这里是内存上(VFS)的inode, 是一个结构体.
 
-inode在Linux上是已经分配好的, 磁盘上会有一块固定区域存放inode的bitmap, 这也意味着inode的数量是有限的, 在硬盘格式化的时候就已经确定好了. 通过df -i可以看到系统各个分区的inode总数和使用数.
+inode在Linux上是已经分配好的, 磁盘上会有一块固定区域存放inode的bitmap, 这也意味着inode的数量是有限的, 在硬盘格式化的时候就已经确定好了. 通过```df -i```可以看到系统各个分区的inode总数和使用数.
 
 所以我们可能会遇到的一个问题是, 硬盘空间明明还有很多, 但是已经无法创建新的文件了, 这时候就可以考虑是不是inode没有了.
 
@@ -148,21 +148,19 @@ inode在Linux上是已经分配好的, 磁盘上会有一块固定区域存放in
  * of the 'struct inode'
  */
 struct inode {
-	umode_t			i_mode;               // 文件权限, rwx等
+	umode_t				i_mode;               // 文件权限, rwx等
 	unsigned short		i_opflags;
-	kuid_t			i_uid;                // 文件所属用户id, ls可以看到
-	kgid_t			i_gid;                // 文件所属用户组id, ls可以看到
+	kuid_t				i_uid;                // 文件所属用户id, ls可以看到
+	kgid_t				i_gid;                // 文件所属用户组id, ls可以看到
 	unsigned int		i_flags;
 #ifdef CONFIG_FS_POSIX_ACL
 	struct posix_acl	*i_acl;
 	struct posix_acl	*i_default_acl;
 #endif
 	const struct inode_operations	*i_op;
-	struct super_block	*i_sb;        // 指向了super block, 对同一个文件系统是唯一的
-	struct address_space	*i_mapping;
-#ifdef CONFIG_SECURITY
-	void			*i_security;
-#endif
+	struct super_block				*i_sb;        // 指向了super block, 对同一个文件系统是唯一的
+	struct address_space			*i_mapping;
+//......
 	/* Stat data, not accessed from path walking */
 	unsigned long		i_ino;
 	/*
@@ -173,79 +171,66 @@ struct inode {
 	 *    inode_(inc|dec)_link_count
 	 */
 	union {
-		const unsigned int i_nlink;
-		unsigned int __i_nlink;
+		const unsigned int 	i_nlink;
+		unsigned int 		__i_nlink;
 	};
-	dev_t			i_rdev;
-	loff_t			i_size;               // 文件大小
+	dev_t				i_rdev;
+	loff_t				i_size;         // 文件大小
 	struct timespec64	i_atime;        // 操作时间相关
 	struct timespec64	i_mtime;        // 操作时间相关
 	struct timespec64	i_ctime;        // 操作时间相关
-	spinlock_t		i_lock;	/* i_blocks, i_bytes, maybe i_size */
-	unsigned short          i_bytes;
-	u8			i_blkbits;
-	u8			i_write_hint;
-	blkcnt_t		i_blocks;
-#ifdef __NEED_I_SIZE_ORDERED
-	seqcount_t		i_size_seqcount;
-#endif
-	/* Misc */
-	unsigned long		i_state;
-	struct rw_semaphore	i_rwsem;
-	unsigned long		dirtied_when;	/* jiffies of first dirtying */
-	unsigned long		dirtied_time_when;
-	struct hlist_node	i_hash;
-	struct list_head	i_io_list;	/* backing dev IO list */
-#ifdef CONFIG_CGROUP_WRITEBACK
-	struct bdi_writeback	*i_wb;		/* the associated cgroup wb */
-	/* foreign inode detection, see wbc_detach_inode() */
-	int			i_wb_frn_winner;
-	u16			i_wb_frn_avg_time;
-	u16			i_wb_frn_history;
-#endif
-	struct list_head	i_lru;		/* inode LRU list */
-	struct list_head	i_sb_list;
-	struct list_head	i_wb_list;	/* backing dev writeback list */
-	union {
-		struct hlist_head	i_dentry;
-		struct rcu_head		i_rcu;
-	};
-	atomic64_t		i_version;
-	atomic_t		i_count;
-	atomic_t		i_dio_count;
-	atomic_t		i_writecount;
-#ifdef CONFIG_IMA
-	atomic_t		i_readcount; /* struct files open RO */
-#endif
-	const struct file_operations	*i_fop;	/* former ->i_op->default_file_ops */
-	struct file_lock_context	*i_flctx;
-	struct address_space	i_data;
-	struct list_head	i_devices;
+	spinlock_t			i_lock;	/* i_blocks, i_bytes, maybe i_size */
+	unsigned short      i_bytes;
+	u8					i_blkbits;
+	u8					i_write_hint;
+	blkcnt_t			i_blocks;
+//......
 	union {
 		struct pipe_inode_info	*i_pipe;
-		struct block_device	*i_bdev;
-		struct cdev		*i_cdev;
-		char			*i_link;
-		unsigned		i_dir_seq;
-	};                        // inode的类型, 比如可以是一个pipe或者link等, 这时候可以不需要磁盘上具体的文件内容, 仅inode结构就可以了
-	__u32			i_generation;
-#ifdef CONFIG_FSNOTIFY
-	__u32			i_fsnotify_mask; /* all events this inode cares about */
-	struct fsnotify_mark_connector __rcu	*i_fsnotify_marks;
-#endif
-#ifdef CONFIG_FS_ENCRYPTION
-	struct fscrypt_info	*i_crypt_info;
-#endif
-	void			*i_private; /* fs or device private pointer */
+		struct block_device		*i_bdev;
+		struct cdev				*i_cdev;
+		char					*i_link;
+		unsigned				i_dir_seq;
+	};                        	// inode的类型, 比如可以是一个pipe或者link等, 这时候可以不需要磁盘上具体的文件内容, 仅inode结构就可以了
+//......
 } __randomize_layout;
 ```
-TODO: inode怎么指向block的还需要学习. 可能是block_device, 需确认.
 
 从这个结构体中我们可以看到, inode基本包含一个文件的所有信息, 文件大小, 访问时间, 文件权限等等, 但是**不包括文件名**.
 
 结构体用一个union表示了文件的类型, 比如是pipe文件(i_pipe)还是link的文件(i_link)等等, 因为一个文件同时只能属于一种类型, 不可能既是link有时pipe等等, 所以只需要使用union表示即可.
 
 我们使用的ls和stat等命令就可以打印inode的基本信息.
+
+以下是文件系统的inode, 是在磁盘上的结构, 比如[ext4](https://code.woboq.org/linux/linux/fs/ext4/ext4.h.html)文件系统:
+```C
+/*
+ * Structure of an inode on the disk
+ */
+struct ext4_inode {
+	__le16	i_mode;		/* File mode */
+	__le16	i_uid;		/* Low 16 bits of Owner Uid */
+	__le32	i_size_lo;	/* Size in bytes */
+	__le32	i_atime;	/* Access time */
+	__le32	i_ctime;	/* Inode Change time */
+	__le32	i_mtime;	/* Modification time */
+	__le32	i_dtime;	/* Deletion Time */
+	__le16	i_gid;		/* Low 16 bits of Group Id */
+	__le16	i_links_count;	/* Links count */
+	__le32	i_blocks_lo;	/* Blocks count */
+	__le32	i_flags;	/* File flags */
+//.......
+	__le32	i_block[EXT4_N_BLOCKS];/* Pointers to blocks */
+	__le32	i_generation;	/* File version (for NFS) */
+	__le32	i_file_acl_lo;	/* File ACL */
+	__le32	i_size_high;
+	__le32	i_obso_faddr;	/* Obsoleted fragment address */
+//......
+};
+```
+在这里也保存了和文件相关的一些基本信息, 比如mode/时间等等, 同时文件系统的inode也包含```i_block```这个成员, ```i_block```就可以指向磁盘上真正的block.
+
+TODO: 虚拟文件系统的inode是如何与文件系统inode关联的.
 
 #### pipe
 
@@ -326,7 +311,7 @@ block是磁盘存储内容的最小单位, 计算机按照block为单位读取�
 
 这样的好处就是不需要过大的inode, inode只需极少数的block指针, 就可以存储很大的文件. 坏处是多级指向会降低对大文件读写的效率, 因为计算机按照block读取文件内容, 多级指向就会增加IO访问次数, 降低读写效率.
 
-以下是inode到block的多级指向结构:
+以下是文件系统inode到block的多级指向结构:
 
 !["inode-block"](https://z3.ax1x.com/2021/05/13/gBnFIS.png "inode-block")
 
@@ -339,53 +324,36 @@ super block是内核直接管理的block, 内核可以直接拿到这个block的
 ```C
 struct super_block {
 	struct list_head	s_list;		/* Keep this first */
-	dev_t			s_dev;		/* search index; _not_ kdev_t */
+	dev_t				s_dev;		/* search index; _not_ kdev_t */
 	unsigned char		s_blocksize_bits;
 	unsigned long		s_blocksize;
-	loff_t			s_maxbytes;	/* Max file size */
-	struct file_system_type	*s_type;
+	loff_t				s_maxbytes;	/* Max file size */
+	struct file_system_type			*s_type;
 	const struct super_operations	*s_op;
 	const struct dquot_operations	*dq_op;
-	const struct quotactl_ops	*s_qcop;
-	const struct export_operations *s_export_op;
+	const struct quotactl_ops		*s_qcop;
+	const struct export_operations 	*s_export_op;
 	unsigned long		s_flags;
 	unsigned long		s_iflags;	/* internal SB_I_* flags */
 	unsigned long		s_magic;
-	struct dentry		*s_root;        // 根结点dentry
+	struct dentry		*s_root;    // 根结点dentry
 	struct rw_semaphore	s_umount;
-	int			s_count;
-	atomic_t		s_active;
-#ifdef CONFIG_SECURITY
-	void                    *s_security;
-#endif
-	const struct xattr_handler **s_xattr;
-#ifdef CONFIG_FS_ENCRYPTION
-	const struct fscrypt_operations	*s_cop;
-#endif
+	int					s_count;
+	atomic_t			s_active;
+//......
 	struct hlist_bl_head	s_roots;	/* alternate root dentries for NFS */
-	struct list_head	s_mounts;	/* list of mounts; _not_ for fs use */
-	struct block_device	*s_bdev;
+	struct list_head		s_mounts;	/* list of mounts; _not_ for fs use */
+	struct block_device		*s_bdev;
 	struct backing_dev_info *s_bdi;
-	struct mtd_info		*s_mtd;
-	struct hlist_node	s_instances;
-	unsigned int		s_quota_types;	/* Bitmask of supported quota types */
-	struct quota_info	s_dquot;	/* Diskquota specific options */
-	struct sb_writers	s_writers;
-	/*
-	 * Keep s_fs_info, s_time_gran, s_fsnotify_mask, and
-	 * s_fsnotify_marks together for cache efficiency. They are frequently
-	 * accessed and rarely modified.
-	 */
-	void			*s_fs_info;	/* Filesystem private info */
-	/* Granularity of c/m/atime in ns (cannot be worse than a second) */
-	u32			s_time_gran;
-#ifdef CONFIG_FSNOTIFY
-	__u32			s_fsnotify_mask;
-	struct fsnotify_mark_connector __rcu	*s_fsnotify_marks;
-#endif
+	struct mtd_info			*s_mtd;
+	struct hlist_node		s_instances;
+	unsigned int			s_quota_types;	/* Bitmask of supported quota types */
+	struct quota_info		s_dquot;		/* Diskquota specific options */
+	struct sb_writers		s_writers;
+//......
 	char			s_id[32];	/* Informational name */
 	uuid_t			s_uuid;		/* UUID */
-	unsigned int		s_max_links;
+	unsigned int	s_max_links;
 	fmode_t			s_mode;
 	/*
 	 * The next field is for VFS *only*. No filesystems have any business
@@ -453,20 +421,20 @@ dentry是一个目录的结构表示:
 ```C
 struct dentry {
 	/* RCU lookup touched fields */
-	unsigned int d_flags;		/* protected by d_lock */
-	seqcount_t d_seq;		/* per dentry seqlock */
+	unsigned int 	d_flags;		/* protected by d_lock */
+	seqcount_t 		d_seq;			/* per dentry seqlock */
 	struct hlist_bl_node d_hash;	/* lookup hash list */
-	struct dentry *d_parent;	/* parent directory */
-	struct qstr d_name;
-	struct inode *d_inode;		/* Where the name belongs to - NULL is
-					 * negative */
+	struct dentry	 	*d_parent;		/* parent directory */
+	struct qstr 		d_name;
+	struct inode 		*d_inode;		/* Where the name belongs to - NULL is
+					 	* negative */
 	unsigned char d_iname[DNAME_INLINE_LEN];	/* small names */
 	/* Ref lookup also touches following */
-	struct lockref d_lockref;	/* per-dentry lock and refcount */
+	struct lockref d_lockref;					/* per-dentry lock and refcount */
 	const struct dentry_operations *d_op;
 	struct super_block *d_sb;	/* The root of the dentry tree */
 	unsigned long d_time;		/* used by d_revalidate */
-	void *d_fsdata;			/* fs-specific data */
+	void *d_fsdata;				/* fs-specific data */
 	union {
 		struct list_head d_lru;		/* LRU list */
 		wait_queue_head_t *d_wait;	/* in-lookup ones only */
@@ -520,6 +488,8 @@ ls -ia /
 3. [If threads share the same PID, how can they be identified?](https://stackoverflow.com/questions/9305992/if-threads-share-the-same-pid-how-can-they-be-identified)
 4. [从内核角度看Linux 线程和进程的区别](https://blog.csdn.net/qq_28351465/article/details/88950311)
 5. [linux/include/linux/fs.h](https://code.woboq.org/linux/linux/include/linux/fs.h.html#inode)
-6. 其他. 参考了很多文章, 这里相当于是参考源码验证了一些内容并且把他们聚集起来.
+6. [Overview of the Linux Virtual File System](https://www.kernel.org/doc/html/latest/filesystems/vfs.html?highlight=inode)
+7. [Index Nodes](https://www.kernel.org/doc/html/latest/filesystems/ext4/inodes.html?highlight=inode)
+8. [Overlay Filesystem](https://www.kernel.org/doc/html/latest/filesystems/overlayfs.html?highlight=inode)
 
-> 通过阅读源码, 一点一点深挖.
+这一篇知识很浅, 通过写这篇文章对文件系统也有一些粗浅的了解了, 后续还会写一个文件系统的专题.

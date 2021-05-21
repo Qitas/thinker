@@ -29,13 +29,6 @@ word="方便阅读C++展开式"
 >}}
 
 {{< friends
-name="路过图床"
-url="https://imgchr.com/"
-logo="https://imgchr.com/content/images/system/favicon_1587118523486_91617a.png"
-word="免费图床"
->}}
-
-{{< friends
 name="diagrams"
 url="https://app.diagrams.net/"
 logo="https://app.diagrams.net/images/favicon-32x32.png"
@@ -47,6 +40,13 @@ name="woboq"
 url="https://code.woboq.org/"
 logo="https://woboq.com/woboq-icon-192x192.png"
 word="C/C++源码阅读, Linux源码"
+>}}
+
+{{< friends
+name="The Linux Kernel"
+url="https://www.kernel.org/doc/html/latest/index.html"
+logo="."
+word="The Linux Kernel documentation"
 >}}
 
 </div>
