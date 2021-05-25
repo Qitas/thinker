@@ -49,6 +49,13 @@ logo="."
 word="The Linux Kernel documentation"
 >}}
 
+{{< friends
+name="kaggle"
+url="https://www.kaggle.com/"
+logo="https://www.kaggle.com/static/images/favicon.ico"
+word="模型训练, 在线Python"
+>}}
+
 </div>
 </div>
 
