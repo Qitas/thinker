@@ -1,72 +1,7 @@
-<div class="orlike-box">
-    <a class="likeit orlike" href="javascript:void(0)">
-        <i class="fa fa-thumbs-up" aria-hidden="true"><span>0</span></i>
-    </a>
-    <a class="dislikeit orlike" href="javascript:void(0)">
-        <i class="fa fa-thumbs-down" aria-hidden="true"><span>0</span></i>
-    </a>
-</div>
-<style>
-    .orlike {
-        margin-right: 1rem;
-        color: #acacac;
-    }
-    .orlike span{
-        margin-left: 0.3rem;
-    }
-    .orlike-box {
-        padding-top: 1rem;
-        border-top: 1px dashed #e6e6e6;
-    }
-</style>
-
-<script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.10.1/dist/av-min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/caibingcheng/orlike@0.0.4/orlike.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/caibingcheng/orlike@0.0.4/orlike.css">
+<div class="orlike-box"></div>
 <script>
-    // init
-    function listener(orlike) {
-        document.getElementsByClassName("likeit")[0].addEventListener("click", function () {
-            orlike.increment('like', 1);
-            const like = orlike.get('like');
-            this.getElementsByTagName('i')[0].getElementsByTagName('span')[0].innerHTML = like;
-            orlike.save();
-        });
-        document.getElementsByClassName("dislikeit")[0].addEventListener("click", function () {
-            orlike.increment('dislike', 1);
-            const dislike = orlike.get('dislike');
-            this.getElementsByTagName('i')[0].getElementsByTagName('span')[0].innerHTML = dislike;
-            orlike.save();
-        });
-
-        const like = orlike.get('like');
-        document.getElementsByClassName("likeit")[0].getElementsByTagName('i')[0].getElementsByTagName('span')[0].innerHTML = like;
-        const dislike = orlike.get('dislike');
-        document.getElementsByClassName("dislikeit")[0].getElementsByTagName('i')[0].getElementsByTagName('span')[0].innerHTML = dislike;
-    }
-
-    const orlike_class = 'OrLike';
-    AV.init({
-        appId: "hQFfnAHKAPnHTsmX3TOdHF8w-MdYXbMMI",
-        appKey: "GKFTEbIuDSQezoogEXDjsUGv"
-    })
-
-    const query = new AV.Query(orlike_class);
-    const link = window.location.pathname;
-    query.equalTo('link', link);
-    query.find().then((orlike) => {
-        let new_orlike = undefined;
-        if (orlike.length <= 0) {
-            const obj_orlike = AV.Object.extend(orlike_class);
-            new_orlike = new obj_orlike();
-            new_orlike.set('link', link);
-            new_orlike.set('like', 0);
-            new_orlike.set('dislike', 0);
-            new_orlike.save().then((new_orlike) => {
-                listener(new_orlike);
-            })
-        }
-        else {
-            new_orlike = orlike[0];
-            listener(new_orlike);
-        }
-    });
+    new OrLike({ serverUrl: "http://orlike.vercel.app/", el: ".orlike-box" });
 </script>

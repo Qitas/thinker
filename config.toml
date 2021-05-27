@@ -121,7 +121,7 @@ ignoreErrors = ["error-remote-getjson"]
           pre = "<i class='fas fa-fw fa-wrench'></i>"
           post = ""
           name = "管理"
-          url = "https://waline-vercel-phi.vercel.app/ui#"
+          url = "/manager/"
           title = ""
           weight = 5
     [languages.zh-cn.params]

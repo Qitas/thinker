@@ -91,6 +91,7 @@ function sleep(ms) {
 
 function nextISU()
 {
+    if (document.getElementsByClassName('friend-rand').length <= 0) return;
     var friend_btn = document.getElementsByClassName('friend-rand')[0];
     const max_time = 3000; //ms
     const max_loop = 2;
