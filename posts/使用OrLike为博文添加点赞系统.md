@@ -2,7 +2,7 @@
 title: "使用OrLike为博文添加点赞系统"
 slug: "blog-orlike"
 date: 2021-05-27T22:58:50+08:00
-lastmod: 2021-05-27T22:58:50+08:00
+lastmod: 2021-05-28T14:50:00+08:00
 author: bbing
 draft: false
 tags: ["vercel", "flask", "cors"]
@@ -14,7 +14,7 @@ categories: ["工具"]
 ![GitHub](https://img.shields.io/github/license/caibingcheng/orlike)
 ![GitHub release (latest by date)](https://img.shields.io/github/release/caibingcheng/orlike)
 
-使用LeanCloud, 部署在vercel的博客点赞插件. 项目[在这里](https://github.com/caibingcheng/orlike/)!
+使用LeanCloud, 部署在vercel的博客点赞插件, 保障安全.
 
 <!--more-->
 
@@ -30,7 +30,6 @@ categories: ["工具"]
 在你期望嵌入```OrLike```的页面加入以下链接:
 ```JavaScript
 <script src="https://cdn.jsdelivr.net/gh/caibingcheng/orlike@master/orlike.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/caibingcheng/orlike@master/orlike.css">
 ```
 当然, 也可以使用自己的CDN. 本项目也依赖JQuery, 所以别忘记引用JQuery:
 ```JavaScript
@@ -49,9 +48,10 @@ categories: ["工具"]
 </script>
 ```
 
-目前初始化需要两个参数
+目前初始化需要的参数:
 - ```serverUrl```: Vercel服务地址
 - ```el```: 放```orlike```的```div```名字(```class```或```id```)
+- ```days```: 用户id保存的时间, 默认是30天
 
 到此为止, 本地工作已经做完了, 现在需要创建LeanCloud账户, 可以参考[Valine](https://valine.js.org/quickstart.html)的配置方法.
 
@@ -64,3 +64,38 @@ categories: ["工具"]
 
 ## Todo & Contributes
 项目初期, 还有很多想象空间, 加油↖(^ω^)↗
+
+## 为hugo添加orlike
+
+添加文件```layouts/partials/single/orlike.html```:
+```HTML
+<script src="https://cdn.jsdelivr.net/gh/caibingcheng/orlike@master/orlike.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<div class="orlike-box"></div>
+<script>
+    new OrLike({
+        serverUrl: "https://orlike.vercel.app/",
+        el: ".orlike-box"
+    });
+</script>
+```
+要记得引用jquery, 如果已经引用过了并且jquery可以工作, 那么这里就不需要重复引用了.
+
+在```layouts/posts/single.html```合适的位置引用以上文件, 例如在content末尾:
+```HTML
+{{- /* Content */ -}}
+<div class="content" id="content">
+    {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+
+    {{- /* OrLike */ -}}
+    {{- partial "single/orlike.html" . -}}
+
+    {{- /* Reward */ -}}
+    {{- partial "single/reward.html" . -}}
+
+    {{- /* Notice */ -}}
+    {{- partial "single/notice.html" . -}}
+</div>
+```
+
+现在可以刷新页面试试是否有效.
