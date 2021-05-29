@@ -2,19 +2,30 @@
 title: "使用OrLike为博文添加点赞系统"
 slug: "blog-orlike"
 date: 2021-05-27T22:58:50+08:00
-lastmod: 2021-05-28T14:50:00+08:00
+lastmod: 2021-05-29T15:41:34+08:00
 author: bbing
 draft: false
 tags: ["vercel", "flask", "cors"]
-categories: ["工具"]
+categories: ["工具", "博客折腾"]
 ---
 
-## OrLike
+## [OrLike](https://github.com/caibingcheng/orlike)
 
 ![GitHub](https://img.shields.io/github/license/caibingcheng/orlike)
-![GitHub release (latest by date)](https://img.shields.io/github/release/caibingcheng/orlike)
+![GitHub branch checks state](https://img.shields.io/github/checks-status/caibingcheng/orlike/master)
+![GitHub Release Date](https://img.shields.io/github/release-date/caibingcheng/orlike)
+![GitHub language count](https://img.shields.io/github/languages/count/caibingcheng/orlike)
+![GitHub top language](https://img.shields.io/github/languages/top/caibingcheng/orlike)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/caibingcheng/orlike)
 
 使用LeanCloud, 部署在vercel的博客点赞插件, 保障安全.
+
+当前功能:
+- [x] 分离APPID/APPKEY, 保护账号安全
+- [x] 使用随机用户ID, 不保存用户其他信息, 保障用户隐私
+- [x] 支持设置用户过期时间
+- [x] 支持取消点赞/踩
+- [x] 将orlike发布为pipy包, 方便自动升级
 
 <!--more-->
 
@@ -22,8 +33,9 @@ categories: ["工具"]
 
 在这里可以将OrLike部署到你的Vercel账户上.
 
-[![Deploy to Vercel](https://camo.githubusercontent.com/f209ca5cc3af7dd930b6bfc55b3d7b6a5fde1aff/68747470733a2f2f76657263656c2e636f6d2f627574746f6e)](https://vercel.com/import/project?template=https://github.com/caibingcheng/orlike)
+[![Deploy to Vercel](https://camo.githubusercontent.com/f209ca5cc3af7dd930b6bfc55b3d7b6a5fde1aff/68747470733a2f2f76657263656c2e636f6d2f627574746f6e)](https://vercel.com/import/project?template=https://github.com/caibingcheng/orlike-vercel)
 
+我们更推荐使用这个[**零配置的例子**](https://github.com/caibingcheng/orlike-vercel).
 
 ## Usage
 
@@ -44,7 +56,11 @@ categories: ["工具"]
 然后在合适的地方初始化```OrLike```:
 ```HTML
 <script>
-    new OrLike({ serverUrl: "http://orlike-caibingcheng.vercel.app/", el: ".orlike-box" });
+    new OrLike({
+        serverUrl: "https://orlike-vercel.vercel.app/",
+        el: ".orlike-box",
+        days: 30,
+    });
 </script>
 ```
 
@@ -55,7 +71,7 @@ categories: ["工具"]
 
 到此为止, 本地工作已经做完了, 现在需要创建LeanCloud账户, 可以参考[Valine](https://valine.js.org/quickstart.html)的配置方法.
 
-创建账户并且新建应用之后， 需要**给应用添加一个名为```OrLike```的class**, 然后再拿到LeanCloud的```APP ID``` 和 ```APP Key```填入到Vercel的环境变量.
+创建账户并且新建应用之后， 需要**给应用添加一个名为```OrLike```的class**, 并且设置**读写权限为所有用户**, 然后再拿到LeanCloud的```APP ID``` 和 ```APP Key```填入到Vercel的环境变量.
 
 - ```APPID``` 对应 ```APP ID```
 - ```APPKEY``` 对应 ```APP Key```
@@ -64,6 +80,8 @@ categories: ["工具"]
 
 ## Todo & Contributes
 项目初期, 还有很多想象空间, 加油↖(^ω^)↗
+
+- [ ] 提供点赞/踩排名
 
 ## 为hugo添加orlike
 
@@ -74,8 +92,9 @@ categories: ["工具"]
 <div class="orlike-box"></div>
 <script>
     new OrLike({
-        serverUrl: "https://orlike.vercel.app/",
-        el: ".orlike-box"
+        serverUrl: "https://orlike-vercel.vercel.app/",
+        el: ".orlike-box",
+        days: 30,
     });
 </script>
 ```

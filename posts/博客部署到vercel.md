@@ -6,7 +6,7 @@ lastmod: 2021-05-11T09:42:00+08:00
 author: bbing
 draft: false
 tags: ["vercel", "短文"]
-categories: ["工具"]
+categories: ["工具", "博客折腾"]
 ---
 
 本站同时部署到了阿里云oss和vercel, 境内ip一般访问的是阿里云, 境外ip一般访问的是vercel, 经过测试, 境外ip访问会有较大速度提升(最快从几百ms可以到几十ms).

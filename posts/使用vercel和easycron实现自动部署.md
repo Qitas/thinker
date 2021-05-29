@@ -6,7 +6,7 @@ lastmod: 2021-05-21T14:22:20+08:00
 author: bbing
 draft: false
 tags: ["vercel", "easycron"]
-categories: ["工具"]
+categories: ["工具", "博客折腾"]
 ---
 
 最近做了一个博客内容聚合的网站[RSSBlog](https://rssblog.vercel.app/), 写入rss链接, 就会定时触发, 获取rss文章列表. 如下:
