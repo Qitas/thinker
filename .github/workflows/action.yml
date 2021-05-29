@@ -52,14 +52,14 @@ jobs:
             endpoint: ${{ secrets.ENDPOINT }}
             folder: public
 
-      - name: Deploy-ldftp
-        uses: sebastianpopp/ftp-action@releases/v2
-        with:
-          host: ${{ secrets.FTP_SERVER }}
-          user: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          localDir: "public"
-          remoteDir: "www"
+      # - name: Deploy-ldftp
+      #   uses: sebastianpopp/ftp-action@releases/v2
+      #   with:
+      #     host: ${{ secrets.FTP_SERVER }}
+      #     user: ${{ secrets.FTP_USERNAME }}
+      #     password: ${{ secrets.FTP_PASSWORD }}
+      #     localDir: "public"
+      #     remoteDir: "www"
 
       - name: Post Urls
         run: . urls.sh
