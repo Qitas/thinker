@@ -134,6 +134,13 @@ logo="https://cdn.jsdelivr.net/gh/liaoblog/img@master/blogpage/noteimg.png"
 word="一个喜欢折腾的小姐姐"
 >}}
 
+{{< friends
+name="滑稽博客"
+url="https://www.huajibk.cn/"
+logo="https://sdn.geekzu.org/avatar/4fc4184b841070d8ab61898e1cc3089a"
+word="萌新的小小博客"
+>}}
+
 </div>
 </div>
 
