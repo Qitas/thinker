@@ -3,7 +3,7 @@ body {
 }
 
 .page {
-  background-color: #fefefe;
+  background-color: rgba(254, 254, 254, 0.0);
   padding: 2rem 2rem;
   border-radius: 5px;
 }
@@ -20,9 +20,18 @@ footer {
 }
 
 .home[posts] .summary {
-  border-bottom: 2px dashed #7a7a7a;
-  margin-bottom: 3rem;
-  padding-bottom: 1rem;
+  /* border-bottom: 2px dashed #7a7a7a; */
+  margin: 1rem auto;
+  padding: 1rem 1rem;
+  background-color: rgba(254, 254, 254, 0.6);
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.home[posts] .summary:hover {
+  background-color: rgba(254, 254, 254, 0.4);
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba(111, 111, 111, 0.15);
+  transition: 0.5s;
 }
 
 .group-title {

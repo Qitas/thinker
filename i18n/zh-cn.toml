@@ -112,8 +112,14 @@ other = "目录"
 [publishedOnDate]
 other = "发布于 {{ .Date }}"
 
+[justDate]
+other = "{{ .Date }}"
+
 [includedInCategories]
 other = "收录于 {{ .Categories }}"
+
+[justCategories]
+other = "{{ .Categories }}"
 
 [wordCount]
 other = "约 {{ .Count }} 字"
