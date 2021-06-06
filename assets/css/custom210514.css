@@ -24,13 +24,14 @@ footer {
   margin: 1rem auto;
   padding: 1rem 1rem;
   background-color: rgba(254, 254, 254, 0.6);
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba(111, 111, 111, 0.15);
   border-radius: 0.4rem;
   cursor: pointer;
 }
 
 .home[posts] .summary:hover {
   background-color: rgba(254, 254, 254, 0.4);
-  box-shadow: 0.2rem 0.2rem 0.2rem rgba(111, 111, 111, 0.15);
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba(111, 111, 111, 0.30);
   transition: 0.5s;
 }
 
@@ -288,6 +289,9 @@ article .post-reward .qr-code .image {
   background-color: #f9f9f9;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   line-height: 1.5rem;
+  border-bottom-left-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+  overflow: hidden;
 }
 
 /* 下拉菜单的链接 */
