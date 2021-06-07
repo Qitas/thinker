@@ -141,6 +141,13 @@ logo="https://sdn.geekzu.org/avatar/4fc4184b841070d8ab61898e1cc3089a"
 word="萌新的小小博客"
 >}}
 
+{{< friends
+name="LonYJ’s blog"
+url="https://furrysp.top/"
+logo="https://sdn.geekzu.org/avatar/26fb4e9d679e499d8545df9f2aea519c?s=100"
+word="あなたは主人公になりたいですか?"
+>}}
+
 </div>
 </div>
 
