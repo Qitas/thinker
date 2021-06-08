@@ -50,6 +50,10 @@
                             <article class="archive-item">
                                 <a href="{{ .RelPermalink }}" class="archive-item-link">
                                     {{- .Title -}}
+                                    {{- /* Subtitle */ -}}
+                                    {{- with .Params.subtitle -}}
+                                        <span> · {{ . }}</span>
+                                    {{- end -}}
                                 </a>
                             </article>
                         {{- end -}}

@@ -30,6 +30,10 @@
                     <article class="archive-item">
                         <a href="{{ .RelPermalink }}" class="archive-item-link">
                             {{- .Title -}}
+                            {{- /* Subtitle */ -}}
+                            {{- with .Params.subtitle -}}
+                                <span> · {{ . }}</span>
+                            {{- end -}}
                         </a>
                         <span class="archive-item-date">
                             {{- $.Site.Params.list.dateFormat | default "01-02" | .Date.Format -}}

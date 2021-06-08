@@ -20,12 +20,13 @@
 
     <article class="page single">
         {{- /* Title */ -}}
-        <h1 class="single-title animated flipInX">{{ .Title }}</h1>
-
+        <h1 class="single-title animated flipInX">
+        {{ .Title }}
         {{- /* Subtitle */ -}}
         {{- with $params.subtitle -}}
-            <h2 class="single-subtitle">{{ . }}</h2>
+            <span class="single-title"> · {{ . }}</span>
         {{- end -}}
+        </h1>
 
         {{- /* Meta */ -}}
         <div class="post-meta">

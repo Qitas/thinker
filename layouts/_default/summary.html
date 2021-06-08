@@ -19,7 +19,12 @@
 
     {{- /* Title */ -}}
     <h1 class="single-title" itemprop="name headline">
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <a href="{{ .RelPermalink }}">
+            {{ .Title }}
+            {{- with .Params.subtitle -}}
+            <span> · {{ . }}</span>
+            {{- end -}}
+        </a>
     </h1>
 
     {{- /* Meta */ -}}
