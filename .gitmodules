@@ -6,3 +6,7 @@
 	path = static/live2d
 	url = https://github.com/caibingcheng/blog.git
 	branch = live2d
+[submodule "LoveIt"]
+	path = themes/LoveIt
+	url = https://github.com/caibingcheng/blog.git
+	branch = LoveIt
