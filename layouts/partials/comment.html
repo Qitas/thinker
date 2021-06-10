@@ -57,6 +57,47 @@
             </noscript>
         {{- end -}}
 
+        {{- /* Waline Comment System */ -}}
+        {{- $waline := $comment.waline | default dict -}}
+        {{- if $waline.enable -}}
+            <!-- <div id="waline-recent"></div> -->
+            <div id="waline" class="comment"></div>
+            <script src='{{ $waline.js }}'></script>
+
+			<script>
+                window.addEventListener('load', function() {
+                    new Waline({
+                        el: '#waline',
+                        meta: {{ $waline.meta }},
+                        placeholder: {{ $waline.placeholder }},
+                        serverURL: {{ $waline.serverURL }},
+                        avatarCDN: {{ $waline.avatarCDN }},
+                        requiredFields: {{ $waline.requiredFields }},
+                        pageSize: {{ $waline.pageSize }},
+                        avatar: {{ $waline.avatar }},
+                        lang: {{ $waline.lang }},
+                        visitor: {{ $waline.visitor }},
+                        highlight: {{ $waline.highlight }}
+                    });
+                    // Waline.Widget.RecentComments({
+                    //     el: '#waline-recent',
+                    //     serverURL: 'http://waline-vercel-phi.vercel.app',
+                    //     count: 5
+                    // })
+                    // .then(comments => {
+                    //     console.log(comments);
+                    //     var comments_recent = document.getElementById('waline-recent');
+                    //     comments_recent.innerHTML = comments.map(cmt =>
+                    //     `${cmt.nick}`
+                    //     );
+                    // });
+                });
+            </script>
+            <noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://waline.js.org/">Valine</a>.
+            </noscript>
+        {{- end -}}
+
         {{- /* Facebook Comment System */ -}}
         {{- $facebook := $comment.facebook | default dict -}}
         {{- if $facebook.enable -}}
