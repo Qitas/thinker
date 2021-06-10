@@ -18,7 +18,7 @@ jobs:
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
       - name: Update Content
-        run: git submodule foreach 'git pull'
+        run: . submodule.sh
 
       # - name: Update Live2d
       #   run: cd ./static/live2d && git pull origin live2d
