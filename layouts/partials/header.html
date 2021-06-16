@@ -28,16 +28,33 @@
         <div class="menu">
             <div class="menu-inner">
                 {{- range .Site.Menus.main -}}
-                    {{- $url := .URL | relLangURL -}}
-                    {{- with .Page -}}
-                        {{- $url = .RelPermalink -}}
+                    {{ if .HasChildren }}
+                        <div class="dropdown">
+                            <a {{ if .URL }}href="{{ .URL }}"{{ else }}href="javascript:void(0);"{{ end }} class="menu-item menu-more dropbtn" title="{{ .Title }}" {{ if eq .Post "_blank" }}target="_blank" rel="noopener"{{ end }}>
+                                {{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}
+                            </a>
+                            <div class="menu-more-content dropdown-content">
+                                {{- range .Children -}}
+                                    {{- $url := .URL | relLangURL -}}
+                                    {{- with .Page -}}
+                                        {{- $url = .RelPermalink -}}
+                                    {{- end -}}
+                                        <a href="{{ $url }}" title="{{ .Title }}" {{ if eq .Post "_blank" }}target="_blank" rel="noopener"{{ end }}>{{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}</a>
+                                {{- end -}}
+                            </div>
+                        </div>
+                    {{ else }}
+                        {{- $url := .URL | relLangURL -}}
+                        {{- with .Page -}}
+                            {{- $url = .RelPermalink -}}
+                        {{- end -}}
+                        <a class="menu-item{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}" href="{{ $url }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreffer" target="_blank"{{ end }}>
+                            {{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}
+                        </a>
                     {{- end -}}
-                    <a class="menu-item{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}" href="{{ $url }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreffer" target="_blank"{{ end }}>
-                        {{- .Pre | safeHTML }} {{ .Name }} {{ .Post | safeHTML -}}
-                    </a>
                 {{- end -}}
 
-                {{- if .Site.Menus.more -}}
+                <!-- {{- if .Site.Menus.more -}}
                     <div class="dropdown">
                         <a href="javascript:void(0);" class="menu-item menu-more dropbtn" title="{{ T "more" }}">
                             <i class="fa fa-angle-double-down"></i>
@@ -53,7 +70,7 @@
                             {{- end -}}
                         </div>
                     </div>
-                {{- end -}}
+                {{- end -}} -->
 
                 {{- if .Site.Menus.main -}}
                     <span class="menu-item delimiter"></span>
@@ -163,16 +180,34 @@
             {{- end -}}
             {{- $currentPage := . -}}
             {{- range .Site.Menus.main -}}
-                {{- $url := .URL | relLangURL -}}
-                {{- with .Page -}}
-                    {{- $url = .RelPermalink -}}
+                {{ if .HasChildren }}
+                    <div class="dropdown">
+                        <a {{ if .URL }}href="{{ .URL }}"{{ else }}href="javascript:void(0);"{{ end }} class="menu-item menu-more dropbtn" title="{{ .Title }}" {{ if eq .Post "_blank" }}target="_blank" rel="noopener"{{ end }}>
+                            {{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}
+                        </a>
+                        <div class="menu-more-content dropdown-content">
+                            {{- range .Children -}}
+                                {{- $url := .URL | relLangURL -}}
+                                {{- with .Page -}}
+                                    {{- $url = .RelPermalink -}}
+                                {{- end -}}
+                                    <a href="{{ $url }}" title="{{ .Title }}" {{ if eq .Post "_blank" }}target="_blank" rel="noopener"{{ end }}>{{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}</a>
+                            {{- end -}}
+                        </div>
+                    </div>
+                {{ else }}
+                    {{- $url := .URL | relLangURL -}}
+                    {{- with .Page -}}
+                        {{- $url = .RelPermalink -}}
+                    {{- end -}}
+                    <a class="menu-item{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}" href="{{ $url }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreffer" target="_blank"{{ end }}>
+                        {{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}
+                    </a>
                 {{- end -}}
-                <a class="menu-item" href="{{ $url }}" title="{{ .Title }}"{{ if (urls.Parse $url).Host }} rel="noopener noreffer" target="_blank"{{ end }}>
-                    {{- .Pre | safeHTML }}{{ .Name }}{{ .Post | safeHTML -}}
-                </a>
             {{- end -}}
 
-            {{- if .Site.Menus.more -}}
+
+            <!-- {{- if .Site.Menus.more -}}
                 <div class="menu-item dropdown">
                     <a href="javascript:void(0);" class="menu-item menu-more dropbtn" title="{{ T "more" }}">
                         <i class="fa fa-angle-double-down"></i>
@@ -188,7 +223,7 @@
                         {{- end -}}
                     </div>
                 </div>
-            {{- end -}}
+            {{- end -}} -->
 
             <a href="https://travellings.now.sh/" class="menu-item menu-mobile" target="_blank" rel="noopener" title="开往-友链接力">
                 <i class='fas fa-fw fa-subway'></i>
