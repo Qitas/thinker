@@ -46,18 +46,19 @@ ignoreErrors = ["error-remote-getjson"]
     # 版权描述，仅仅用于 SEO
     copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
     # 菜单配置
-    [languages.zh-cn.menu]
-#      [[languages.zh-cn.menu.main]]
-#        identifier = "home"
-#        # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-#        pre = "<i class='fas fa-fw fa-home'></i>"
-#        # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
-#        post = ""
-#        name = "主页"
-#        url = "/"
-#        title = ""
-#        weight = 1
-      [[languages.zh-cn.menu.main]]
+    [menu]
+      [[menu.main]]
+        identifier = "all"
+        # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
+        pre = "<i class='fas fa-fw fa-folder'></i>"
+        # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
+        post = ""
+        name = "所有"
+        url = ""
+        title = ""
+        weight = 1
+      [[menu.main]]
+        parent = "all"
         identifier = "posts"
         # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
         pre = "<i class='fas fa-fw fa-archive'></i>"
@@ -66,64 +67,76 @@ ignoreErrors = ["error-remote-getjson"]
         name = "归档"
         url = "/posts/"
         title = ""
+        weight = 1
+      [[menu.main]]
+        parent = "all"
+        identifier = "tags"
+        pre = "<i class='fas fa-fw fa-tag'></i>"
+        post = ""
+        name = "标签"
+        url = "/tags/"
+        title = ""
         weight = 2
-#      [[languages.zh-cn.menu.main]]
-#        identifier = "tags"
-#        pre = "<i class='fas fa-fw fa-tag'></i>"
-#        post = ""
-#        name = "标签"
-#        url = "/tags/"
-#        title = ""
-#        weight = 3
-      [[languages.zh-cn.menu.main]]
+      [[menu.main]]
+        parent = "all"
         identifier = "categories"
         pre = "<i class='fas fa-fw fa-th'></i>"
         post = ""
         name = "分类"
         url = "/categories/"
         title = ""
-        weight = 4
-      [[languages.zh-cn.menu.main]]
+        weight = 3
+      [[menu.main]]
         identifier = "friends"
         pre = "<i class='fas fa-fw fa-users'></i>"
         post = ""
         name = "友链"
         url = "/friends/"
         title = ""
-        weight = 5
-      [[languages.zh-cn.menu.main]]
+        weight = 2
+      [[menu.main]]
         identifier = "messages"
         pre = "<i class='fas fa-fw fa-comment'></i>"
         post = ""
         name = "留言"
         url = "/messages/"
         title = ""
-        weight = 6
-      [[languages.zh-cn.menu.more]]
-        [[languages.zh-cn.menu.ops]]
-          identifier = "about"
-          pre = "<i class='fas fa-fw fa-id-card'></i>"
-          post = ""
-          name = "关于"
-          url = "/about/"
-          title = ""
-          weight = 2
-        [[languages.zh-cn.menu.ops]]
-          identifier = "notebook"
-          pre = "<i class='fas fa-fw fa-keyboard'></i>"
-          post = ""
-          name = "写博"
-          url = "https://github.com/caibingcheng/blog/new/content"
-          title = ""
-          weight = 4
-        [[languages.zh-cn.menu.ops]]
-          identifier = "comment-manager"
-          pre = "<i class='fas fa-fw fa-wrench'></i>"
-          post = ""
-          name = "管理"
-          url = "https://waline-vercel-phi.vercel.app/ui#"
-          title = ""
-          weight = 5
+        weight = 3
+      [[menu.main]]
+        identifier = "more"
+        pre = "<i class='fas fa-fw fa-angle-double-down'></i>"
+        post = ""
+        name = "更多"
+        url = ""
+        title = ""
+        weight = 4
+      [[menu.main]]
+        parent = "more"
+        identifier = "about"
+        pre = "<i class='fas fa-fw fa-id-card'></i>"
+        post = ""
+        name = "关于"
+        url = "/about/"
+        title = ""
+        weight = 1
+      [[menu.main]]
+        parent = "more"
+        identifier = "notebook"
+        pre = "<i class='fas fa-fw fa-keyboard'></i>"
+        post = "_blank"
+        name = "写博"
+        url = "https://github.com/caibingcheng/blog/new/content"
+        title = ""
+        weight = 2
+      [[menu.main]]
+        parent = "more"
+        identifier = "comment-manager"
+        pre = "<i class='fas fa-fw fa-wrench'></i>"
+        post = "_blank"
+        name = "管理"
+        url = "https://waline.api.bbing.com.cn/ui#"
+        title = ""
+        weight = 3
     [languages.zh-cn.params]
       # 网站描述
       description = "个人技术博客"
