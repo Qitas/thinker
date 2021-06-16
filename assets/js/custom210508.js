@@ -25,8 +25,7 @@ function runtime() {
         + ((seconds < 10) ? '0' : '') + seconds + ' 秒 ';
 }
 
-function autoTheme()
-{
+function autoTheme() {
     // let tm = new Date();
     // let hours = tm.getHours();
     // let theme = $('.menu-item theme-switch')[0];
@@ -89,57 +88,50 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-function nextISU()
-{
+function nextISU() {
     var friend_btn = document.getElementsByClassName('friend-rand')[0];
     const max_time = 3000; //ms
     const max_loop = 2;
     const time_time = 1.2;
     let is_run = false;
-    let urls = document.getElementsByClassName("frind-real")[0].getElementsByClassName("frined-url");
+    let friends = document.getElementsByClassName("frind-real");
+    if (friends.length < 1) return;
+    let urls = friends[0].getElementsByClassName("frined-url");
     let arr = [...new Array(urls.length).keys()]
     let all_loop = arr.length * max_loop;
     let each_p = new Array(all_loop);
     each_p[0] = 1;
     let each_sum = each_p[0];
-    for (let i = 1; i < all_loop; i++)
-    {
+    for (let i = 1; i < all_loop; i++) {
         each_p[i] = each_p[i - 1] * time_time;
         each_sum += each_p[i];
     }
     let sleep_time = max_time / each_sum;
     let lucky_url = urls[0];
 
-    function chose(url)
-    {
+    function chose(url) {
         url.style.opacity = 0.4;
     }
-    function unchose(url)
-    {
+    function unchose(url) {
         url.style.opacity = 1;
     }
 
-    friend_btn.addEventListener('click', async function() {
-        if (is_run)
-        {
+    friend_btn.addEventListener('click', async function () {
+        if (is_run) {
             return;
         }
         is_run = true;
-        for (let i = 0; i < urls.length; i++)
-        {
+        for (let i = 0; i < urls.length; i++) {
             urls[i].style.opacity = 1;
         }
         // console.log(each_p)
         let last_url = undefined;
-        for (let i = 0; i < max_loop; i++)
-        {
-            arr.sort(function() {
-                return (0.5-Math.random());
+        for (let i = 0; i < max_loop; i++) {
+            arr.sort(function () {
+                return (0.5 - Math.random());
             });
-            for (let j = 0; j < arr.length; j++)
-            {
-                if (last_url != undefined)
-                {
+            for (let j = 0; j < arr.length; j++) {
+                if (last_url != undefined) {
                     unchose(last_url);
                 }
                 chose(urls[arr[j]]);
@@ -150,8 +142,7 @@ function nextISU()
                 await sleep(st);
             }
         }
-        for (let i = 0; i < 3; i++)
-        {
+        for (let i = 0; i < 3; i++) {
             unchose(lucky_url);
             await sleep(100);
             chose(lucky_url);
@@ -164,5 +155,21 @@ function nextISU()
 }
 nextISU();
 
+function isPC() {
+    var agents_info = navigator.userAgent;
+    var agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+    var ispc = true;
+    for (var v = 0; v < agents.length; v++) {
+        if (agents_info.indexOf(agents[v]) > 0) {
+            ispc = false;
+            break;
+        }
+    }
+    return ispc;
+}
+
 // 看板娘
-// loadExternalResource("/live2d/autoload.js", "js");
+if (isPC())
+{
+    loadExternalResource("/live2d/autoload.js", "js");
+}
