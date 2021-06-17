@@ -1,17 +1,20 @@
 ---
 title: "关于"
+comment: false
 ---
 
-江西武功山熊岭人士. 现居京师, 两人一猫.
+## Summery
+
+江西武功山熊岭蔡氏. 现居京师, 两人一猫.
 
 原瑜珈山弟子, 公元二零一九年出师入世.
 
-一九年中, 拜入粗粮厂门下, 任粗粮厂初级弟子.
+一九年中, 拜入粗粮厂门下, 任粗粮厂中级弟子.
 
----
+## GitHub
 
-贼喜欢折腾, 博客搞过好几次, 这是运行最久的一次, 目标是十年, 域名已续费.
-
-不算百分百二次元, 但是喜欢看动漫, 特别是shadiao番.
-
-~~经常摸鱼写博客, 摸鱼很在行~~
+<p align="center">
+    <img src="https://github-profile-trophy.vercel.app/?username=caibingcheng" />
+    <img src="https://github-readme-stats.vercel.app/api?username=caibingcheng&show_icons=true&count_private=true&show_owner=true" />
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=caibingcheng&layout=compact&hide=html,css,makefile,cmake" />
+</p>
