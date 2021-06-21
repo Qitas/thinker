@@ -16,6 +16,8 @@ git clone https://github.com/tmux-plugins/tmux-resurrect ~/.tmux/plugins/tmux-re
 git clone https://github.com/tmux-plugins/tmux-continuum ~/.tmux/plugins/tmux-continuum
 ```
 
+<!--more-->
+
 ## 配置文件
 在```~/.tmux.conf```添加:
 ```Shell
