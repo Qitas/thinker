@@ -17,11 +17,8 @@ jobs:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Update Content
+      - name: Update Submodules
         run: . submodule.sh
-
-      # - name: Update Live2d
-      #   run: cd ./static/live2d && git pull origin live2d
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -30,7 +27,7 @@ jobs:
           # extended: true
 
       - name: Build
-        run: hugo --minify
+        run: hugo --minify --gc
 
       - name: Nojekyll
         run: touch ./public/.nojekyll
