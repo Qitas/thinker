@@ -112,13 +112,22 @@ ignoreErrors = ["error-remote-getjson"]
         weight = 4
       [[languages.zh-cn.menu.main]]
         parent = "more"
+        identifier = "tools"
+        pre = "<i class='fas fa-fw fa-cubes'></i>"
+        post = ""
+        name = "工具"
+        url = "/tools/"
+        title = ""
+        weight = 1
+      [[languages.zh-cn.menu.main]]
+        parent = "more"
         identifier = "about"
         pre = "<i class='fas fa-fw fa-id-card'></i>"
         post = ""
         name = "关于"
         url = "/about/"
         title = ""
-        weight = 1
+        weight = 2
       [[languages.zh-cn.menu.main]]
         parent = "more"
         identifier = "notebook"
@@ -127,7 +136,7 @@ ignoreErrors = ["error-remote-getjson"]
         name = "写博"
         url = "https://github.com/caibingcheng/blog/new/content"
         title = ""
-        weight = 2
+        weight = 3
       [[languages.zh-cn.menu.main]]
         parent = "more"
         identifier = "comment-manager"
@@ -136,7 +145,7 @@ ignoreErrors = ["error-remote-getjson"]
         name = "管理"
         url = "https://waline.api.bbing.com.cn/ui#"
         title = ""
-        weight = 3
+        weight = 4
     [languages.zh-cn.params]
       # 网站描述
       description = "个人技术博客"

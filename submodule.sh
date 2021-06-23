@@ -1,3 +1,4 @@
+git pull origin master
 echo "update submodules"
 cd ./content
 git pull origin content
