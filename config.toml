@@ -215,7 +215,7 @@ ignoreErrors = ["error-remote-getjson"]
           # 是否显示社交账号
           social = true
           # 免责声明 (支持 HTML 格式)
-          disclaimer = ""
+          disclaimer = "Hello, Good Hunter"
         # 主页文章列表
         [languages.zh-cn.params.home.posts]
           enable = true
@@ -612,7 +612,7 @@ ignoreErrors = ["error-remote-getjson"]
     # 第三方库配置
     [params.page.library]
       [params.page.library.css]
-        i1customcss = "css/custom210514.css"
+        i1customcss = "css/custom210624.css"
       [params.page.library.js]
         i1jqueryjs = "https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"
         i2customjs = "js/custom210624.js"
