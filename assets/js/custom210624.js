@@ -83,13 +83,14 @@ function loadExternalResource(url, type) {
     });
 }
 
-
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms))
 }
 
 function nextISU() {
-    var friend_btn = document.getElementsByClassName('friend-rand')[0];
+    var friend_btn = document.getElementsByClassName('friend-rand')
+    if (friend_btn.length < 1) return;
+    friend_btn = friend_btn[0];
     const max_time = 3000; //ms
     const max_loop = 2;
     const time_time = 1.2;
@@ -153,7 +154,6 @@ function nextISU() {
         is_run = false;
     }, false);
 }
-nextISU();
 
 function isPC() {
     var agents_info = navigator.userAgent;
@@ -168,8 +168,46 @@ function isPC() {
     return ispc;
 }
 
+loadExternalResource("https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js", "js");
+function template_friend(url, name, word, logo) {
+    return '<a target="_blank" href=' + url + ' title=' + name + '--' + word + ' class="friend url frined-url">' +
+        '<div class="friend block whole">' +
+        '<div class="friend block left">' +
+        '<img class="friend logo" src=' + logo + ' onerror="this.src=\'https://gravatar.loli.net/avatar/c02f8b813aa4b7f72e32de5a48dc17a7?d=retro&v=1.4.14\'" />' +
+        '</div>' +
+        '<div class="friend block right">' +
+        '<div class="friend name">' + name + '</div>' +
+        '<div class="friend info">"' + word + '"</div>' +
+        '</div>' +
+        '</div>' +
+        '</a>'
+}
+
+const friends_json = "https://gist.githubusercontent.com/caibingcheng/2515bc064b4043c4e1b858cac70e3ad6/raw/0d20987c897c772e7c79f6b1ae490daa231f5bf2/friends.json"
+if ($('.friend-list-div.frind-real').length > 0) {
+    $(function () {
+        $.getJSON(friends_json, function (data) {
+            let friends = '';
+            $.each(data, function (infoIndex, info) {
+                friends += template_friend(info['url'], info['name'], info['word'], info['logo']);
+            });
+            $('.friend-list-div.frind-real').html(friends);
+            nextISU();
+        })
+    })
+}
+
+$('a[title="随机拜访一位朋友吧~"]').on("click", function () {
+    $.getJSON(friends_json, function (data) {
+        if (data.length < 1) return;
+        let rand_id = Math.floor(Math.random() * data.length);
+        let target_url = data[rand_id]["url"];
+        window.open(target_url);
+    })
+});
+
+
 // 看板娘
-if (isPC())
-{
+if (isPC()) {
     loadExternalResource("/live2d/autoload.js", "js");
 }
