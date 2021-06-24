@@ -3,7 +3,7 @@ title: "工具人"
 comment: false
 ---
 
-## 代码
+### 代码
 
 <div class="flink" id="article-container">
 <div class="friend-list-div" >
@@ -53,7 +53,7 @@ word="模型训练, 在线Python"
 </div>
 </div>
 
-## 效率
+### 效率
 
 <div class="flink" id="article-container">
 <div class="friend-list-div" >
@@ -63,6 +63,64 @@ name="diagrams"
 url="https://app.diagrams.net/"
 logo="https://app.diagrams.net/images/favicon-32x32.png"
 word="Security-first diagramming for teams."
+>}}
+
+</div>
+</div>
+
+
+### 建站
+
+<div class="flink" id="article-container">
+<div class="friend-list-div" >
+
+{{< friends
+name="评论管理"
+url="https://waline-vercel-phi.vercel.app/ui#"
+logo="."
+word="评论管理"
+>}}
+{{< friends
+name="leancloud"
+url="https://console.leancloud.app/apps"
+logo="https://console.leancloud.app/favicon.ico"
+word="线上存储"
+>}}
+{{< friends
+name="Vercel"
+url="https://vercel.com/dashboard"
+logo="https://assets.vercel.com/image/upload/q_auto/front/favicon/vercel/72x72.png"
+word="Vercel托管"
+>}}
+{{< friends
+name="百度统计"
+url="https://tongji.baidu.com/web/homepage/index"
+logo="https://tongji.baidu.com/web/image/logo.svg"
+word="百度统计"
+>}}
+{{< friends
+name="bing统计"
+url="https://www.bing.com/webmasters/sitescan?siteUrl=https://bbing.com.cn/"
+logo="https://www.bing.com/sa/simg/favicon-2x.ico"
+word="bing统计"
+>}}
+{{< friends
+name="google统计"
+url="https://search.google.com/search-console"
+logo="//ssl.gstatic.com/search-console/scfe/search_console-128.png"
+word="google统计"
+>}}
+{{< friends
+name="站长之家"
+url="http://ping.chinaz.com/"
+logo="http://csstools.chinaz.com/tools/images/public/logos/logo-ping.png"
+word="网站测速"
+>}}
+{{< friends
+name="uptimerobot"
+url="https://stats.uptimerobot.com/nJN0BhG2DD"
+logo="."
+word="网站存活检测"
 >}}
 
 </div>
