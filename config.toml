@@ -95,6 +95,15 @@ ignoreErrors = ["error-remote-getjson"]
         title = ""
         weight = 2
       [[languages.zh-cn.menu.main]]
+        parent = "friends"
+        identifier = "randomfriends"
+        pre = "<i class='fas fa-fw fa-random'></i>"
+        post = ""
+        name = "随机"
+        url = "javascript:void(0);"
+        title = "随机拜访一位朋友吧~"
+        weight = 1
+      [[languages.zh-cn.menu.main]]
         identifier = "messages"
         pre = "<i class='fas fa-fw fa-comment'></i>"
         post = ""
@@ -606,7 +615,7 @@ ignoreErrors = ["error-remote-getjson"]
         i1customcss = "css/custom210514.css"
       [params.page.library.js]
         i1jqueryjs = "https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"
-        i2customjs = "js/custom210508.js"
+        i2customjs = "js/custom210624.js"
     # Page SEO config
     # 页面 SEO 配置
     [params.page.seo]
