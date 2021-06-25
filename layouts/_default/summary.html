@@ -19,6 +19,10 @@
 
     {{- /* Title */ -}}
     <h1 class="single-title" itemprop="name headline">
+
+        {{- with $params.weight -}}
+        [置顶]
+        {{- end -}}
         <a href="{{ .RelPermalink }}">
             {{ .Title }}
             {{- with .Params.subtitle -}}
