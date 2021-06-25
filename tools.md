@@ -76,9 +76,15 @@ word="Security-first diagramming for teams."
 
 {{< friends
 name="评论管理"
-url="https://waline-vercel-phi.vercel.app/ui#"
+url="https://waline.api.bbing.com.cn/ui#"
 logo="."
 word="评论管理"
+>}}
+{{< friends
+name="写文章"
+url="https://github.com/caibingcheng/blog/new/content"
+logo="."
+word="在github写文章"
 >}}
 {{< friends
 name="leancloud"
