@@ -137,24 +137,6 @@ ignoreErrors = ["error-remote-getjson"]
         url = "/about/"
         title = ""
         weight = 2
-      [[languages.zh-cn.menu.main]]
-        parent = "more"
-        identifier = "notebook"
-        pre = "<i class='fas fa-fw fa-keyboard'></i>"
-        post = "_blank"
-        name = "写博"
-        url = "https://github.com/caibingcheng/blog/new/content"
-        title = ""
-        weight = 3
-      [[languages.zh-cn.menu.main]]
-        parent = "more"
-        identifier = "comment-manager"
-        pre = "<i class='fas fa-fw fa-wrench'></i>"
-        post = "_blank"
-        name = "管理"
-        url = "https://waline.api.bbing.com.cn/ui#"
-        title = ""
-        weight = 4
     [languages.zh-cn.params]
       # 网站描述
       description = "个人技术博客"
