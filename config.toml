@@ -24,11 +24,10 @@ enableGitInfo = false
 # 是否使用 emoji 代码
 enableEmoji = true
 ignoreErrors = ["error-remote-getjson"]
-
 [params.reward]
   enable = true
-  wechat = "wchatreward.jpeg"
-  alipay = "zfbreward.jpeg"
+  wechat = "https://z3.ax1x.com/2021/06/28/RUEhZD.png"
+  alipay = "https://z3.ax1x.com/2021/06/28/RUEWqO.jpg"
 
 [languages]
   [languages.zh-cn]
