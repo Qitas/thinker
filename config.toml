@@ -197,7 +197,7 @@ ignoreErrors = ["error-remote-getjson"]
           # 是否显示社交账号
           social = true
           # 免责声明 (支持 HTML 格式)
-          disclaimer = 'Hello, Good Hunter <p id="hitokoto"><a href="#" id="hitokoto_text">:D 获取中...</a></p><script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>'
+          disclaimer = 'Hello, Good Hunter <p id="hitokoto"><a href="#" id="hitokoto_text">:D 获取中...</a></p>'
         # 主页文章列表
         [languages.zh-cn.params.home.posts]
           enable = true
