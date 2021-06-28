@@ -206,8 +206,13 @@ $('a[title="随机拜访一位朋友吧~"]').on("click", function () {
     })
 });
 
+$(document).ready(function() {
+    // 看板娘
+    if (isPC()) {
+        loadExternalResource("/live2d/autoload.js", "js");
+    }
 
-// 看板娘
-if (isPC()) {
-    loadExternalResource("/live2d/autoload.js", "js");
-}
+    loadExternalResource("https://api.bbing.com.cn/dog?identify=dogdog&method=js", "js");
+    loadExternalResource("https://v1.hitokoto.cn/?encode=js&select=%23hitokoto", "js");
+    // loadExternalResource("http://127.0.0.1:5000/dog?identify=dogdog&method=js", "js");
+})

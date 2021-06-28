@@ -1,7 +1,7 @@
 body::before {
   content: "";
   position: fixed;
-  background-image: url(https://images5.alphacoders.com/515/515634.jpg);
+  background-image: url(https://z3.ax1x.com/2021/06/28/RUkNYn.md.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -279,7 +279,7 @@ article .post-reward .qr-code .image {
 
 .home-profile::before {
   content: "";
-  background-image: url(https://z3.ax1x.com/2021/04/29/gFmy7T.png);
+  /* background-image: url(https://z3.ax1x.com/2021/04/29/gFmy7T.png); */
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
@@ -394,7 +394,7 @@ article .post-reward .qr-code .image {
 }
 
 @media screen and (max-width: 800px) {
-  article.page{
+  article.page {
     padding-right: 0;
     padding-left: 0;
   }
@@ -406,3 +406,29 @@ article .post-reward .qr-code .image {
 /* header{
   background-color: rgb(248, 248, 248, 0.8);
 } */
+
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+@keyframes octocat-wave {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  20%,
+  60% {
+    transform: rotate(-25deg);
+  }
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}
+@media (max-width: 500px) {
+  .github-corner:hover .octo-arm {
+    animation: none;
+  }
+  .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+}

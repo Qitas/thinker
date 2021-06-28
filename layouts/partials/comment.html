@@ -62,7 +62,7 @@
         {{- if $waline.enable -}}
             <!-- <div id="waline-recent"></div> -->
             <div id="waline" class="comment"></div>
-            <script src='{{ $waline.js }}'></script>
+            <script src='{{ $waline.js }}' defer></script>
 
 			<script>
                 window.addEventListener('load', function() {
