@@ -12,10 +12,6 @@ weight: 1
 
 ## [OrLike](https://github.com/caibingcheng/orlike)
 
-![GitHub](https://img.shields.io/github/license/caibingcheng/orlike)
-![GitHub branch checks state](https://img.shields.io/github/checks-status/caibingcheng/orlike/master)
-![GitHub Release Date](https://img.shields.io/github/release-date/caibingcheng/orlike)
-
 使用LeanCloud, 部署在vercel的博客点赞插件, 保障安全.
 
 当前功能:
