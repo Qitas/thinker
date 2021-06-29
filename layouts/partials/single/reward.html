@@ -7,13 +7,13 @@
 	{{- $cdnPrefix := .Site.Params.cdnPrefix -}}
     {{ with $qrCode.wechat -}}
       <label class="qr-code-image" for="reward">
-        <img class="image" src="{{ . }}">
+        <img class="image lazyautosizes lazyloaded" src="{{ . }}">
         <span>{{ T "rewardWechat" }}</span>
       </label>
     {{- end }}
     {{ with $qrCode.alipay -}}
       <label class="qr-code-image" for="reward">
-        <img class="image" src="{{ . }}">
+        <img class="image lazyautosizes lazyloaded" src="{{ . }}">
         <span>{{ T "rewardAlipay" }}</span>
       </label>
     {{- end }}
