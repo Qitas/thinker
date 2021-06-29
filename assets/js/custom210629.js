@@ -1,11 +1,3 @@
-var _hmt = _hmt || [];
-(function () {
-    var hm = document.createElement("script");
-    hm.src = "https://hm.baidu.com/hm.js?19d1992f36a0a1272d7bf51277fb4fb0";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-})();
-
 function runtime() {
     let startTime = new Date('2021-1-3');
     let endTime = new Date();
@@ -62,7 +54,7 @@ setInterval(loop, 1000);
 //   }
 // });
 
-function loadExternalResource(url, type) {
+function loadExternalResource(url, type, is_defer = false, is_async = true) {
     return new Promise((resolve, reject) => {
         let tag;
 
@@ -70,10 +62,14 @@ function loadExternalResource(url, type) {
             tag = document.createElement("link");
             tag.rel = "stylesheet";
             tag.href = url;
+            tag.defer = is_defer;
+            tag.async = is_async;
         }
         else if (type === "js") {
             tag = document.createElement("script");
             tag.src = url;
+            tag.defer = is_defer;
+            tag.async = is_async;
         }
         if (tag) {
             tag.onload = () => resolve(url);
@@ -206,13 +202,18 @@ $('a[title="随机拜访一位朋友吧~"]').on("click", function () {
     })
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     // 看板娘
     if (isPC()) {
         loadExternalResource("/live2d/autoload.js", "js");
     }
 
-    loadExternalResource("https://api.bbing.com.cn/dog?identify=dogdog&method=js", "js");
-    loadExternalResource("https://v1.hitokoto.cn/?encode=js&select=%23hitokoto", "js");
+    if ($("#dogdog").length > 0) {
+        loadExternalResource("https://api.bbing.com.cn/dog?identify=dogdog&method=js", "js");
+    }
+    if ($("#hitokoto").length > 0) {
+        loadExternalResource("https://v1.hitokoto.cn/?encode=js&select=%23hitokoto", "js");
+    }
+    loadExternalResource("https://hm.baidu.com/hm.js?19d1992f36a0a1272d7bf51277fb4fb0", "js");
     // loadExternalResource("http://127.0.0.1:5000/dog?identify=dogdog&method=js", "js");
 })
