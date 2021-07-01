@@ -174,7 +174,7 @@ function loadWidget(config) {
 			modelTexturesId = localStorage.getItem("modelTexturesId");
 		if (modelId === null) {
 			// 首次访问加载 指定模型 的 指定材质
-			modelId = 1; // 模型 ID
+			modelId = 0; // 模型 ID
 			modelTexturesId = 53; // 材质 ID
 		}
 		loadModel(modelId, modelTexturesId);
@@ -225,6 +225,8 @@ function loadWidget(config) {
 		showMessage(message, 4000, 10);
 		if (useCDN) {
 			if (!modelList) await loadModelList();
+			if (modelId >= modelList.models.length)
+				modelId = 0;
 			const target = randomSelection(modelList.models[modelId]);
 			loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
 		} else {
@@ -234,10 +236,12 @@ function loadWidget(config) {
 	}
 
 	async function loadRandModel() {
-		const modelId = localStorage.getItem("modelId"),
+		let modelId = localStorage.getItem("modelId"),
 			modelTexturesId = localStorage.getItem("modelTexturesId");
 		if (useCDN) {
 			if (!modelList) await loadModelList();
+			if (modelId >= modelList.models.length)
+				modelId = 0;
 			const target = randomSelection(modelList.models[modelId]);
 			loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
 			showMessage("我的新衣服好看嘛？", 4000, 10);
@@ -256,6 +260,8 @@ function loadWidget(config) {
 		let modelId = localStorage.getItem("modelId");
 		if (useCDN) {
 			if (!modelList) await loadModelList();
+			if (modelId >= modelList.models.length)
+				modelId = 0;
 			const index = (++modelId >= modelList.models.length) ? 0 : modelId;
 			loadModel(index, 0, modelList.messages[index]);
 		} else {
