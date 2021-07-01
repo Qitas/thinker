@@ -1,0 +1,30 @@
+{
+    "models": [
+        [
+            "HyperdimensionNeptunia/blanc_classic",
+            "HyperdimensionNeptunia/blanc_normal",
+            "HyperdimensionNeptunia/blanc_swimwear",
+            "HyperdimensionNeptunia/general",
+            "HyperdimensionNeptunia/histoire",
+            "HyperdimensionNeptunia/histoirenohover",
+            "HyperdimensionNeptunia/nepgear",
+            "HyperdimensionNeptunia/nepgear_extra",
+            "HyperdimensionNeptunia/nepgearswim",
+            "HyperdimensionNeptunia/nepmaid",
+            "HyperdimensionNeptunia/nepnep",
+            "HyperdimensionNeptunia/nepswim",
+            "HyperdimensionNeptunia/neptune_classic",
+            "HyperdimensionNeptunia/neptune_santa",
+            "HyperdimensionNeptunia/noir",
+            "HyperdimensionNeptunia/noir_classic",
+            "HyperdimensionNeptunia/noir_santa",
+            "HyperdimensionNeptunia/noireswim",
+            "HyperdimensionNeptunia/vert_classic",
+            "HyperdimensionNeptunia/vert_normal",
+            "HyperdimensionNeptunia/vert_swimwear"
+        ]
+    ],
+    "messages": [
+        "Nep! Nep!"
+    ]
+}
