@@ -35,11 +35,6 @@
             {{- range $pages.Pages -}}
                 {{- .Render "summary" -}}
             {{- end -}}
-            <article class="single summary">
-                <h1 class="single-title" itemprop="name headline">舔狗日记</h1>
-                <p id="dogdog">获取中...</p>
-                <!-- <script src="https://api.bbing.com.cn/dog?method=js&count=1" type="text/javascript"></script> -->
-            </article>
             {{- partial "paginator.html" . -}}
         {{- end -}}
     </div>
