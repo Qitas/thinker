@@ -1,5 +1,4 @@
 ---
-title: "关于"
 comment: false
 ---
 
@@ -11,10 +10,8 @@ comment: false
 
 一九年中, 拜入粗粮厂门下, 任粗粮厂中级弟子.
 
-## GitHub
+---
 
-<p align="center">
-    <img src="https://github-profile-trophy.vercel.app/?username=caibingcheng" />
-    <img src="https://github-readme-stats.vercel.app/api?username=caibingcheng&show_icons=true&count_private=true&show_owner=true" />
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=caibingcheng&layout=compact&hide=html,css,makefile,cmake" />
-</p>
+<article class="dogdog">
+    <p id="dogdog"></p>
+</article>
