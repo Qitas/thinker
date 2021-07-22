@@ -204,9 +204,9 @@ $('a[title="随机拜访一位朋友吧~"]').on("click", function () {
 
 $(document).ready(function () {
     // 看板娘
-    if (isPC()) {
-        loadExternalResource("/live2d/autoload.js", "js");
-    }
+    // if (isPC()) {
+    //     loadExternalResource("/live2d/autoload.js", "js");
+    // }
 
     if ($("#dogdog").length > 0) {
         loadExternalResource("https://api.bbing.com.cn/dog?identify=dogdog&method=js", "js");

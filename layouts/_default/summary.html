@@ -19,11 +19,10 @@
 
     {{- /* Title */ -}}
     <h1 class="single-title" itemprop="name headline">
-
-        {{- if $params.weight -}}
-        [置顶]
-        {{- end -}}
         <a href="{{ .RelPermalink }}">
+            {{- if $params.weight -}}
+            <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+            {{- end -}}
             {{ .Title }}
             {{- with .Params.subtitle -}}
             <span> · {{ . }}</span>
@@ -62,44 +61,44 @@
             {{- .Description | safeHTML -}}
             {{- end -}}
         </div>
+
+        {{- /* Footer */ -}}
+        <div class="post-footer">
+            {{- $categories := slice -}}
+            {{- range .Params.categories -}}
+            {{- $category := partialCached "function/path.html" . . | printf "/categories/%v" | $.Site.GetPage -}}
+            {{- $categories = $categories | append (printf `<a href="%v"><i class="far fa-folder fa-fw"></i>%v</a>` $category.RelPermalink $category.Title) -}}
+            {{- end -}}
+            {{- with delimit $categories "&nbsp;" -}}
+            <span class="post-category">
+                {{- dict "Categories" . | T "justCategories" | safeHTML -}}
+            </span>
+            {{- end -}}
+            <br />
+            {{- with .Params.tags -}}
+            <span class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;
+                {{- range $index, $value := . -}}
+                {{- if lt $index 3 }}
+                {{- if gt $index 0 }},&nbsp;{{ end -}}
+                {{- $tag := partialCached "function/path.html" $value $value | printf "/tags/%v" | $.Site.GetPage -}}
+                <a href="{{ $tag.RelPermalink }}">{{ $tag.Title }}</a>
+                {{- end -}}
+                {{- end -}}
+            </span>
+            {{- end -}}
+        </div>
+
+        <hr style="opacity: 0.2;"/>
+
+        <div class="post-footer">
+            {{- with .Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format -}}
+            <span class="post-publish" style="opacity: 0.5;" tip="11">
+                <i class="far fa-calendar-alt fa-fw"></i>{{- printf `<time datetime="%v">%v</time>` . . | dict "Date" | T "justDate" | safeHTML -}}
+            </span>
+            {{- end -}}
+
+            <a class="readmore" href="{{ .RelPermalink }}">{{ T "readMore" }}>></a>
+        </div>
     {{- end -}}
-
-    {{- /* Footer */ -}}
-    <div class="post-footer">
-        {{- $categories := slice -}}
-        {{- range .Params.categories -}}
-        {{- $category := partialCached "function/path.html" . . | printf "/categories/%v" | $.Site.GetPage -}}
-        {{- $categories = $categories | append (printf `<a href="%v"><i class="far fa-folder fa-fw"></i>%v</a>` $category.RelPermalink $category.Title) -}}
-        {{- end -}}
-        {{- with delimit $categories "&nbsp;" -}}
-        <span class="post-category">
-            {{- dict "Categories" . | T "justCategories" | safeHTML -}}
-        </span>
-        {{- end -}}
-        <br />
-        {{- with .Params.tags -}}
-        <span class="post-tags">
-            <i class="fas fa-tags fa-fw"></i>&nbsp;
-            {{- range $index, $value := . -}}
-            {{- if lt $index 3 }}
-            {{- if gt $index 0 }},&nbsp;{{ end -}}
-            {{- $tag := partialCached "function/path.html" $value $value | printf "/tags/%v" | $.Site.GetPage -}}
-            <a href="{{ $tag.RelPermalink }}">{{ $tag.Title }}</a>
-            {{- end -}}
-            {{- end -}}
-        </span>
-        {{- end -}}
-    </div>
-
-    <hr style="opacity: 0.2;"/>
-
-    <div class="post-footer">
-        {{- with .Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format -}}
-        <span class="post-publish" style="opacity: 0.5;" tip="11">
-            <i class="far fa-calendar-alt fa-fw"></i>{{- printf `<time datetime="%v">%v</time>` . . | dict "Date" | T "justDate" | safeHTML -}}
-        </span>
-        {{- end -}}
-
-        <a class="readmore" href="{{ .RelPermalink }}">{{ T "readMore" }}>></a>
-    </div>
 </article>
