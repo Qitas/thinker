@@ -192,11 +192,11 @@ ignoreErrors = ["error-remote-getjson"]
           # 主页显示的网站副标题
           subtitle = "自由  分享  合作"
           # 是否为副标题显示打字机动画
-          typeit = true
+          typeit = false
           # 是否显示社交账号
           social = true
           # 免责声明 (支持 HTML 格式)
-          disclaimer = 'Hello, Good Hunter <p id="hitokoto"><a href="#" id="hitokoto_text">:D 获取中...</a></p>'
+          disclaimer = '<p id="hitokoto"><a href="#" id="hitokoto_text"> </a></p>'
         # 主页文章列表
         [languages.zh-cn.params.home.posts]
           enable = true
@@ -593,10 +593,10 @@ ignoreErrors = ["error-remote-getjson"]
     # 第三方库配置
     [params.page.library]
       [params.page.library.css]
-        i1customcss = "css/custom210629.css"
+        i1customcss = "css/custom210722.css"
       [params.page.library.js]
         i1jqueryjs = "https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"
-        i2customjs = "js/custom210629.js"
+        i2customjs = "js/custom210722.js"
     # Page SEO config
     # 页面 SEO 配置
     [params.page.seo]
