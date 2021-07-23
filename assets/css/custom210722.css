@@ -373,11 +373,11 @@ article .post-reward .qr-code .image {
   }
 }
 
-.container .toc {
+/* .container .toc {
   background-color: rgba(254, 254, 254, 0.9);
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-}
+} */
 
 /* #comments .vcards {
   background-color: rgba(226, 225, 228, 0.8);
