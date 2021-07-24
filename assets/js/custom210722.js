@@ -179,7 +179,7 @@ function template_friend(url, name, word, logo) {
         '</a>'
 }
 
-const friends_json = "https://gist.githubusercontent.com/caibingcheng/2515bc064b4043c4e1b858cac70e3ad6/raw/0d20987c897c772e7c79f6b1ae490daa231f5bf2/friends.json"
+const friends_json = "https://gist.githubusercontent.com/caibingcheng/2515bc064b4043c4e1b858cac70e3ad6/raw/friends.json"
 if ($('.friend-list-div.frind-real').length > 0) {
     $(function () {
         $.getJSON(friends_json, function (data) {
