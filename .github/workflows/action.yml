@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Vercel
-        run: curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_E15mS0ZdXW0c25fWN9oLfeRXPFXA/bpPhhsyZZS
+        run: curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_E15mS0ZdXW0c25fWN9oLfeRXPFXA/spfa5EOiQS
       # - uses: actions/checkout@v2
       #   with:
       #     ref: master
