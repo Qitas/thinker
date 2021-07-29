@@ -1,12 +1,12 @@
 [submodule "content"]
 	path = content
-	url = git@github.com:caibingcheng/blog.git
+	url = https://github.com/caibingcheng/blog.git
 	branch = content
 [submodule "live2d"]
 	path = static/live2d
-	url = git@github.com:caibingcheng/blog.git
+	url = https://github.com/caibingcheng/blog.git
 	branch = live2d
 [submodule "LoveIt"]
 	path = themes/LoveIt
-	url = git@github.com:caibingcheng/blog.git
+	url = https://github.com/caibingcheng/blog.git
 	branch = LoveIt
