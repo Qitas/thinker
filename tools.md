@@ -9,6 +9,13 @@ comment: false
 <div class="friend-list-div" >
 
 {{< friends
+name="现代 C++ 教程"
+url="https://changkun.de/modern-cpp/zh-cn/00-preface/"
+logo="https://changkun.de/modern-cpp/assets/cover-2nd-logo.png"
+word="高速上手 C++ 11/14/17/20"
+>}}
+
+{{< friends
 name="cppreference"
 url="https://en.cppreference.com/w/"
 logo="https://en.cppreference.com/favicon.ico"
