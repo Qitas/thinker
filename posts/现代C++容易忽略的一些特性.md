@@ -2,14 +2,18 @@
 title: "现代C++容易忽略的一些特性"
 slug: "cpp-modern-feature"
 date: 2021-07-30T19:47:25+08:00
-lastmod: 2021-07-30T19:47:25+08:00
+lastmod: 2021-08-02T21:03:25+08:00
 author: bbing
 draft: false
 tags: ["Cpp"]
 categories: ["代码", "Cpp"]
 ---
 
-持续更新中...主要来源[在这里](https://changkun.de/modern-cpp/)
+持续更新中...主要来源[在这里](https://changkun.de/modern-cpp/), 仅摘抄部分个人不常用或者不太理解的知识点．
+
+
+
+### 语言
 
 #### if/switch 变量声明强化[C++17]
 
@@ -23,6 +27,8 @@ if (const std::vector<int>::iterator itr = std::find(vec.begin(), vec.end(), 3);
 ```
 
 <!--more-->
+
+
 
 
 #### 初始化列表[C++11]
@@ -206,4 +212,120 @@ int main() {
     std::cout << s.value2 << std::endl;
 }
 ```
+
+
+
+#### 右值引用[C++11]
+
+TODO
+
+
+
+#### 字面量[C++11]
+
+C++11 提供了原始字符串字面量的写法, 可以在一个字符串前方使用 `R` 来修饰这个字符串, 同时, 将原始字符串使用括号包裹, 例如:
+
+```C++
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string str = R"(C:\File\To\Path)"; //不需要转义了
+    std::cout << str << std::endl;
+    return 0;
+}
+```
+
+
+
+#### 自定义字面量[C++11]
+
+C++11 引进了自定义字面量的能力, 通过重载双引号后缀运算符实现:
+
+```C++
+// 字符串字面量自定义必须设置如下的参数列表
+std::string operator"" _wow1(const char *wow1, size_t len) {
+    return std::string(wow1)+"woooooooooow, amazing";
+}
+
+std::string operator"" _wow2 (unsigned long long i) {
+    return std::to_string(i)+"woooooooooow, amazing";
+}
+
+int main() {
+    auto str = "abc"_wow1;
+    auto num = 1_wow2;
+    std::cout << str << std::endl;
+    std::cout << num << std::endl;
+    return 0;
+}
+```
+
+自定义字面量支持四种字面量：
+
+1. 整型字面量: 重载时必须使用 `unsigned long long`/`const char *`模板字面量算符参数, 在上面的代码中使用的是前者;
+2. 浮点型字面量: 重载时必须使用 `long double`/`const char *`/模板字面量算符;
+3. 字符串字面量: 必须使用 `(const char *, size_t)` 形式的参数表;
+4. 字符字面量: 参数只能是 `char`, `wchar_t`, `char16_t`, `char32_t` 这几种类型.
+
+
+
+#### 内存对齐[C++11]
+
+TODO
+
+
+
+### 容器
+
+#### std::array[C++11]
+
+注意和```std::vector```的区别. 如果是已知并且固定大小的数组, 可以考虑使用```std::array```.
+
+1. 与 `std::vector` 不同，`std::array` 对象的大小是固定的;
+2. ```std::vector```执行```clear()```方法后, 需要使用释放内存, ```std::array```则自动释放内存;
+3. 提供```data()```方法, 从而可以兼容C风格指针访问.
+
+
+
+#### std::forward_list[C++11]
+
+类似```std::list```, 但是```std::forward_list```指单向列表, 不提供size()方法.
+
+
+
+#### 运行时获取std::tuple元素[C++17]
+
+```std::get<>()```方法只可以在编译期获取元素, 使用```std::variant<>```可以在运行时获取元素:
+
+```C++
+#include <variant>
+template <size_t n, typename... T>
+constexpr std::variant<T...> _tuple_index(const std::tuple<T...>& tpl, size_t i) {
+    if constexpr (n >= sizeof...(T))
+        throw std::out_of_range("越界.");
+    if (i == n)
+        return std::variant<T...>{ std::in_place_index<n>, std::get<n>(tpl) };
+    return _tuple_index<(n < sizeof...(T)-1 ? n+1 : 0)>(tpl, i);
+}
+template <typename... T>
+constexpr std::variant<T...> tuple_index(const std::tuple<T...>& tpl, size_t i) {
+    return _tuple_index<0>(tpl, i);
+}
+template <typename T0, typename ... Ts>
+std::ostream & operator<< (std::ostream & s, std::variant<T0, Ts...> const & v) { 
+    std::visit([&](auto && x){ s << x;}, v); 
+    return s;
+}
+```
+
+
+
+### 并行与并发
+
+#### C++11内存顺序模型[C++11]
+
+TODO
+
+
 
