@@ -1,0 +1,17 @@
+PCB_IPC/signal/signal
+PCB_IPC/signal/kill
+PCB_IPC/fork/fork
+PCB_IPC/msgqueue/msgrcv
+PCB_IPC/msgqueue/msgsnd
+PCB_IPC/onesecond/onesecond
+PCB_IPC/pipe/pipe
+PCB_IPC/socket/moyu
+PCB_IPC/socket/client
+PCB_IPC/socket/server
+PCB_IPC/fifo/fifo_read
+PCB_IPC/fifo/fifo_write
+PCB_IPC/shm/read
+PCB_IPC/shm/write
+PCB_IPC/sem/read
+PCB_IPC/sem/write
+bitset/bitset
