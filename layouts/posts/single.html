@@ -21,6 +21,9 @@
     <article class="page single">
         {{- /* Title */ -}}
         <h1 class="single-title animated flipInX">
+        {{- with $params.reprint -}}
+            [转载]
+        {{- end -}}
         {{ .Title }}
         {{- /* Subtitle */ -}}
         {{- with $params.subtitle -}}

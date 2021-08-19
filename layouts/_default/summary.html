@@ -23,6 +23,9 @@
             {{- if $params.weight -}}
             <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
             {{- end -}}
+            {{- with $params.reprint -}}
+                [转载]
+            {{- end -}}
             {{ .Title }}
             {{- with .Params.subtitle -}}
             <span> · {{ . }}</span>

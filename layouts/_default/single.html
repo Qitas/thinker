@@ -5,6 +5,9 @@
     <div class="page single special">
         {{- /* Title */ -}}
         <h1 class="single-title animated pulse faster">
+            {{- with $params.reprint -}}
+                [转载]
+            {{- end -}}
             {{- .Title -}}
         </h1>
 

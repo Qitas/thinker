@@ -29,6 +29,9 @@
                 {{- range .Pages -}}
                     <article class="archive-item">
                         <a href="{{ .RelPermalink }}" class="archive-item-link">
+                            {{- with .Params.reprint -}}
+                                [转载]
+                            {{- end -}}
                             {{- .Title -}}
                             {{- /* Subtitle */ -}}
                             {{- with .Params.subtitle -}}
