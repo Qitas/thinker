@@ -49,17 +49,6 @@ ignoreErrors = ["error-remote-getjson"]
       [[languages.zh-cn.menu.main]]
         identifier = "all"
         # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-        pre = "<i class='fas fa-fw fa-folder'></i>"
-        # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
-        post = ""
-        name = "所有"
-        url = ""
-        title = ""
-        weight = 1
-      [[languages.zh-cn.menu.main]]
-        parent = "all"
-        identifier = "posts"
-        # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
         pre = "<i class='fas fa-fw fa-archive'></i>"
         # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
         post = ""
