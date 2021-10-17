@@ -7,7 +7,6 @@ author: bbing
 draft: false
 tags: ["hugo", "algolia", "搜索"]
 categories: ["工具"]
-weight: 1
 ---
 
 本站原来使用lunr.js作为搜索引擎，在使用过程中发现一些问题：

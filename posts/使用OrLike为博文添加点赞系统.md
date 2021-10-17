@@ -7,7 +7,6 @@ author: bbing
 draft: false
 tags: ["vercel", "flask", "cors"]
 categories: ["工具", "博客折腾"]
-weight: 1
 ---
 
 ## [OrLike](https://github.com/caibingcheng/orlike)

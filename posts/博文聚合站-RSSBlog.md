@@ -7,7 +7,6 @@ author: bbing
 draft: false
 tags: ["RSS", "vercel", "flask"]
 categories: ["工具"]
-weight: 1
 ---
 
 ## [RSSBlog](https://github.com/caibingcheng/rssblog)
