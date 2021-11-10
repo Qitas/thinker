@@ -95,9 +95,14 @@
         <hr style="opacity: 0.2;"/>
 
         <div class="post-footer">
-            {{- with .Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format -}}
+            <!-- {{- with .Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format -}}
             <span class="post-publish" style="opacity: 0.5;" tip="11">
                 <i class="far fa-calendar-alt fa-fw"></i>{{- printf `<time datetime="%v">%v</time>` . . | dict "Date" | T "justDate" | safeHTML -}}
+            </span>
+            {{- end -}} -->
+            {{- with .Site.Params.dateFormat | default "2006-01-02" | .Lastmod.Format -}}
+            <span class="post-publish" style="opacity: 0.5;" tip="11">
+                <i class="far fa-calendar fa-fw"></i>{{- printf `<time datetime="%v">%v</time>` . . | dict "Date" | T "justDate" | safeHTML -}}
             </span>
             {{- end -}}
 
