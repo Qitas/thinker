@@ -2,7 +2,7 @@
 title: "Hugo搜索工具hugo-algolia2"
 slug: "hugo-algolia2"
 date: 2021-09-10T21:32:01+08:00
-lastmod:  2021-09-10T21:32:01+08:00
+lastmod: 2021-11-10T18:46:47+08:00
 author: bbing
 draft: false
 tags: ["hugo", "algolia", "搜索"]
@@ -73,10 +73,27 @@ URI是访问路径, 需要和hugo的配置相同. key需要填写Admin API Key.
 hugo-algolia2 -s
 ```
 可以上传algolia配置.
+### Github Action
+```
+name: deploy
+on:
+  push:
+  workflow_dispatch:
 
-### TODOLIST
+jobs:
+  generate-algolia:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: caibingcheng/hugo-algolia2@v1
+        with:
+          input: "./posts/**"
+          output: "./algolia.json"
+          index: ${{ secrets.ALGOLIA_INDEX }}
+          apikey: ${{ secrets.ALGOLIA_APIKEY }}
+          appid: ${{ secrets.ALGOLIA_APPID }}
 
-- [ ] 提供github action
+```
 
 ## License
 同[hugo-algolia](https://github.com/replicatedhq/hugo-algolia), 本项目也使用ISC License.
