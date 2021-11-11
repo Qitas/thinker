@@ -5,7 +5,7 @@ date: 2021-11-11T11:24:29+08:00
 lastmod: 2021-11-11T11:24:29+08:00
 author: bbing
 draft: false
-tags: ["Linux", "文件系统", "glibc"]
+tags: ["Linux", "glibc"]
 categories: ["操作系统", "glibc"]
 ---
 
