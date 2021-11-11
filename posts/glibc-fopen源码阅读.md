@@ -1,12 +1,12 @@
 ---
-title: "挖一挖fopen函数"
+title: "glibc-fopen源码阅读"
 slug: "fopen-deep"
 date: 2021-06-01T17:21:19+08:00
 lastmod: 2021-06-01T20:44:46+08:00
 author: bbing
 draft: false
-tags: ["进程", "Linux", "文件系统"]
-categories: ["操作系统"]
+tags: ["Linux", "文件系统", "glibc"]
+categories: ["操作系统", "glibc"]
 ---
 
 ## FILE
