@@ -2,7 +2,7 @@
 title: "glibc-abort源码阅读"
 slug: "glibc-abort"
 date: 2021-11-11T11:24:29+08:00
-lastmod: 2021-11-11T11:24:29+08:00
+lastmod: 2021-11-16T14:01:00+08:00
 author: bbing
 draft: false
 tags: ["Linux", "glibc"]
@@ -91,7 +91,7 @@ __libc_lock_define_initialized_recursive (static, lock);
 
 补充一个知识点: 信号掩码是对线程而言的. 第一部分是设置信号掩码, 允许SIGABRT信号.
 
-尝试第一次raise SIGABRT信号, 用户可能绑定SIGABRT的信号处理函数, 这时候会去处理用户的信号函数. 这里考虑的问题是raise可能失败, 所以会有后续操作.
+尝试第一次raise SIGABRT信号, 用户可能绑定SIGABRT的信号处理函数, 这时候会去处理用户的信号函数. 这里考虑的问题是raise可能失败(去处理用户信号函数, 可能不引起SIGABRT退出), 所以会有后续操作.
 ```C
 /* Cause an abnormal program termination with core-dump.  */
 void
@@ -128,7 +128,7 @@ abort (void)
   //...
 ```
 
-现在将SIG_DFL绑定到SIGABRT上, 然后raise SIGABRT信号.
+执行用户绑定的信号函数后, 现在将SIG_DFL绑定到SIGABRT上, 然后raise SIGABRT信号.
 
 SIG_DFL是默认信号处理函数, 其值是0, 调用SIG_DFL相当于是访问0地址, 被禁止访问, 这时候就会退出进程了.
 ```C
@@ -150,7 +150,7 @@ SIG_DFL是默认信号处理函数, 其值是0, 调用SIG_DFL相当于是访问0
     }
 ```
 
-又担心raise失败, 这时候调用汇编的hlt命令, 使得逻辑CPU处于睡眠状态, 这时候相当于不在给当前进程CPU资源了.
+又担心raise失败, 这时候调用汇编的hlt命令(ABORT_INSTRUCTION调用的是htl命令), 使得逻辑CPU处于睡眠状态, 这时候相当于不再给当前进程CPU资源了.
 
 如果hlt失败, 则又尝试exit退出.
 
