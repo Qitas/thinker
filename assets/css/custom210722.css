@@ -443,3 +443,10 @@ article .post-reward .qr-code .image {
 hr {
   background-color: gray;
 }
+
+.home-avatar {
+  background: url(https://ghchart.rshah.org/FFA500/caibingcheng);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 7.5rem;
+}
