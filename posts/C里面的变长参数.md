@@ -86,13 +86,13 @@ rdi, rsi, rdx对应的内存分别是a, b, c.
 
 从低地址到高地址, 型参按照从左往右的顺序, 函数体按照从上往下的顺序执行;
 
-![函数本体](https://s3.ax1x.com/2021/01/27/szNKCF.png  "函数本体")
+![函数本体](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/t86uK.png  "函数本体")
 
 - 对函数调用:
 
 从低地址到高地址, 实参按照从右往左的顺序, 函数体按照从上往下的顺序执行;
 
-![函数调用](https://s3.ax1x.com/2021/01/27/szNM34.png  "函数调用")
+![函数调用](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/2PMHuh.png  "函数调用")
 
 ## 内存对齐
 源码头文件中，注意一下这个宏，内存对齐作用 [看这里](https://www.cnblogs.com/cpoint/p/3369456.html)：

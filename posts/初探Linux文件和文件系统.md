@@ -127,11 +127,11 @@ Inode项是inode的id, inode是实际存储文件信息和内容的结构体, �
 
 链式存储:
 
-!["链式存储"](https://z3.ax1x.com/2021/05/13/gDNGIH.png "链式存储")
+!["链式存储"](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/2SSMPH.png "链式存储")
 
 树状存储:
 
-!["树状存储"](https://z3.ax1x.com/2021/05/13/gDNYid.png "树状存储")
+!["树状存储"](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/1oeXiN.png "树状存储")
 
 ### inode
 inode可以认为是操作系统眼中的文件, 磁盘或者内存上都会有inode, 这里是内存上(VFS)的inode, 是一个结构体.
@@ -236,7 +236,7 @@ TODO: 虚拟文件系统的inode是如何与文件系统inode关联的.
 
 以下展示的是inode如何描述一个pipe:
 
-!["pipe"](https://z3.ax1x.com/2021/05/13/gBnia8.png "pipe")
+!["pipe"](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/18nV3x.png "pipe")
 
 > 前面的文章说过: Linux管道是一个文件, 但是没有具体的文件内容, 在struct inode中就可以看到inode会有一个成员指向pipe_inode_info.
 
@@ -313,7 +313,7 @@ block是磁盘存储内容的最小单位, 计算机按照block为单位读取�
 
 以下是文件系统inode到block的多级指向结构:
 
-!["inode-block"](https://z3.ax1x.com/2021/05/13/gBnFIS.png "inode-block")
+!["inode-block"](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/406Ex4.png "inode-block")
 
 通过inode和block的指向关系, 我们可以大概算出系统支持的最大文件大小. 假设block大小是4KB, 那么通过inode直接指向block, 一个文件最大大概是4KB. 通过一级指向, 那么一个文件最大大概是$(4KB / 64b) * 4KB  = 256MB$. 通过二级指向, 一个文件最大大概有$((4KB / 64b) * 4KB / 64b) * 4KB = 16GB$. 上述是比较简单的计算, 但是计算方式基本如此, 供参考.
 
@@ -411,7 +411,7 @@ struct super_block {
 
 因为每个inode都有一个指向super block的指针, 所以每个inode都可以间接访问到根结点, 这也为文件系统的访问奠定了基础.
 
-!["inode-super_block"](https://z3.ax1x.com/2021/05/13/gBnAPg.png "inode-super_block")
+!["inode-super_block"](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/3oG2qf.png "inode-super_block")
 
 下面来看dentry的结构.
 
@@ -455,7 +455,7 @@ struct dentry {
 
 比如我们要访问某个文件, 一般会按照以下顺序, 先是解析路径, 找到根结点, 一层一层查找, 直到当前结点.
 
-!["open"](https://z3.ax1x.com/2021/05/13/gBnEGQ.png "open")
+!["open"](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/25AfFs.png "open")
 
 ## 小结
 

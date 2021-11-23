@@ -60,4 +60,4 @@ raise (int sig)
 
 同信号处理, 参考[《进程控制和通信(四) · PCB介绍》](/202105/process-ctracon4)可以知道, raise是在用户陷入内核态再从内核态返回用户态的过程中会被处理. 所以, abort的作用时机也是等同于raise.
 
-!["信号处理时机"](https://z3.ax1x.com/2021/05/19/g5GKne.png "信号处理时机")
+!["信号处理时机"](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/02FxHzp.png "信号处理时机")

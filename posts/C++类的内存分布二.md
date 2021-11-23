@@ -27,7 +27,7 @@ categories: ["代码", "Cpp"]
 
 上文中, 我们得到了这样的类内存结构:
 
-![结构图](https://s3.ax1x.com/2021/01/21/s4gR0g.png "结构图")
+![结构图](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/3sRJu1.png "结构图")
 
 在这里有两个疑问:
 
@@ -36,7 +36,7 @@ categories: ["代码", "Cpp"]
 
 我们先来看结论, 再一起研究怎么得到这个结论:
 
-!["vptr和vtable"](https://z3.ax1x.com/2021/07/06/RTO4MV.png "vptr和vtable")
+!["vptr和vtable"](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/244Jlx.png "vptr和vtable")
 
 ### 问题1: 类是怎么指向虚表的?
 
@@ -92,7 +92,7 @@ uint64 *vptr_base = reinterpret_cast<uint64 *>(vptr_base_v);
 我们把```base```指针重新解释为```uint64*```, 因为按照```Base*```的内存结构不是我们想要的, 所以要把"地址解释为地址", 换句话说, 并解引用得到```vptr_base_v```. 这里用```uint64```是为了方便我们后续查看和重新解释指针. 现在```vptr_base_v```就是vtable地址的值了. 接下来, 对```vptr_base_v```重新解释, 将```uint64```解释为```uint64*```得到```vptr_base```. 现在```vptr_base```真正是C++编译器可以认识的地址, 并且指向vtable.
 
 现在可以知道类怎么得到vptr, vptr又是怎么指向vtable的了:
-![vptr到vtable](https://z3.ax1x.com/2021/07/07/RHVP5n.png "vptr到vtable")
+![vptr到vtable](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/1X5FOT.png "vptr到vtable")
 
 ### 问题2: 虚表怎么指向函数的?
 
@@ -185,7 +185,7 @@ uint64 vptr_base_v1 = *reinterpret_cast<uint64 *>(vptr_base + 1);
 
 以上, 我们知道怎么从vtable指向函数了:
 
-![vtable到vfunc](https://z3.ax1x.com/2021/07/07/RHnFwF.png "vtable到vfunc")
+![vtable到vfunc](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/4cZ9xA.png "vtable到vfunc")
 
 ## 单继承
 
@@ -286,7 +286,7 @@ uint64 vptr_d1_v1 = *reinterpret_cast<uint64 *>(vptr_d1 + 1);
 
 现在, 我们可以得到单继承的类的内存分布的关系图:
 
-![单继承](https://z3.ax1x.com/2021/07/07/Rb9dHI.png "单继承")
+![单继承](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/18dat3.png "单继承")
 
 ### 两个析构函数?
 
@@ -360,7 +360,7 @@ call   401c48 <D1::~D1()>
 
 多继承和单继承是类似的. 多继承可能包含多个```vptr```和vtable.
 
-![多继承](https://z3.ax1x.com/2021/07/08/ROudKA.png "多继承")
+![多继承](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/3nfcgX.png "多继承")
 
 ## 总结
 

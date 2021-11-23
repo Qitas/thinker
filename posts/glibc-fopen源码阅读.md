@@ -61,9 +61,9 @@ struct _IO_FILE
 ### 缓存区
 
 一般来说读写指针都是指向的缓存区, 如下图是**可能的**两种关系:
-!["情况一"](https://z3.ax1x.com/2021/06/01/2KCKK0.png "情况一")
+!["情况一"](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/4uWqK9.png "情况一")
 
-!["情况二"](https://z3.ax1x.com/2021/06/01/2KCMrV.png "情况二")
+!["情况二"](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/2H3Q0A.png "情况二")
 
 ### wide data
 
@@ -99,7 +99,7 @@ struct _IO_wide_data
 
 fd是什么, 见[进程控制和进程通信(四)](https://bbing.com.cn/202105/process-ctracon4/), 进程```task_struct```会有指向进程打开的文件的列表的指针(```struct file```), 如下图. 本文的fd就是指向这个文件列表的下标.
 
-!["fd和files_struct"](https://z3.ax1x.com/2021/05/19/gIp2tI.png "fd和files_struct")
+!["fd和files_struct"](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/3L4qGb.png "fd和files_struct")
 
 [struct file](https://code.woboq.org/linux/linux/include/linux/fs.h.html#file)如下:
 ```C
@@ -305,7 +305,7 @@ __libc_open64 (const char *file, int oflag, ...)
 
 ```fopen```如何打开文件, 可以见下图:
 
-!["fopen到inode"](https://z3.ax1x.com/2021/06/01/2uDbwR.png "fopen到inode")
+!["fopen到inode"](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/1pfkHU.png "fopen到inode")
 
 ## 参考链接
 

@@ -131,4 +131,4 @@ git cat-file -t f253  #类型tree
 commit 结构， 会包含commit信息/作者等， 会包含父commit指针， 包含tree指针
 
 ## 结构
-![结构图](https://s3.ax1x.com/2021/01/21/s4gKw4.png "结构图")
+![结构图](https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/4mpVBH.png "结构图")
