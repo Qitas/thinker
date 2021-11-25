@@ -15,8 +15,8 @@ title: "友链墙"
 {
     "name":"BBing's Blog",
     "url":"https://bbing.com.cn/",
-    "logo":"https://s3.ax1x.com/2021/01/21/s4crsU.png",
-    "screenshot":"https://s3.ax1x.com/2021/01/26/sjSTqe.png",
+    "logo":"https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/2B2pd1.png",
+    "screenshot":"https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/11XQRov.png",
     "word":"自由 分享 合作"
 }
 ```

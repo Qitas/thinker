@@ -12,7 +12,7 @@ title: "留言版"
             appId: 'yAokLqH6P92IotoyxqOHbqyt-gzGzoHsz', // Your LeanCloud appId
             appKey: 'D8UyP3YFvYT2h2bfisLhmgSr', // Your LeanCloud appKey
             serverURL: 'https://yaoklqh6.lc-cn-n1-shared.com', // Your LeanCloud
-            avatarPla: 'https://s3.ax1x.com/2021/01/21/s4crsU.png',
+            avatarPla: 'https://cdn.jsdelivr.net/gh/caibingcheng/resources@main/images/2B2pd1.png',
             pageSize: 5,
             color1: "#dedede",
             color3: "#777"
