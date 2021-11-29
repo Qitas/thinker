@@ -193,6 +193,13 @@ if ($('.friend-list-div.frind-real').length > 0) {
     })
 }
 
+const uptime_robot = "https://api.uptimerobot.com/v2/getMonitors"
+$(function () {
+    $.post(uptime_robot, { api_key: 'ur1300284-d7726eb98d3b062698785290', format: 'json', logs: '1' }, function (data) {
+        console.log(data)
+    })
+})
+
 $('a[title="随机拜访一位朋友吧~"]').on("click", function () {
     $.getJSON(friends_json, function (data) {
         if (data.length < 1) return;
