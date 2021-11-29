@@ -27,15 +27,15 @@
             {{- else -}}
                 {{- $pages = where $pages "Params.hiddenfromhomepage" "!=" true -}}
             {{- end -}}
-            <span style="flex:1; text-align:center; color:#adadad;">
+            <a style="flex:1; text-align:center; color:#adadad; cursor: pointer;" href="/posts/">
                 文章:{{ len $pages }}
-            </span>
-            <span style="flex:1; text-align:center; color:#adadad;">
+            </a>
+            <a style="flex:1; text-align:center; color:#adadad; cursor: pointer;" href="/tags/">
                 标签:{{ len $.Site.Taxonomies.tags.ByCount }}
-            </span>
-            <span style="flex:1; text-align:center; color:#adadad;">
+            </a>
+            <a style="flex:1; text-align:center; color:#adadad; cursor: pointer;" href="/categories/">
                 分类:{{ len $.Site.Taxonomies.categories.ByCount }}
-            </span>
+            </a>
         </article>
         {{- end -}}
 
