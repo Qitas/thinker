@@ -18,6 +18,27 @@
             </div>
         {{- end -}}
 
+
+        {{- if ne $posts.enable false | and .Site.RegularPages -}}
+        <article class="single summary page-counter" itemscope itemtype="http://schema.org/Article" style="display:flex; cursor:auto;">
+            {{- $pages := where .Site.RegularPages "Type" "posts" -}}
+            {{- if .Site.Params.page.hiddenFromHomePage -}}
+                {{- $pages = where $pages "Params.hiddenfromhomepage" false -}}
+            {{- else -}}
+                {{- $pages = where $pages "Params.hiddenfromhomepage" "!=" true -}}
+            {{- end -}}
+            <span style="flex:1; text-align:center; color:#adadad;">
+                文章:{{ len $pages }}
+            </span>
+            <span style="flex:1; text-align:center; color:#adadad;">
+                标签:{{ len $.Site.Taxonomies.tags.ByCount }}
+            </span>
+            <span style="flex:1; text-align:center; color:#adadad;">
+                分类:{{ len $.Site.Taxonomies.categories.ByCount }}
+            </span>
+        </article>
+        {{- end -}}
+
         {{- /* Posts */ -}}
         {{- if ne $posts.enable false | and .Site.RegularPages -}}
             {{- /* Paginate */ -}}
