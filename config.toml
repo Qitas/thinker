@@ -582,10 +582,10 @@ ignoreErrors = ["error-remote-getjson"]
     # 第三方库配置
     [params.page.library]
       [params.page.library.css]
-        i1customcss = "css/custom210722.css"
+        i1customcss = "css/custom211202.css"
       [params.page.library.js]
         i1jqueryjs = "https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"
-        i2customjs = "js/custom210722.js"
+        i2customjs = "js/custom211202.js"
     # Page SEO config
     # 页面 SEO 配置
     [params.page.seo]
