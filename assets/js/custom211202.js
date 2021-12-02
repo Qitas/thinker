@@ -180,32 +180,53 @@ function template_friend(url, name, word, logo) {
 }
 
 const friends_json = "https://gist.githubusercontent.com/caibingcheng/2515bc064b4043c4e1b858cac70e3ad6/raw/friends.json"
-if ($('.friend-list-div.frind-real').length > 0) {
-    $(function () {
-        $.getJSON(friends_json, function (data) {
-            let friends = '';
-            $.each(data, function (infoIndex, info) {
-                friends += template_friend(info['url'], info['name'], info['word'], info['logo']);
-            });
-            $('.friend-list-div.frind-real').html(friends);
-            nextISU();
-        })
-    })
-}
+const uptime_robot = "https://api.bbing.com.cn/uptimerobot?jsoncallback=?"
 
-const uptime_robot = "https://api.uptimerobot.com/v2/getMonitors"
 $(function () {
-    $.post(uptime_robot, { api_key: 'ur1300284-d7726eb98d3b062698785290', format: 'json', logs: '1' }, function (data) {
-        console.log(data)
-    })
-})
+    $.getJSON(uptime_robot, function (data) {
+        monitors = eval(data["data"])
+        $.getJSON(friends_json, function (data) {
+            if (data.length < 1) return;
+            status_ok = new Array();
+            status_failed = new Array();
+            for (var i = 0; i < data.length; i++) {
+                for (var j = 0; j < monitors.length; j++) {
+                    url_match = data[i]["url"] == monitors[j]["url"];
+                    status_match = monitors[j]["status"] != 0;
+                    if (url_match) {
+                        if (status_match) {
+                            status_ok.push(data[i])
+                        }
+                        else {
+                            status_failed.push(data[i])
+                        }
+                        break;
+                    }
+                }
+            }
 
-$('a[title="随机拜访一位朋友吧~"]').on("click", function () {
-    $.getJSON(friends_json, function (data) {
-        if (data.length < 1) return;
-        let rand_id = Math.floor(Math.random() * data.length);
-        let target_url = data[rand_id]["url"];
-        window.open(target_url);
+            // console.log(status_ok, status_failed);
+
+            $('a[title="随机拜访一位朋友吧~"]').on("click", function () {
+                let rand_id = Math.floor(Math.random() * status_ok.length);
+                let target_url = status_ok[rand_id]["url"];
+                window.open(target_url);
+            });
+
+            $.each(status_ok, function (infoIndex, info) {
+                let friends = template_friend(info['url'], info['name'], info['word'], info['logo']);
+                $('.friend-list-div.frind-real').append(friends);
+            });
+            if (status_failed.length > 0) {
+                $('h3#无法访问').css('display', 'block');
+            } else {
+                $('h3#无法访问').css('display', 'none');
+            }
+            $.each(status_failed, function (infoIndex, info) {
+                let friends = template_friend(info['url'], info['name'], info['word'], info['logo']);
+                $('.friend-list-div.frind-real-noreach').append(friends);
+            });
+        })
     })
 });
 
