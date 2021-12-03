@@ -217,6 +217,9 @@ $(function () {
                 let friends = template_friend(info['url'], info['name'], info['word'], info['logo']);
                 $('.friend-list-div.frind-real').append(friends);
             });
+            if (status_ok.length > 0) {
+                nextISU();
+            }
             if (status_failed.length > 0) {
                 $('h3#无法访问').css('display', 'block');
             } else {
