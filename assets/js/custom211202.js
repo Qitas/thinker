@@ -179,13 +179,14 @@ function template_friend(url, name, word, logo) {
         '</a>'
 }
 
-const friends_json = "https://gist.githubusercontent.com/caibingcheng/2515bc064b4043c4e1b858cac70e3ad6/raw/friends.json"
+const friends_json = "https://api.bbing.com.cn/gistfriend?jsoncallback=?"
 const uptime_robot = "https://api.bbing.com.cn/uptimerobot?jsoncallback=?"
 
 $(function () {
     $.getJSON(uptime_robot, function (data) {
         monitors = eval(data["data"])
         $.getJSON(friends_json, function (data) {
+            data = eval(data['data']);
             if (data.length < 1) return;
             status_ok = new Array();
             status_failed = new Array();
